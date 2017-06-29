@@ -6,3 +6,11 @@ Have a great 4th of July, and see you guys next week.
 
 I just tried it and and it let me do it on my laptop.
 CJ
+
+Everything looks good so far. Do we want to make a link between the Admin and the Quote system? 
+"there will be an administrative interface to maintain sales associate and quote information"
+Also, how about a link between the Admin and a query quotes?
+"It also allows to search and view quotes based on status (finalized, sanctioned, ordered), date range, sales associate, and customer."
+
+Enjoy the long weekend
+CJ
