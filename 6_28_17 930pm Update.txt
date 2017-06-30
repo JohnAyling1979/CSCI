@@ -14,3 +14,7 @@ Also, how about a link between the Admin and a query quotes?
 
 Enjoy the long weekend
 CJ
+
+An other thing to look at as well is how specific we want the "use cases" to be. Say for example the edit quote use case. 
+Do we want to leave it at edit quotes or break it down to the each individual options?
+JA
