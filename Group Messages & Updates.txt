@@ -18,3 +18,7 @@ CJ
 An other thing to look at as well is how specific we want the "use cases" to be. Say for example the edit quote use case. 
 Do we want to leave it at edit quotes or break it down to the each individual options?
 JA
+
+Hey guys, I'll be working on the use case tomorrow and Saturday cause I'll finally have some downtime to sit down and knock it out. Have a great weekend guys.
+
+-MM
