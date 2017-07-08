@@ -31,3 +31,16 @@ I just uploaded the files for sanctioning a quote. Please let me know if it make
 CJ I just checked out yours and it looks good (you must have used visio hahaha!) I think we could prompt the user to search again or return to the menu if no other searches are needed. Whatever you guys think makes sense.
 
 -MM
+
+Morning guys,
+Just got done looking over both the diagrams.They look good. I did have a couple things
+Admin diagram:
+Yeah I agree we should have it go back to a main menu at the end of each task and have a logout option there instead of ending the system.
+I noticed in a couple location it has a decision go to an other decision. I wonder if a merge my be a better reprensentation of what is happening at that point.
+
+Sanction diagram:
+It starts with the associate entering the quote number. How does the associate get the number? Would it be better if the system displayed the current finailized quote for the associate to choose from.
+At "System prompts for user confirmation" you have 2 arrow coming out.  We should probably have just one arrow that come out to a decision
+Also at the end at "Prompt user enter a new quote number or exit" you have it going to just end. Probably should have a decision that goes back up to the "Sales Associate enters quote number" and to "exit"
+
+-JA
