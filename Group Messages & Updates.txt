@@ -49,6 +49,8 @@ Hey guys,
 
 I updated the sanction quote diagram and use case to make it more streamlined. Thank you for the suggestions John. Let me know if it makes more sense now.
 
-I am planning on having the quote to purchase order use case and diagram finished later today.
+Also, the quote to purchase order use case and diagram has been completed and uploaded. It is pretty straightforward. Let me know what you guys think.
+
+Hope you guys are having a great weekend,
 
 -MM
