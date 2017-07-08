@@ -44,3 +44,11 @@ At "System prompts for user confirmation" you have 2 arrow coming out.  We shoul
 Also at the end at "Prompt user enter a new quote number or exit" you have it going to just end. Probably should have a decision that goes back up to the "Sales Associate enters quote number" and to "exit"
 
 -JA
+
+Hey guys,
+
+I updated the sanction quote diagram and use case to make it more streamlined. Thank you for the suggestions John. Let me know if it makes more sense now.
+
+I am planning on having the quote to purchase order use case and diagram finished later today.
+
+-MM
