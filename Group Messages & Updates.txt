@@ -22,3 +22,6 @@ JA
 Hey guys, I'll be working on the use case tomorrow and Saturday cause I'll finally have some downtime to sit down and knock it out. Have a great weekend guys.
 
 -MM
+
+I just uploaded the Admin use case. Let me know if you think I made it to detailed. Also I was wondering do we go to end when we are done with a search or do we have them go back to a main menu and then logout takes them to the end?
+CJ
