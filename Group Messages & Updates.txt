@@ -25,3 +25,9 @@ Hey guys, I'll be working on the use case tomorrow and Saturday cause I'll final
 
 I just uploaded the Admin use case. Let me know if you think I made it to detailed. Also I was wondering do we go to end when we are done with a search or do we have them go back to a main menu and then logout takes them to the end?
 CJ
+
+I just uploaded the files for sanctioning a quote. Please let me know if it makes sense, or if you would like to see any modifications made. I tried to keep it relatively straight to the point. I will go ahead and do the quote to purchase order tomorrow since that is pretty straight forward.
+
+CJ I just checked out yours and it looks good (you must have used visio hahaha!) I think we could prompt the user to search again or return to the menu if no other searches are needed. Whatever you guys think makes sense.
+
+-MM
