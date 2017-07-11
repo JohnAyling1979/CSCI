@@ -77,3 +77,6 @@ I am working right now on combainging your mock up with my drawring to make it a
 
 Actor Dictionary looks Good.  Nice touch with the shading.
 -JA
+
+I just updated the admin diagram. I based the manage sales associate on the example he had on blackboard.
+-CJ
