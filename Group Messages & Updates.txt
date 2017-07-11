@@ -57,3 +57,11 @@ Hope you guys are having a great weekend,
 
 I have updated the Admin folder and have added the Actor table.
 CJ
+
+Awesome! Thanks CJ!
+
+I have updated both the sanction and quote->po use cases and diagrams. In the sanction diagram I only did "edit" since adding lines, removing lines, discounts and notes would be considered "text edits" in my opinion. I broke it down even further with decision tress, but simplified the whole process. Mainly based off of our in class example. Let me know what you think if it makes sense or if there should be any additions.
+
+I will be working on the powerpoint tomorrow night, so let me know if we need to make any last minute changes to any use cases or diagrams.
+
+-MM
