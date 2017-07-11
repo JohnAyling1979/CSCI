@@ -65,3 +65,5 @@ I have updated both the sanction and quote->po use cases and diagrams. In the sa
 I will be working on the powerpoint tomorrow night, so let me know if we need to make any last minute changes to any use cases or diagrams.
 
 -MM
+
+I still think we will want to make the flow for the admin a lot more simplified. I uploaded a quick mock up to the main area. It should cover all the requirements.
