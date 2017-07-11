@@ -80,3 +80,28 @@ Actor Dictionary looks Good.  Nice touch with the shading.
 
 I just updated the admin diagram. I based the manage sales associate on the example he had on blackboard.
 -CJ
+
+I just started the Powerpoint for our presentation tomorrow, so I must ask; any last minute changes needed to any diagrams or should we go ahead with our current material?
+
+I was also thinking that we can present our own activity diagrams, which makes it easier to answer any possible questions that may arise.
+
+The way the Powerpoint will be laid out is by the ID of each use case, so here is the flow of the of the presentation
+1. Title Page
+2. Project Use Case Diagram
+3. Actor Dictionary
+4. Use Case #1 - Create Quote Specifications
+5. Use Case #1 - Create Quote Activity diagram
+6. Project Use Case Diagram
+7. Use Case #2 - Sanction Quote Specifications
+8. Use Case #2 - Sanction Quote Activity Diagram
+9. Project Use Case Diagram
+10. Use Case #3 - Quote to PO Specifications
+11. Use Case #3 - Quote to PO Activity Diagram
+12. Project Use Case Diagram
+13. Use Case #4 - Admin Specifications
+14. Use Case #4 - Admin Activity Diagram
+15. Thank you / Q&A
+
+I should have the presentation done in a few hours at most. I will upload it to our repository for you guys to review. It will be pretty straightforward and limited on graphics (due to all of the diagrams).
+
+-MM
