@@ -67,3 +67,6 @@ I will be working on the powerpoint tomorrow night, so let me know if we need to
 -MM
 
 I still think we will want to make the flow for the admin a lot more simplified. I uploaded a quick mock up to the main area. It should cover all the requirements.
+
+Also I didn't see the Actor table. I may just be blind
+-JA
