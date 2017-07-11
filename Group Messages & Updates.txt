@@ -54,3 +54,6 @@ Also, the quote to purchase order use case and diagram has been completed and up
 Hope you guys are having a great weekend,
 
 -MM
+
+I have updated the Admin folder and have added the Actor table.
+CJ
