@@ -105,3 +105,15 @@ The way the Powerpoint will be laid out is by the ID of each use case, so here i
 I should have the presentation done in a few hours at most. I will upload it to our repository for you guys to review. It will be pretty straightforward and limited on graphics (due to all of the diagrams).
 
 -MM
+
+Hey guys,
+
+The presentation is completed, you can find the files in "Use Case Presentation" folder. There is the raw powerpoint file, as well as a pdf file (for John since he is running Linux.) Please let me know if all of the information is correct by tomorrow morning, so if any changes need to happen, that I will see them in time. I would suggest having any last minute changes being posted by 10 am tomorrow (7/12/17) this will give me enough time to make the changes, as well as my commute to school.
+
+Also, please delete any old files that are not being used at this time. I looked at the timestamps for all of the files that are in the presentation and used the most recent ones. This will make doing our revisions much easier after our presentation is given, and as we add more files to our project moving forward.
+
+Quick tip: if you make a folder on your machine, you can drag and drop the folder into the repository using the upload file feature (works for me in Firefox on Windows 10). This also works to overwrite existing files in folders. For example, if you make changes to one file in a folder, you can just drag and drop the folder into the repository and it will update the files within.
+
+Have a great night,
+
+-MM
