@@ -150,3 +150,8 @@ Technically we can start the cases even if there are no finialized or sanctioed 
 
 Use case diagram is fixed. Made some changes to the create quote files so go ahead and check those out.
 -JA
+
+On the Quote to Purchase Order:
+The Use case diagram calls it "create purchase order" and the spec sheet calls it
+"Quote to Purchase Order". I don't care which one we change but they do have to match.
+-JA
