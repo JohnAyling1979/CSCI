@@ -155,3 +155,11 @@ On the Quote to Purchase Order:
 The Use case diagram calls it "create purchase order" and the spec sheet calls it
 "Quote to Purchase Order". I don't care which one we change but they do have to match.
 -JA
+
+John,
+
+Thanks for pointing that out! I will fix that when I get home from work tonight. I will keep it in line with the use case diagram and name it "create purchase order."
+
+Thanks,
+
+-MM
