@@ -117,3 +117,19 @@ Quick tip: if you make a folder on your machine, you can drag and drop the folde
 Have a great night,
 
 -MM
+
+Hey guys,
+
+Good job today with the presentation. He was kind of brutal on the feedback and commentary, but at least weren't told to stop and sit down (yikes!)
+
+I went through and updated all of my use cases and diagrams. If you guys could take a look at them and provide feedback, I would appreciate it. One thing that I had taken away from today; less is better. So I literally took all of his suggestions, while his suggestions from other groups and applied that to my latest revisions.
+
+I used "The Clerk" as an actor for the Sanction a Quote and Quote to PO Use Cases since we had missed that one on our main use case.
+
+I also uploaded PDF files of the use case specifications for John since he had offered to print out the hard copies.
+
+Other than that, I will keep checking back to see if you guys have responded or uploaded new files to check them out. I did want you to know that I will be out of town this weekend and without internet. However, if you guys do need to get ahold of me, just email me, z1760164@students.niu.edu and I will get back to you.
+
+Thanks again for all of the hard work, I am sure things in class will only become more interesting!
+
+-MM
