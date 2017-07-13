@@ -160,6 +160,12 @@ John,
 
 Thanks for pointing that out! I will fix that when I get home from work tonight. I will keep it in line with the use case diagram and name it "create purchase order."
 
+As far as the preconditions are concerned, I agree with you that we could leave them blank, because as you stated, if there are no finalized or sanctioned quotes, the returned list would be blank.
+
+With the "create a purchase order" what I could do is just add one more step where "The system computes and stores to accumlated commission and sends email to customer." Again, after yesterday, it seems like less is more for the steps/activities in the use cases. Even though there was no good example to follow yesterday, he said that this should be minimal (about 5 or 6 steps) to complete this activity. So I just want to make sure that it gets setup right.
+
+What do you think about that additional step? Any change to the wordage?
+
 Thanks,
 
 -MM
