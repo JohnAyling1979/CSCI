@@ -184,6 +184,6 @@ That covers everything in the third interface without locking doing it a certain
 
 John,
 
-I just saw your message after I had uploaded the files. I actually broke down those two steps into one. It puts that activity at nine steps I believe. The specifications were also updated as well.
+I just saw your message after I had uploaded the files. I actually broke down those two steps into one. It puts that activity at nine steps I believe. I tried to keep the verbage as close as I could to the problem statement. The specifications were also updated as well, however; I didn't change the folder or file names, but everything is now matching.
 
 -MM
