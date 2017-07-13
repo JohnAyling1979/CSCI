@@ -169,3 +169,15 @@ What do you think about that additional step? Any change to the wordage?
 Thanks,
 
 -MM
+
+yeah we want to be general but we also need to cover what it states in the problem statement. I would set it up like this
+after "The Clerk applies final disconts and commits"
+"System sends PO to PO system"
+have the branch for unavailable
+for the available branch
+"PO system sends proccessing date and sales commission rate to the sytem"
+"The system computes the commission and saves it the the quote and the sales associate's accumulated commission"
+"The system send an email to the customer with all purchase details including the processing date"
+
+That covers everything in the third interface without locking doing it a certain way.
+-JA
