@@ -122,7 +122,7 @@ Hey guys,
 
 Good job today with the presentation. He was kind of brutal on the feedback and commentary, but at least weren't told to stop and sit down (yikes!)
 
-I went through and updated all of my use cases and diagrams. If you guys could take a look at them and provide feedback, I would appreciate it. One thing that I had taken away from today; less is better. So I literally took all of his suggestions, while his suggestions from other groups and applied that to my latest revisions.
+I went through and updated all of my use cases and diagrams. If you guys could take a look at them and provide feedback, I would appreciate it. One thing that I had taken away from today; less is better. So I literally took all of his suggestions, his suggestions for other groups and applied that to my latest revisions.
 
 I used "The Clerk" as an actor for the Sanction a Quote and Quote to PO Use Cases since we had missed that one on our main use case.
 
