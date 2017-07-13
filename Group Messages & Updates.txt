@@ -181,3 +181,9 @@ for the available branch
 
 That covers everything in the third interface without locking doing it a certain way.
 -JA
+
+John,
+
+I just saw your message after I had uploaded the files. I actually broke down those two steps into one. It puts that activity at nine steps I believe. The specifications were also updated as well.
+
+-MM
