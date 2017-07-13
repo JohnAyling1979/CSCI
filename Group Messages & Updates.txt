@@ -147,3 +147,6 @@ Both spec sheets look good. Do we want to have the preconditions.
 
 Technically we can start the cases even if there are no finialized or sanctioed quote availible.  It would just show a blank screen.
 -JA
+
+Use case diagram is fixed. Made some changes to the create quote files so go ahead and check those out.
+-JA
