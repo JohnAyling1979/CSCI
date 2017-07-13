@@ -134,6 +134,9 @@ Thanks again for all of the hard work, I am sure things in class will only becom
 
 -MM
 
-Just looked over the Quote to Po diagram.
-The first part looks good, but I think we need a bit more for after the processing system part. If you look at the problem statement the only thing the processing system does is return a processing date and sales commission rate. So our system need to take that info and compute the commission, update the accumulated commission and send off the email
+Just looked over the two diagrams.
+
+I would say "Sanction a Quote" look all good.
+
+On the "Quote to PO" I think the first part looks good, but I think we need a bit more for after the processing system part. If you look at the problem statement the only thing the processing system does is return a processing date and sales commission rate. So our system need to take that info and compute the commission, update the accumulated commission and send off the email
 -JA
