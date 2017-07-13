@@ -2669,11 +2669,11 @@
 											"containerExtending": false,
 											"left": 381,
 											"top": 119,
-											"width": 805.52392578125,
+											"width": 895.83837890625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "The System retrives information calculates the commision stores to accumlated commissions and sends an email to the customer",
+											"text": "The System retrives information calculates the commision stores to accumlated commissions and emails purchase order details to the customer",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2741,7 +2741,7 @@
 									"containerExtending": false,
 									"left": 376,
 									"top": 112,
-									"width": 815.52392578125,
+									"width": 905.83837890625,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -2769,7 +2769,7 @@
 							"containerExtending": false,
 							"left": 376,
 							"top": 112,
-							"width": 815.52392578125,
+							"width": 905.83837890625,
 							"height": 41,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -3412,7 +3412,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFdJD/SCF9Dzx8="
 					},
-					"name": "The System retrives information calculates the commision stores to accumlated commissions and sends an email to the customer",
+					"name": "The System retrives information calculates the commision stores to accumlated commissions and emails purchase order details to the customer",
 					"visibility": "public",
 					"kind": "opaque",
 					"isLocallyReentrant": false,
