@@ -195,3 +195,8 @@ to
 
 just cause it sound a little rough at the "the commision stores to accumlated commissions" part.
 -JA
+
+I have updated the Actor Dictionary to have the clerk and to make the descriptions simpler. Do you think the descriptions are the right length?
+I have also updated the Admin diagram. I added the options for what employ information and how they can search as he requested it in class. 
+I tried to figure out what would be the best way to work it as it makes the box really big. Let me know if you have any ideas on how I can make it look cleaner?
+-CJ
