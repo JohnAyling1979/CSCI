@@ -231,3 +231,6 @@ and "Admin submits delete"
 
 On the spec sheet you have a postcondition of an update record. What about when you view a quote?
 -JA
+
+I have updated the verbiage on the Actor Dictionary and the admin system.
+-CJ
