@@ -204,9 +204,29 @@ I tried to figure out what would be the best way to work it as it makes the box 
 Actor list:
 Sales associate: once they are logged in they can only create and work on new quotes
 per the use case/problem statement. Also I think we should mention that they access
-it threw the internet
+it through the internet
 
 Others look good.
 
-should make sure capital leters match the uml diagram
+should make sure capital leters match the uml diagram in all files
+
+Administer System activity diagram:
+under the Quote side:
+you have system displays a list of search options
+admin enters search criteria("Admin choose search criteria")
+system displays search option("System prompts for search value")
+admin enters in search option("Admin entes search value")
+(system displays quotes matching search)
+(Admin picks a quote)
+(System displays a quote)
+
+under sales associate side:
+spelling on delete in system shows choices
+under edit and delete
+System should prompte for search value before Admin can enter it.
+In a couple places it says system prompts for conformation to delete or update but
+it then goes straight to system acknowledges updates.
+If we have a prompt we need a choice after or we can change it to "Admin submits updatae"
+and "Admin submits delete"
+
 -JA
