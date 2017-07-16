@@ -236,3 +236,6 @@ I have updated the verbiage on the Actor Dictionary and the admin system.
 -CJ
 I'm going to be gone most the day so I am going to go ahead and print out the files now. I will check again at 10 tonight for any final changes and print them at that time.
 -JA
+
+I was just looking at your printed files folder and the image called "Sanction a Quote Diagram.jpg" is opening up the admin diagram. I was just making sure that the correct one gets printed.
+-CJ
