@@ -239,3 +239,6 @@ I'm going to be gone most the day so I am going to go ahead and print out the fi
 
 I was just looking at your printed files folder and the image called "Sanction a Quote Diagram.jpg" is opening up the admin diagram. I was just making sure that the correct one gets printed.
 -CJ
+
+Thanks for catching that.  All fixed. 
+-JA
