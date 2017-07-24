@@ -242,3 +242,4 @@ I was just looking at your printed files folder and the image called "Sanction a
 
 Thanks for catching that.  All fixed. 
 -JA
+ So the printed files folder has the current models that were turned in.
