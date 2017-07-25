@@ -253,3 +253,6 @@ I added the diagrams for the Sanction Quote and Create Purchase Order in the Cla
 
 I've got the create quote classes added. It contains the quote entity and line entity. Add any aditional attributes you need for yours.  I'll look closer tomorrow.
 -JA
+
+I know we are super pressed for time. Are you going to be able to make up a power point for Wednesday and if so when do you need the final copy by.
+-
