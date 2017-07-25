@@ -263,3 +263,6 @@ I was wondering the same thing, are you making the PowerPoint CJ?
 At least it should be shorter this time.
 You'll have the one main page that has all the classes and then just a page for each class that has any descriptions on it.
 -JA
+
+A couple ? on the saction and po classes. You have 2 private function add and edit secret notes. What member fucntion is used to call those? Also in the manage quote controller there is an updatequote do you want the controller to have access to the database or should that call a fuction in quote gateway?
+Finally on the PO side I don't see any fuctions communicating with the quotegateway.
