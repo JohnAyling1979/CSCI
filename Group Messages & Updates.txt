@@ -266,3 +266,8 @@ You'll have the one main page that has all the classes and then just a page for 
 
 A couple ? on the saction and po classes. You have 2 private function add and edit secret notes. What member fucntion is used to call those? Also in the manage quote controller there is an updatequote do you want the controller to have access to the database or should that call a fuction in quote gateway?
 Finally on the PO side I don't see any fuctions communicating with the quotegateway.
+
+
+Sorry for the delay in response I had a busy day at work and now my internet is out at home so I am typing this on my phone. 
+I can combine it and make the PowerPoint if everyone has things done by 8:30 tonight or another option due to timing is we could just use the HTNL output. He never said it had to be in a PowerPoint.
+-CJ
