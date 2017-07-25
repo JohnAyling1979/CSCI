@@ -274,4 +274,8 @@ I can combine it and make the PowerPoint if everyone has things done by 8:30 ton
 
 That works. Make any needed correction that you feel it needs and put it together.
 Yeah it doesn't need to be power point but i think it looks better then using the projector.
--
+-JA
+
+I just looked at the HTML docs and I think that will work fine for tomorrow. From Index it shows the classes diagram and then if needed it can go into each individual class. See what Mitch says, but I think that will be the way to go.
+-JA
+
