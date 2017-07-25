@@ -250,3 +250,6 @@ If everyone has things in by tomorrow at 8:30pm I can combine them and put somet
 
 I added the diagrams for the Sanction Quote and Create Purchase Order in the Classes Diagrams folder. The main GUI portions are complete, however; I wasn't sure what John has yet, so I just kind of winged it for the controller and gateway on the sanctioned quote part of the class diagram. This is the first run so let me know what changes you guys see fit.
 -MM
+
+I've got the create quote classes added. It contains the quote entity and line entity. Add any aditional attributes you need for yours.  I'll look closer tomorrow.
+-JA
