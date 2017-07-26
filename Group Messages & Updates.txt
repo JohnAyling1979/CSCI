@@ -302,3 +302,7 @@ On the quote entity you have 2 attributes. Attribute1 and Attribute2. Could we g
 In the QuoteStore we have a addLine() and addLineItem(). I'm guessing those are the same thing.
 
 I went ahead I made the changes and updated the file.
+
+I know it is probably to late to change for today but for the hard copy. The entity LineItem will need a foreign key into
+the quote table.
+-JA
