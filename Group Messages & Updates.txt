@@ -292,3 +292,6 @@ I'll take a look at what you guys have now that I am home, and fix a couple of t
 
 New class diagrams have been uploaded. They are in the Classes folder. Let me know what you think of the changes. All classes are also documented in the .mdj files.
 -MM
+
+I have added the class Diagram. Let me know by tomorrow at noon if there are any changes you want me to make before I export it to HTML and save it to a jump drive.
+-CJ
