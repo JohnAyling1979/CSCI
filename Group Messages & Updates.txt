@@ -290,5 +290,5 @@ I agree with using the HTML docs. It's a much easier way to present the informat
 I'll take a look at what you guys have now that I am home, and fix a couple of the small issues on my diagrams, and report back.
 -MM
 
-New class diagrams have been uploaded. They are in the Classes folder. Let me know what you think of the changes.
+New class diagrams have been uploaded. They are in the Classes folder. Let me know what you think of the changes. All classes are also documented in the .mdj files.
 -MM
