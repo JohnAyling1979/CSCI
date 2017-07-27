@@ -306,3 +306,5 @@ I went ahead I made the changes and updated the file.
 I know it is probably to late to change for today but for the hard copy. The entity LineItem will need a foreign key into
 the quote table.
 -JA
+
+I went ahead and set up the tables on my database.  Login info is user z981329 password 1979Jul29. The are setup just like the class diagrams. All the capitalization is the same except SAid is saId, lineID is lineId, and QuoteID is quoteId so they match the other naming conventions
