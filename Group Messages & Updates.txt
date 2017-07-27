@@ -325,3 +325,6 @@ It doesn't really affect the create quote section of the system so it is more ho
 My vote is on the bools. I think they will use up less memory and the code looks nicer. if(isFinialized) vs if(status=="Finialized")
 
 May need to change the caps on the admin GUI. All the other classes are lower case first word and Upper case on the rest while admin is upper upper.
+
+I agree. The bools are much easier to work with.
+-MM
