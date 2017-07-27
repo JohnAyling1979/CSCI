@@ -308,3 +308,10 @@ the quote table.
 -JA
 
 I went ahead and set up the tables on my database.  Login info is user z981329 password 1979Jul29. The are setup just like the class diagrams. All the capitalization is the same except SAid is saId, lineID is lineId, and QuoteID is quoteId so they match the other naming conventions
+
+I have made the changes below to the class diagram. I will submit it to the TA Sunday night unless I hear otherwise from you.
+-Changed the ID names to what is in the database
+-Added salesAssociate in the Quote table. I also updated the database.
+-I put "sendEmail" in ManagePurchaseOrder. Is that how we decided we wanted to do it?
+-I put “setSalesCommission” (Do you think we need this or we could say the creatPurchaseOrder is also doing it?) under the MnageOurchaseOrder and put “updateCommission” under STstore. Then I made a connecting line.
+--CJ
