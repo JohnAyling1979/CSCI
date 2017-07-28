@@ -328,3 +328,6 @@ May need to change the caps on the admin GUI. All the other classes are lower ca
 
 I agree. The bools are much easier to work with.
 -MM
+
+I don't think i need a addLine() operation in the CreateQuoteController.  The addLine() in the interface will make the lines in the interface and then everything will get passes with the finalizeQuote().
+-JA
