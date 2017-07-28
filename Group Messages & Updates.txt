@@ -338,3 +338,6 @@ I was wondering is STstore so post to be SAstore?
 I see you put a couple names into the SalesAssociate. I went and added mine. I did notice that on the password field that you 
 used the regular text. When I made the table I set the size the handle SHA-256 encription so that way the passwords can't be read. for mysql the command is SHA2("pass",256)
 -JA
+
+So each of the classes have a short discription. Are there any operations that any of you feel need there own discriptions. I feel tha names are descriptive enough but I'm not sure if the TA would want more discriptions.
+-JA
