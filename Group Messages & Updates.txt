@@ -331,3 +331,6 @@ I agree. The bools are much easier to work with.
 
 I don't think i need a addLine() operation in the CreateQuoteController.  The addLine() in the interface will make the lines in the interface and then everything will get passes with the finalizeQuote().
 -JA
+
+I was wondering is STstore so post to be SAstore?
+-JA
