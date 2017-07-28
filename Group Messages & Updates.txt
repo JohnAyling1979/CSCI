@@ -334,3 +334,7 @@ I don't think i need a addLine() operation in the CreateQuoteController.  The ad
 
 I was wondering is STstore so post to be SAstore?
 -JA
+
+I see you put a couple names into the SalesAssociate. I went and added mine. I did notice that on the password field that you 
+used the regular text. When I made the table I set the size the handle SHA-256 encription so that way the passwords can't be read. for mysql the command is SHA2("pass",256)
+-JA
