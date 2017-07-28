@@ -3,9 +3,18 @@
     class SalesAssociateInterface
     {
         //called when user submits login information
-        public function submitLogin()
+        public function submitLogin($controller,$ST,$name,$pass)
         {
-            echo "login";
+            //encrypts password
+            $pass=hash("sha256",$pass);
+            //gets encryoted saved password
+            $testpass=$controller->getSA($ST,$name);
+
+            //test if they match
+            if($pass==$testpass)
+                echo "password ok";
+            else
+                echo "password does not match";
         }
 
         //called when associate chooses a customer

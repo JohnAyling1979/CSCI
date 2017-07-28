@@ -2,15 +2,26 @@
     //starts session
     session_start();
 
-    //SalesAssociateInterface class
+    //needed classes
+    require "dbconnect.php";
     require "SalesAssociateInterface.php";
+    require "CreateQuoteController.php";
+    require "LegacyDatabaseInterface.php";
+    require "QuoteStore.php";
+    require "STstore.php";
 
-    //creates instance of the class
+    //creates instances of the classes
     $interface=new SalesAssociateInterface;
+    $controller=new CreateQuoteController;
+    $DBI=new LegacyDatabaseInterface;
+    $quote=new QuoteStore;
+    $ST=new STstore;
 
 
     if($_SERVER[REQUEST_METHOD]=="POST")
-        $interface->submitLogin();
+    {
+        $interface->submitLogin($controller,$ST,$_POST[user],$_POST[pass]);
+    }
 ?>
 <html>
     <head>
