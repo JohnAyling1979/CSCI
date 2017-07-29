@@ -3,9 +3,9 @@
     class CreateQuoteController
     {
         //gets the password from the Ststore
-        public function getSA($ST,$name)
+        public function getSA($ST)
         {
-            return $ST->getSA($name);
+            return $ST->getSA();
         }
 
         //gets the customer information from the legacy database
@@ -21,8 +21,9 @@
         }
 
         //sends quote to the quote store
-        public function finalizeQuote()
+        public function finalizeQuote($quote)
         {
+            $quote->finalizeQuote();
         }
     }
 ?>

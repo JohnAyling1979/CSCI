@@ -23,22 +23,22 @@
     {
         if(isset($_POST[login]))
         {
-            $customerSTMT=$interface->submitLogin($controller,$ST,$DBI,$_POST[user],$_POST[pass]);
-            if($customerSTMT!=NULL)
+            $_SESSION[user]=protect($_POST[user]);
+            $customerSTMT=$interface->submitLogin($controller,$ST,$DBI,$_POST[pass]);
+            if(isset($customerSTMT))
             {
-                $_SESSION[USER]=$_POST[user];
-                echo "<title>Choose Customer</title></head>";
-                echo "<body>";
-                echo "<form method=post>";
-                echo "<select name='cust'>";
-                foreach($customerSTMT as $row)
-                {
-                    $customer=iconv("latin1","UTF-8",$row[1]);
-                    echo "<option value=$row[0]>$customer</option>";
-                }
-                echo"</select>";
-                echo "<button type=submit name='create'>Create Quote</button>";
-                echo "</form>";
+            echo "<title>Choose Customer</title></head>";
+            echo "<body>";
+            echo "<form method=post>";
+            echo "<select name='cust'>";
+            foreach($customerSTMT as $row)
+            {
+                $customer=iconv("latin1","UTF-8",$row[1]);
+                echo "<option value=$row[0]>$customer</option>";
+            }
+            echo"</select>";
+            echo "<button type=submit name='create'>Create Quote</button>";
+            echo "</form>";
             }
         }
         if(isset($_POST[create]))
@@ -53,8 +53,7 @@
             echo "Customer: ".$_SESSION[customerName]."<br>";
             echo "Street: ".$_SESSION[customerAdd]."<br>";
             echo "City: ".$_SESSION[customerCity]."<br>";
-            echo "Email: <input type='email' name='email'><br>";
-            echo "Sales Associate: ".$_SESSION[USER]."<br><br><br>";
+            echo "Sales Associate: ".$_SESSION[user]."<br><br><br>";
             echo "<button onclick='addLine()'>Add Line</button>";
             echo "<form method=post>";
             echo "<table style='width:100%'>";
@@ -62,12 +61,13 @@
             echo "<tr><td><input type='text' size=50 name='desc0'></td><td><input type='text' size=10 name='price0'></td><td><input type='text' size=50 name='secret0'></td></tr>";
             echo "<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>";
             echo "</table>";
+            echo "Email<br><input type='email' name='email'><br>";
             echo "<button type=submit name='final'>Finalize</button>";
             echo "</form>";
         }
         if(isset($_POST['final']))
         {
-            echo "Quote made";
+            $interface->finalizeQuote($controller,$quote);
         }
     }
     else
@@ -103,18 +103,18 @@
         input1[n].type="text";
         input1[n].id=n;
         input1[n].size="50";
-        input1[n].name="desc".n;
+        input1[n].name="desc"+n;
 
         input2[n].type="text";
         input2[n].id=n;
         input2[n].size="10";
-        input2[n].name="price".n;
+        input2[n].name="price"+n;
 
 
         input3[n].type="text";
         input3[n].id=n;
         input3[n].size="50";
-        input3[n].name="secret".n;
+        input3[n].name="secret"+n;
 
         document.getElementById("line1").appendChild(input1[n]);
         document.getElementById("line2").appendChild(input2[n]);

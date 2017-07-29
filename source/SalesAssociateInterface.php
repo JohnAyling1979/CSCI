@@ -3,12 +3,12 @@
     class SalesAssociateInterface
     {
         //called when user submits login information
-        public function submitLogin($controller,$ST,$DBI,$name,$pass)
+        public function submitLogin($controller,$ST,$DBI,$pass)
         {
             //encrypts password
             $pass=hash("sha256",$pass);
             //gets encryoted saved password
-            $testpass=$controller->getSA($ST,$name);
+            $testpass=$controller->getSA($ST);
 
             //test if they match
             if($pass==$testpass)
@@ -28,16 +28,10 @@
             return $controller->getCustomerInfo($DBI,$id);
         }
 
-        //called to add lines to the current quote
-        public function addLine()
-        {
-            echo "add";
-        }
-
         //finalizes and saves the quote
-        public function finalizeQuote()
+        public function finalizeQuote($controller,$quote)
         {
-            echo "Final";
+            $controller->finalizeQuote($quote);
         }
     }
 ?>
