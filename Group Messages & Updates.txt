@@ -363,3 +363,8 @@ So the create quote page is functional and there is a quote with 3 line items in
 get with Conrad about getting your login created. I still need to doc it,add some error checking, and maybe make it look pretty.
 I'm also thinking about move more stuff from the page to inside the class. There are a few Null items in the database. If those cause issues let me know and I can set defualt values to them when it is created.
 -JA
+
+Here is a link to create your login. http://students.cs.niu.edu/~z1792261/CSCI467/creat.php
+I have also made the changes to the class diagram that you mentioned above. If you added a customerCity do we also need State and zip? 
+I will probably wait until Monday to submit it so we can make sure we can make any more corrections that are needed.
+-CJ
