@@ -365,6 +365,6 @@ I'm also thinking about move more stuff from the page to inside the class. There
 -JA
 
 Here is a link to create your login. http://students.cs.niu.edu/~z1792261/CSCI467/creat.php
-I have also made the changes to the class diagram that you mentioned above. If you added a customerCity do we also need State and zip? 
+I have also made the changes to the class diagram that you mentioned above.
 I will probably wait until Monday to submit it so we can make sure we can make any more corrections that are needed.
 -CJ
