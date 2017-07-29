@@ -355,3 +355,6 @@ Also addLine() is not needed in the SalesAssociateInterface or CreateQuoteContro
 
 And no createQuote() in the QuoteStore because the store database doesn't need to be accessed until the finalized button is used so the quote will get created and finalized at the same time
 -JA
+
+also add customerCity to Quote entity
+-JA
