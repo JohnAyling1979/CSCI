@@ -358,3 +358,8 @@ And no createQuote() in the QuoteStore because the store database doesn't need t
 
 also add customerCity to Quote entity
 -JA
+
+So the create quote page is functional and there is a quote with 3 line items in the database for you to work with Mitch. Also
+get with Conrad about getting your login created. I still need to doc it,add some error checking, and maybe make it look pretty.
+I'm also thinking about move more stuff from the page to inside the class. There are a few Null items in the database. If those cause issues let me know and I can set defualt values to them when it is created.
+-JA
