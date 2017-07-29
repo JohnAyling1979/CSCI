@@ -1,14 +1,11 @@
 <?php
-    //starts session
-    session_start();
-
     //needed classes
     require "dbconnect.php";
     require "SalesAssociateInterface.php";
     require "CreateQuoteController.php";
     require "LegacyDatabaseInterface.php";
     require "QuoteStore.php";
-    require "STstore.php";
+    require "SAstore.php";
 
     //creates instances of the classes
     $interface=new SalesAssociateInterface;
@@ -20,21 +17,47 @@
 
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
-        $interface->submitLogin($controller,$ST,$_POST[user],$_POST[pass]);
+        if(isset($_POST[login]))
+        {
+            $customerSTMT=$interface->submitLogin($controller,$ST,$DBI,$_POST[user],$_POST[pass]);
+            if($customerSTMT!=NULL)
+            {
+                echo "<html>";
+                echo "<form method=post>";
+                echo "<select name='cust'>";
+                foreach($customerSTMT as $row)
+                {
+                    echo "<option value='$row[0]'>$row[0]</option>";
+                }
+                echo"</select>";
+                echo "<button type=submit name='create'>Create Quote</button>";
+                echo "</form>";
+                echo "</html>";
+            }
+        }
+        if(isset($_POST[create]))
+        {
+            echo "<html>";
+            echo "new ".$_POST[cust]." quote";
+            echo "</html>";
+        }
+    }
+    else
+    {
+        echo "<html>";
+        echo "<head>";
+        echo "<title>Create Quote</title>";
+        echo "</head>";
+        echo "<body>";
+        echo "<h1>Create Quote System login</h1>";
+        echo "<form method=post>";
+        echo "<table>";
+        echo "<tr><td>User Name:</td><td><input type='text' name='user'></td></tr>";
+        echo "<tr><td>Password:</td><td><input type='password' name='pass'></td></tr>";
+        echo "</table>";
+        echo "<button type=submit name='login'>Login</button>";
+        echo "</form>";
+        echo "</body>";
+        echo "</html>";
     }
 ?>
-<html>
-    <head>
-        <title>Create Quote</title>
-    </head>
-    <body>
-        <h1>Create Quote System login</h1>
-        <form method=post>
-            <table>
-                <tr><td>User Name:</td><td><input type="text" name="user"></td></tr>
-                <tr><td>Password:</td><td><input type="password" name="pass"></td></tr>
-            </table>
-            <button type=submit>Login</button>
-        </form>
-    </body>
-</html>

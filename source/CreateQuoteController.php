@@ -9,8 +9,9 @@
         }
 
         //gets the customer information from the legacy database
-        public function getCustomerInfo()
+        public function getCustomerInfo($DBI)
         {
+            return $DBI->getCustomerInfo();
         }
 
         //sends quote to the quote store

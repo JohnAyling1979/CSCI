@@ -3,7 +3,7 @@
     class SalesAssociateInterface
     {
         //called when user submits login information
-        public function submitLogin($controller,$ST,$name,$pass)
+        public function submitLogin($controller,$ST,$DBI,$name,$pass)
         {
             //encrypts password
             $pass=hash("sha256",$pass);
@@ -12,9 +12,12 @@
 
             //test if they match
             if($pass==$testpass)
-                echo "password ok";
+            {
+                return $controller->getCustomerInfo($DBI);
+            }
             else
-                echo "password does not match";
+                echo "password does not match<br>";
+                echo "Press back arrow to retry";
         }
 
         //called when associate chooses a customer

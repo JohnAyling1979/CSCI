@@ -6,7 +6,10 @@
         //requests all the customer information
         public function getCustomerInfo()
         {
-        }
+            $db=connect("blitz","csci467","student","student");
+            $query="select name from customers";
 
+            return $db->query($query);
+        }
     }
 ?>

@@ -6,7 +6,7 @@
         public function getSA($name)
         {
             //connects to database
-            $db=connect("courses","z981329","1979Jul29");
+            $db=connect("courses","z981329","z981329","1979Jul29");
 
             //removes SQL injection
             $name=protect($name);

@@ -1,8 +1,8 @@
 <?php
 
-    function connect($host,$user,$password)
+    function connect($host,$DB,$user,$password)
     {
-        $dsn="mysql:dbname=".$user.";host=".$host;
+        $dsn="mysql:dbname=".$DB.";host=".$host;
 
         try
         {
