@@ -349,3 +349,6 @@ I was also looking at the STstore today thinking it looked weird I have updated 
 Need to add a "getCustomerNames()" to te CreateQuoteController and LegacyDatabaseInterface. it gets all the names while getCustomerInfo() get the info for one individual customer.
 Thanks
 -JA
+
+Also addLine() is not needed in the SalesAssociateInterface or CreateQuoteController class
+-JA
