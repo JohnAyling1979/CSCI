@@ -1,9 +1,12 @@
 <?php     session_start(); ?>
 <!DOCTYPE html>
+<!--
+Driver page for the create quote interface
+-->
 <html>
     <head><meta charset="utf-8">
 <?php
-    //needed classes
+    //needed files
     require "dbconnect.php";
     require "SalesAssociateInterface.php";
     require "CreateQuoteController.php";
@@ -16,109 +19,86 @@
     $controller=new CreateQuoteController;
     $DBI=new LegacyDatabaseInterface;
     $quote=new QuoteStore;
-    $ST=new STstore;
+    $SA=new SAstore;
 
-
+    //when a post is submited    
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
+        //login submit
         if(isset($_POST[login]))
         {
             $_SESSION[user]=protect($_POST[user]);
-            $customerSTMT=$interface->submitLogin($controller,$ST,$DBI,$_POST[pass]);
-            if(isset($customerSTMT))
-            {
-            echo "<title>Choose Customer</title></head>";
-            echo "<body>";
-            echo "<form method=post>";
-            echo "<select name='cust'>";
-            foreach($customerSTMT as $row)
-            {
-                $customer=iconv("latin1","UTF-8",$row[1]);
-                echo "<option value=$row[0]>$customer</option>";
-            }
-            echo"</select>";
-            echo "<button type=submit name='create'>Create Quote</button>";
-            echo "</form>";
-            }
+            $interface->submitLogin($controller,$SA,$DBI,$_POST[pass]);
         }
+
+        //create submit
         if(isset($_POST[create]))
         {
-            $customerSTMT=$interface->chooseCustomer($controller,$DBI,$_POST[cust]);
-            $customer=$customerSTMT->fetch();
-            $_SESSION[customerName]=iconv("latin1","UTF-8",$customer[0]);
-            $_SESSION[customerAdd]=iconv("latin1","UTF-8",$customer[1]);
-            $_SESSION[customerCity]=iconv("latin1","UTF-8",$customer[2]);
-            echo "<title>$_SESSION[customerName] Quote</title></head>";
-            echo "<body>";
-            echo "Customer: ".$_SESSION[customerName]."<br>";
-            echo "Street: ".$_SESSION[customerAdd]."<br>";
-            echo "City: ".$_SESSION[customerCity]."<br>";
-            echo "Sales Associate: ".$_SESSION[user]."<br><br><br>";
-            echo "<button onclick='addLine()'>Add Line</button>";
-            echo "<form method=post>";
-            echo "<table style='width:100%'>";
-            echo "<tr><th>Description</th><th>Price</th><th>Secret Note</th></tr>";
-            echo "<tr><td><input type='text' size=50 name='desc0'></td><td><input type='text' size=10 name='price0'></td><td><input type='text' size=50 name='secret0'></td></tr>";
-            echo "<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>";
-            echo "</table>";
-            echo "Email<br><input type='email' name='email'><br>";
-            echo "<button type=submit name='final'>Finalize</button>";
-            echo "</form>";
+            $interface->createQuote($controller,$DBI,$_POST[cust]);
         }
+
+        //finalize submit
         if(isset($_POST['final']))
         {
             $interface->finalizeQuote($controller,$quote);
         }
     }
+    //begining interface
     else
     {
-        echo "<title>Create Quote</title>";
-        echo "</head>";
-        echo "<body>";
-        echo "<h1>Create Quote System login</h1>";
-        echo "<form method=post>";
-        echo "<table>";
-        echo "<tr><td>User Name:</td><td><input type='text' name='user'></td></tr>";
-        echo "<tr><td>Password:</td><td><input type='password' name='pass'></td></tr>";
-        echo "</table>";
-        echo "<button type=submit name='login'>Login</button>";
-        echo "</form>";
+        $interface->index();
     }
 ?>
     </body>
 </html>
+
+<!--javascript to add line items to the screen -->
 <script>
+    //starting row number
     var n=1;
+
+    /****************************************************************
+       FUNCTION:   addLine
+
+       ARGUMENTS:  none
+
+       RETURNS:    none
+
+       USAGE:      adds a row to the screen for a new line item
+    ****************************************************************/
     function addLine()
     {
-        var input1={};
-        input1[n]=document.createElement("input");
-        var input2={};
-        input2[n]=document.createElement("input");
-        var input3={};
-        input3[n]=document.createElement("input");
+        //arrays for each input
+        var desc={};
+        desc[n]=document.createElement("input");
+        var price={};
+        price[n]=document.createElement("input");
+        var secret={};
+        secret[n]=document.createElement("input");
 
-        var nl=document.createElement("br");
+        //attributes for each element
+        desc[n].type="text";
+        desc[n].id=n;
+        desc[n].size="50";
+        desc[n].name="desc"+n;
 
-        input1[n].type="text";
-        input1[n].id=n;
-        input1[n].size="50";
-        input1[n].name="desc"+n;
-
-        input2[n].type="text";
-        input2[n].id=n;
-        input2[n].size="10";
-        input2[n].name="price"+n;
+        price[n].type="text";
+        price[n].id=n;
+        price[n].size="10";
+        price[n].name="price"+n;
 
 
-        input3[n].type="text";
-        input3[n].id=n;
-        input3[n].size="50";
-        input3[n].name="secret"+n;
+        secret[n].type="text";
+        secret[n].id=n;
+        secret[n].size="50";
+        secret[n].name="secret"+n;
 
-        document.getElementById("line1").appendChild(input1[n]);
-        document.getElementById("line2").appendChild(input2[n]);
-        document.getElementById("line3").appendChild(input3[n]);
+        //append the table to the table
+        document.getElementById("line1").appendChild(desc[n]);
+        document.getElementById("line2").appendChild(price[n]);
+        document.getElementById("line3").appendChild(secret[n]);
+
+        //increase row count
         n++;        
     }
 </script>

@@ -1,8 +1,13 @@
 <?php
-    //class use to communicate
-    class STstore
+    //class use to communicate with the sales Associate table;
+    class SAstore
     {
-        //gets the password from the SalesAssociate database
+        /*******************************************************************
+            FUNCTION:   SAstore::getSA
+            ARGUMENTS:  none
+            RETURNS:    encrypted password
+            USAGE:      Gets the password from the database
+        *******************************************************************/
         public function getSA()
         {
             //connects to database
@@ -10,6 +15,7 @@
 
             //creates query
             $query="select password from SalesAssociate where name='$_SESSION[user]'";
+
             //runs query
             $stmt=$db->query($query);
             //gets first row

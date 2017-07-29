@@ -2,28 +2,54 @@
     //class to commuticate between the other classes
     class CreateQuoteController
     {
-        //gets the password from the Ststore
-        public function getSA($ST)
+        /*******************************************************************
+            FUNCTION:   CreateQuoteController::getSA
+            ARGUMENTS:  $SA: contains the SAstore instance
+            RETURNS:    encrypted password
+            USAGE:      To request the password from the SAstore
+        *******************************************************************/
+        public function getSA($SA)
         {
-            return $ST->getSA();
+            return $SA->getSA();
         }
 
-        //gets the customer information from the legacy database
+        /*******************************************************************
+            FUNCTION:   CreateQuoteController::getCustomerInfo
+            ARGUMENTS:  $DBI: contains the LegacyDatabaseInterface instance
+                        $id: the id number of the customer for the info to
+                             find
+            RETURNS:    A row containing the customer info
+            USAGE:      To request the customer info from the 
+                        legacyDatabaseInterface for one customer
+        *******************************************************************/
         public function getCustomerInfo($DBI,$id)
         {
             return $DBI->getCustomerInfo($id);
         }
 
-        //gets the customer information from the legacy database
+
+        /*******************************************************************
+            FUNCTION:   CreateQuoteController::getCustomerNames
+            ARGUMENTS:  $DBI: contains the LegacyDatabaseInterface instance
+            RETURNS:    A PDO statemtn containing all the customer's names
+            USAGE:      To request the customer's names from the 
+                        legacyDatabaseInterface
+        *******************************************************************/
         public function getCustomerNames($DBI)
         {
             return $DBI->getCustomerNames();
         }
 
-        //sends quote to the quote store
+        /*******************************************************************
+            FUNCTION:   CreateQuoteController::finalizeQuote
+            ARGUMENTS:  $quote: The QuoteStore instance
+            RETURNS:    A bool that tells wether a quote was saved
+            USAGE:      To request the customer's names from the 
+                        legacyDatabaseInterface
+        *******************************************************************/
         public function finalizeQuote($quote)
         {
-            $quote->finalizeQuote();
+            return $quote->finalizeQuote();
         }
     }
 ?>
