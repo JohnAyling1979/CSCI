@@ -345,3 +345,7 @@ So each of the classes have a short discription. Are there any operations that a
 I have changed the caps on the admin GUI and have removed the addLine(). I have also added SHA2 to the admin interface. 
 I was also looking at the STstore today thinking it looked weird I have updated it to be SAstore.
 -CJ
+
+Need to add a "getCustomerNames()" to te CreateQuoteController and LegacyDatabaseInterface. it gets all the names while getCustomerInfo() get the info for one individual customer.
+Thanks
+-JA
