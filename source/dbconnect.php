@@ -10,7 +10,7 @@
         }
         catch(PDOException $e)
         {
-            echo "Connection failed: ".$e->getMessage();
+            echo "Connection failed: Database can not be reached<br>".$e->getMessage();
         }
         return $db;
     }

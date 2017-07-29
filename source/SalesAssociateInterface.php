@@ -13,17 +13,19 @@
             //test if they match
             if($pass==$testpass)
             {
-                return $controller->getCustomerInfo($DBI);
+                return $controller->getCustomerNames($DBI);
             }
             else
+                echo "<title>Log in fail</title></head>";
+                echo "<body>";
                 echo "password does not match<br>";
                 echo "Press back arrow to retry";
         }
 
         //called when associate chooses a customer
-        public function chooseCustomer()
+        public function chooseCustomer($controller,$DBI,$id)
         {
-            echo "Customer";
+            return $controller->getCustomerInfo($DBI,$id);
         }
 
         //called to add lines to the current quote
