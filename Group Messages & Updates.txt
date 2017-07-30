@@ -401,3 +401,9 @@ The sql statment "SELECT quoteId FROM Quote WHERE isFinalized" will also work if
 
 in the sanctionQuote.php you won't need the first while statment because quoteId is a
 primary key in the quote table.
+
+To be honest, this project has a much different coding "feel" than what I am used to as far as splitting everything up and using classes/function/drivers and whatnot. I usually write it all straight to the point when doing web programming. So it's taken me longer to do this. Right now I am just trying to get things to work. I will worry about the classes and whatnot later since I feel I have a ton to do with both the sanction and P.O. parts. I plan on reusing code that I know works throughout. So any help or edits are much appreciated. I have to leave in a few minutes for a few hours, but I just uploaded new code with some page formatting changes. I will keep working on it when I get back.
+
+p.s. the create quote page was nice and straightforward.
+
+-MM
