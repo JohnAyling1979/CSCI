@@ -374,3 +374,7 @@ looks nice.  May want to add the "required" attribute to each input field so tha
 
 If you could move the sendEmail out of SanctionQuoteGUI and CreatePurchaseOrderGUI and put them into their controllers. I have the code for sending the email done in the controllers. I am working on both controllers right now, which they are basic and I haven't gotten a chance to test them yet (I am currently working.) Speaking of testing, how are we going to go about testing our entire implementation? I was also messing around with PurchaseOrderProcessing code but I am not fimailar with JSON in PHP, so if anyone has any ideas... Sorry about the lack of updates, work has been keeping me super busy. I'll post the controllers when I get home since I am running out of battery on my laptop.
 -MM
+
+No problem Mitch. There's still lots of time. On the json thing Ege had the one example
+at https://webcourses.niu.edu/bbcswebdav/pid-4740793-dt-content-rid-1621704_1/users/a132436/Bb%20Courses/CSCI%20467/Project/po.html.  It looks like you need to make
+a labeled array and then use the json_encode. Once you have the result then you can pull what you need.
