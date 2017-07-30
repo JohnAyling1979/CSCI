@@ -44,7 +44,7 @@ require "dbconnect.php";
 
     	if (isset($_POST["quoteId"]))
         {
-			while(($row = $result->fetch()) != NULL)
+	    while(($row = $result->fetch()) != NULL)
             {
                 echo "<b>Sales Associate: </b>";
                 echo $row["salesAssociate"];
@@ -52,10 +52,10 @@ require "dbconnect.php";
                 echo "<b>Quote ID: </b>";
                 echo $row["quoteId"];
                 echo "<br><br>";
-       		    echo "<b>Customer Name: </b>";
+       		echo "<b>Customer Name: </b>";
                 echo $row["customerName"];
                 echo "<br>";
-       		    echo "<b>Customer Address: </b>";
+       		echo "<b>Customer Address: </b>";
                 echo $row["customerAddress"];
                 echo "<br>";
                 echo "<b>Customer City: </b>";
@@ -64,8 +64,8 @@ require "dbconnect.php";
                 echo "<b>Customer Email: </b>";
                 echo $row["customerEmail"];
                 echo "<br>";
-       		}
-		}
+       	    }
+	}
 
     ?>
 
