@@ -378,3 +378,6 @@ If you could move the sendEmail out of SanctionQuoteGUI and CreatePurchaseOrderG
 No problem Mitch. There's still lots of time. On the json thing Ege had the one example
 at https://webcourses.niu.edu/bbcswebdav/pid-4740793-dt-content-rid-1621704_1/users/a132436/Bb%20Courses/CSCI%20467/Project/po.html.  It looks like you need to make
 a labeled array and then use the json_encode. Once you have the result then you can pull what you need.
+
+As for the final implementation well combin the functions for the shared classes into one file. After that we should
+be able to just host all the files in one html folder on hopper.
