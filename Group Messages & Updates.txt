@@ -407,3 +407,5 @@ To be honest, this project has a much different coding "feel" than what I am use
 p.s. the create quote page was nice and straightforward.
 
 -MM
+
+I was telling my wife the same thing. I would just have the bounday's all talk directly to each other without the controller middle man. I had ask Ege about it and I guess it's to make changes easier.
