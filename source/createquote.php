@@ -21,7 +21,7 @@ Driver page for the create quote interface
     $quote=new QuoteStore;
     $SA=new SAstore;
 
-    //when a post is submited    
+    //when a post is submited
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
         //login submit
@@ -71,10 +71,15 @@ Driver page for the create quote interface
         //arrays for each input
         var desc={};
         desc[n]=document.createElement("input");
+        var dl=document.createElement("br");
+
         var price={};
         price[n]=document.createElement("input");
+        var pl=document.createElement("br");
+
         var secret={};
         secret[n]=document.createElement("input");
+	var sl=document.createElement("br");
 
         //attributes for each element
         desc[n].type="text";
@@ -93,13 +98,17 @@ Driver page for the create quote interface
         secret[n].size="50";
         secret[n].name="secret"+n;
 
-        //append the table to the table
+        //append the line to the table
         document.getElementById("line1").appendChild(desc[n]);
+	document.getElementById("line1").appendChild(dl);
+
         document.getElementById("line2").appendChild(price[n]);
+        document.getElementById("line2").appendChild(pl);
+
         document.getElementById("line3").appendChild(secret[n]);
+        document.getElementById("line3").appendChild(sl);
 
         //increase row count
-        n++;        
+        n++;
     }
 </script>
-

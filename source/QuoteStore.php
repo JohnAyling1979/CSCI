@@ -36,7 +36,7 @@
                 $secret="secret".$n;
 
                 //while there are lines
-                while(isset($_POST[$desc]))
+                while(isset($_POST[$desc]) && $_POST[$desc]!="")
                 {
                     //insert statement
                     $into="insert into LineItem(quoteId,description,price,secretNote)

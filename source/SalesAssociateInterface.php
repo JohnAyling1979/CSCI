@@ -99,7 +99,7 @@
             echo "Sales Associate: ".$_SESSION[user]."<br><br><br>";
             echo "<button onclick='addLine()'>Add Line</button>";
             echo "<form method=post>";
-            echo "<table style='width:100%'>";
+            echo "<table>";
             echo "<tr><th>Description</th><th>Price</th><th>Secret Note</th></tr>";
             echo "<tr><td><input type='text' size=50 name='desc0'></td><td><input type='text' size=10 name='price0'></td><td><input type='text' size=50 name='secret0'></td></tr>";
             echo "<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>";
