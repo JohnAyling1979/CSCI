@@ -56,7 +56,7 @@
             return $isCreated;
         }
 
-        public function getQuote()
+        public function getFinalizedQuote()
         {
             //connect to the database
             $db=connect("courses","z981329","z981329","1979Jul29");
