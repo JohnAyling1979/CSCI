@@ -385,3 +385,16 @@ be able to just host all the files in one html folder on hopper.
 To make things easier, and quicker, on our class diagram in the controller for ManageQuote change getQuote() to getFinalizedQuote(). In the ManagePurchaseOrder controller change getQuote() to getSanctionedQuote(). Then in the Quote store add both getFinalizedQuote() and getSanctionedQuote() and remove getQuote(). Because we have isFinalized() isSanctioned() as bools in the database, I can list the quotes based on their status in the SanctionQuoteGUI and CreatePurchaseOrderGUI in drop down lists. The functions are smaller doing it this way, as I can add precision to the search, and I can reuse code across both GUIs when displaying the information. I'll post my "work in progress files here shortly. Feel free to check out what I have on the sanction PO page so far: http://students.cs.niu.edu/~z1760164/sanctionQuote.php
 
 -MM
+
+Looking good. I see you've made a couple of quotes yourself. Was everything intuative
+enough in the create quote?
+There are a couple things with the sanctionQuote. 
+I don't see the "sanctionQuoteGUI" class
+
+I see a call to a member fucntion of the QuoteStore class on the main page, but per the
+diagam the QuoteStore should be reachable thru the controller
+
+in the class ManageQuote I see a var for a QuoteStore instance. I don't think Ege wants
+it done that way. Also need to add a $ in the new statment
+
+The sql statment "SELECT quoteId FROM Quote WHERE isFinalized" will also work if you want
