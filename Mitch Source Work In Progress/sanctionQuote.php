@@ -54,6 +54,8 @@ require "dbconnect.php";
         {
 			while(($rowA = $resultA->fetch()) != NULL)
             {
+                echo "<h3>Quote Information</h3>";
+                echo "<hr>";
                 echo "<b>Sales Associate: </b>";
                 echo $rowA["salesAssociate"];
                 echo "<br>";
@@ -61,6 +63,7 @@ require "dbconnect.php";
                 echo $rowA["quoteId"];
                 echo "<br><br>";
                 echo "<h3>Customer Information</h3>";
+                echo "<hr>";
        		    echo "<b>Customer Name: </b>";
                 echo $rowA["customerName"];
                 echo "<br>";
@@ -74,11 +77,12 @@ require "dbconnect.php";
                 echo $rowA["customerEmail"];
                 echo "<br><br>";
                 echo "<h3>Customer Items</h3>";
-                echo "<table border=1 width=70%>";
+                echo "<hr>";
+                echo "<table border=0 width=75%>";
                 echo "<tr>";
-       			echo "<th>Description</th>";
-       			echo "<th>Price</th>";
-                echo "<th>Secret Notes</th>";
+       			echo "<th align=left>Description</th>";
+       			echo "<th align=left>Price</th>";
+                echo "<th align=left>Secret Notes</th>";
        			echo "</tr>";
 
                 while(($rowB = $resultB->fetch()) != NULL)
@@ -94,7 +98,6 @@ require "dbconnect.php";
                     echo $rowB["secretNote"];
                     echo "</td>";
                     echo "</tr>";
-                    echo "<br>";
                 }
        		}
 		}
