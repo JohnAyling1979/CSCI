@@ -42,32 +42,60 @@ require "dbconnect.php";
 
         // uses the selected ID number to query the quote database
         $qVal = $_POST["quoteId"];
-    	$sql = "SELECT * FROM Quote WHERE quoteId = '$qVal';";
-    	$result = $db->query($sql);
+    	$sqlA = "SELECT * FROM Quote WHERE quoteId = '$qVal';";
+    	$resultA = $db->query($sqlA);
+
+        // retrieve line items from quote database
+        $sqlB = "SELECT * FROM LineItem WHERE quoteId = '$qVal';";
+    	$resultB = $db->query($sqlB);
 
         // displays quote information to the user based on quote ID number
     	if (isset($_POST["quoteId"]))
         {
-			while(($row = $result->fetch()) != NULL)
+			while(($rowA = $resultA->fetch()) != NULL)
             {
                 echo "<b>Sales Associate: </b>";
-                echo $row["salesAssociate"];
-                echo "<br><br>";
+                echo $rowA["salesAssociate"];
+                echo "<br>";
                 echo "<b>Quote ID: </b>";
-                echo $row["quoteId"];
+                echo $rowA["quoteId"];
                 echo "<br><br>";
+                echo "<h3>Customer Information</h3>";
        		    echo "<b>Customer Name: </b>";
-                echo $row["customerName"];
+                echo $rowA["customerName"];
                 echo "<br>";
        		    echo "<b>Customer Address: </b>";
-                echo $row["customerAddress"];
+                echo $rowA["customerAddress"];
                 echo "<br>";
                 echo "<b>Customer City: </b>";
-                echo $row["customerCity"];
+                echo $rowA["customerCity"];
                 echo "<br>";
                 echo "<b>Customer Email: </b>";
-                echo $row["customerEmail"];
-                echo "<br>";
+                echo $rowA["customerEmail"];
+                echo "<br><br>";
+                echo "<h3>Customer Items</h3>";
+                echo "<table border=1 width=70%>";
+                echo "<tr>";
+       			echo "<th>Description</th>";
+       			echo "<th>Price</th>";
+                echo "<th>Secret Notes</th>";
+       			echo "</tr>";
+
+                while(($rowB = $resultB->fetch()) != NULL)
+                {
+                    echo "<tr>";
+                    echo "<td>";
+                    echo $rowB["description"];
+                    echo "</td>";
+                    echo "<td>";
+                    echo $rowB["price"];
+                    echo "</td>";
+                    echo "<td>";
+                    echo $rowB["secretNote"];
+                    echo "</td>";
+                    echo "</tr>";
+                    echo "<br>";
+                }
        		}
 		}
 
