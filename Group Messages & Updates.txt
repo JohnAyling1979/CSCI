@@ -381,3 +381,7 @@ a labeled array and then use the json_encode. Once you have the result then you 
 
 As for the final implementation well combin the functions for the shared classes into one file. After that we should
 be able to just host all the files in one html folder on hopper.
+
+To make things easier, and quicker, on our class diagram in the controller for ManageQuote change getQuote() to getFinalizedQuote(). In the ManagePurchaseOrder controller change getQuote() to getSanctionedQuote(). Then in the Quote store add both getFinalizedQuote() and getSanctionedQuote() and remove getQuote(). Because we have isFinalized() isSanctioned() as bools in the database, I can list the quotes based on their status in the SanctionQuoteGUI and CreatePurchaseOrderGUI in drop down lists. The functions are smaller doing it this way, as I can add precision to the search, and I can reuse code across both GUIs when displaying the information. I'll post my "work in progress files here shortly. Feel free to check out what I have on the sanction PO page so far: http://students.cs.niu.edu/~z1760164/sanctionQuote.php
+
+-MM
