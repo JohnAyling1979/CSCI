@@ -398,3 +398,6 @@ in the class ManageQuote I see a var for a QuoteStore instance. I don't think Eg
 it done that way. Also need to add a $ in the new statment
 
 The sql statment "SELECT quoteId FROM Quote WHERE isFinalized" will also work if you want
+
+in the sanctionQuote.php you won't need the first while statment because quoteId is a
+primary key in the quote table.
