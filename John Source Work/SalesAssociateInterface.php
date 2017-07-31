@@ -38,7 +38,7 @@
             $pass=hash("sha256",$pass);
 
             //gets encryoted saved password from the controller
-            $testpass=$controller->getSA($SA);
+            $testpass=$controller->getSApass($SA);
 
             //test if they match
             if($pass==$testpass)

@@ -8,9 +8,9 @@
             RETURNS:    encrypted password
             USAGE:      To request the password from the SAstore
         *******************************************************************/
-        public function getSA($SA)
+        public function getSApass($SA)
         {
-            return $SA->getSA();
+            return $SA->getSApass();
         }
 
         /*******************************************************************

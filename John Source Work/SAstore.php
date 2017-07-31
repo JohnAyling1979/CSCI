@@ -3,12 +3,12 @@
     class SAstore
     {
         /*******************************************************************
-            FUNCTION:   SAstore::getSA
+            FUNCTION:   SAstore::getSApass
             ARGUMENTS:  none
             RETURNS:    encrypted password
             USAGE:      Gets the password from the database
         *******************************************************************/
-        public function getSA()
+        public function getSApass()
         {
             //connects to database
             $db=connect("courses","z981329","z981329","1979Jul29");
