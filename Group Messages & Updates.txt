@@ -423,3 +423,7 @@ The PurchaseOrderGateway will comunicate with outside system. It's simialer to t
 LegacyDatabase. So if we keep the AllnOne on the Purchase Order then I think we should
 add one for the LegacyDatabase aswell
 -JA
+
+I was thinking with your line items on the sanctionquote page. If you displayed them as input text elements with what is in the database
+as the initual value that would cover the edit part for you.
+-JA
