@@ -460,3 +460,9 @@ That should do it for me. -- Sorry to make the last minute changes, I realized t
 
 -MM
 
+Let’s see if this lets me post it this time. I have been trying to post for the last hour and it errors out.
+I have one change that I am going to make in the adminGUI just so it is more explanatory.
+If it is true that if something is not in the class diagram but we can put it in the source code then we won’t have to worry as bad as I was trying to make sure I did not forget any. 
+I will try to post what I have so far tonight for source code if github allows me to.
+I was thinking about turning in the class diagram around 8pm tonight.
+-CJ
