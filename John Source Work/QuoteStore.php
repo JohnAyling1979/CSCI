@@ -17,8 +17,8 @@
             $db=connect("courses","z981329","z981329","1979Jul29");
 
             //insert statment
-            $into="insert into Quote(customerName,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
-                   values('$_SESSION[customerName]','$_SESSION[customerAdd]','$_SESSION[customerCity]','$_POST[email]',1,'$_SESSION[user]')";
+            $into="insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
+                   values('$_SESSION[customerName]','$_SESSION[custId]','$_SESSION[customerAdd]','$_SESSION[customerCity]','$_POST[email]',1,'$_SESSION[user]')";
  
             //execute the statement and check if the row was added
             if($db->exec($into)>0)

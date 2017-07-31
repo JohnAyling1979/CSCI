@@ -56,7 +56,7 @@
                 foreach($customerSTMT as $row)
                 {
                     $customer=iconv("latin1","UTF-8",$row[1]);
-                    echo "\t\t\t\t<option value=$row[0]>$customer</option>\r\n";
+                    echo "\t\t\t\t<option value=$row[id]>$customer</option>\r\n";
                 }
                 echo"\t\t\t</select>\r\n";
                 echo "\t\t\t<button type=submit name='create'>Create Quote</button>\r\n";
@@ -84,13 +84,14 @@
         *******************************************************************/
         public function createQuote($controller,$DBI,$id)
         {
+            $_SESSION[custId]=$id;
             //gets a row from the controller containing the customer
             $customer=$controller->getCustomerInfo($DBI,$id);
 
             //correct the input
-            $_SESSION[customerName]=iconv("latin1","UTF-8",$customer[0]);
-            $_SESSION[customerAdd]=iconv("latin1","UTF-8",$customer[1]);
-            $_SESSION[customerCity]=iconv("latin1","UTF-8",$customer[2]);
+            $_SESSION[customerName]=iconv("latin1","UTF-8",$customer[name]);
+            $_SESSION[customerAdd]=iconv("latin1","UTF-8",$customer[street]);
+            $_SESSION[customerCity]=iconv("latin1","UTF-8",$customer[city]);
 
             //html to the screen
             echo "\t\t<title>$_SESSION[customerName] Quote</title>\r\n";
