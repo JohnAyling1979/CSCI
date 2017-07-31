@@ -472,3 +472,6 @@ I've got some free time tonight so I'll get started on the PurchasingOrderGatewa
 
 PurchasingOrderGateway is in your folder and funtional. I have to add the cust ID to the quote database because it is needed by
 the processing system.  I'll get the diagram done first then change the database and the create quote source code.
+
+Database and create quote now have the custId which is needed by the purchaseordersystem
+-Ja
