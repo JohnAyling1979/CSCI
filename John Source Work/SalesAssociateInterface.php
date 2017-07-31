@@ -11,17 +11,17 @@
         public function index()
         {
             //html to screen
-            echo "<title>Create Quote</title>";
-            echo "</head>";
-            echo "<body>";
-            echo "<h1>Create Quote System login</h1>";
-            echo "<form method=post>";
-            echo "<table>";
-            echo "<tr><td>User Name:</td><td><input type='text' name='user'></td></tr>";
-            echo "<tr><td>Password:</td><td><input type='password' name='pass'></td></tr>";
-            echo "</table>";
-            echo "<button type=submit name='login'>Login</button>";
-            echo "</form>";
+            echo "\t\t<title>Create Quote</title>\r\n";
+            echo "\t</head>\r\n";
+            echo "\t<body>\r\n";
+            echo "\t\t<h1>Create Quote System login</h1>\r\n";
+            echo "\t\t<form method=post>\r\n";
+            echo "\t\t\t<table>\r\n";
+            echo "\t\t\t\t<tr><td>User Name:</td><td><input type='text' name='user'></td></tr>\r\n";
+            echo "\t\t\t\t<tr><td>Password:</td><td><input type='password' name='pass'></td></tr>\r\n";
+            echo "\t\t\t</table>\r\n";
+            echo "\t\t\t<button type=submit name='login'>Login</button>\r\n";
+            echo "\t\t</form>\r\n";
         }
 
         /*******************************************************************
@@ -48,26 +48,28 @@
                 $customerSTMT=$controller->getCustomerNames($DBI);
 
                 //html to screen
-                echo "<title>Choose Customer</title></head>";
-                echo "<body>";
-                echo "<form method=post>";
-                echo "<select name='cust'>";
+                echo "\t\t<title>Choose Customer</title>\r\n";
+                echo "\t</head>\r\n";
+                echo "\t<body>\r\n";
+                echo "\t\t<form method=post>\r\n";
+                echo "\t\t\t<select name='cust'>\r\n";
                 foreach($customerSTMT as $row)
                 {
                     $customer=iconv("latin1","UTF-8",$row[1]);
-                    echo "<option value=$row[0]>$customer</option>";
+                    echo "\t\t\t\t<option value=$row[0]>$customer</option>\r\n";
                 }
-                echo"</select>";
-                echo "<button type=submit name='create'>Create Quote</button>";
-                echo "</form>";
+                echo"\t\t\t</select>\r\n";
+                echo "\t\t\t<button type=submit name='create'>Create Quote</button>\r\n";
+                echo "\t\t</form>\r\n";
             }
             else
             {
                 //displays login failed
-                echo "<title>Log in fail</title></head>";
-                echo "<body>";
-                echo "password does not match<br>";
-                echo "Press back arrow to retry";
+                echo "\t\t<title>Log in fail</title>\r\n";
+                echo "\t</head>\r\n";
+                echo "\t<body>\r\n";
+                echo "\t\tpassword does not match<br>\r\n";
+                echo "\t\tPress back arrow to retry\r\n";
             }
         }
 
@@ -91,22 +93,24 @@
             $_SESSION[customerCity]=iconv("latin1","UTF-8",$customer[2]);
 
             //html to the screen
-            echo "<title>$_SESSION[customerName] Quote</title></head>";
-            echo "<body>";
-            echo "Customer: ".$_SESSION[customerName]."<br>";
-            echo "Street: ".$_SESSION[customerAdd]."<br>";
-            echo "City: ".$_SESSION[customerCity]."<br>";
-            echo "Sales Associate: ".$_SESSION[user]."<br><br><br>";
-            echo "<button onclick='addLine()'>Add Line</button>";
-            echo "<form method=post>";
-            echo "<table>";
-            echo "<tr><th>Description</th><th>Price</th><th>Secret Note</th></tr>";
-            echo "<tr><td><input type='text' size=50 name='desc0'></td><td><input type='text' size=10 name='price0'></td><td><input type='text' size=50 name='secret0'></td></tr>";
-            echo "<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>";
-            echo "</table>";
-            echo "Email<br><input type='email' name='email' required><br>";
-            echo "<button type=submit name='final'>Finalize</button>";
-            echo "</form>";
+            echo "\t\t<title>$_SESSION[customerName] Quote</title>\r\n";
+            echo "\t</head>\r\n";
+            echo "\t<body>\r\n";
+            echo "\t\tCustomer: ".$_SESSION[customerName]."<br>\r\n";
+            echo "\t\tStreet: ".$_SESSION[customerAdd]."<br>\r\n";
+            echo "\t\tCity: ".$_SESSION[customerCity]."<br>\r\n";
+            echo "\t\tSales Associate: ".$_SESSION[user]."<br><br><br>\r\n";
+            echo "\t\t<button onclick='addLine()'>Add Line</button>\r\n";
+            echo "\t\t<form method=post>\r\n";
+            echo "\t\t\t<table>\r\n";
+            echo "\t\t\t\t<tr><th>Description</th><th>Price</th><th>Secret Note</th></tr>\r\n";
+            echo "\t\t\t\t<tr><td><input type='text' size=50 name='desc0'></td><td><input type='text' size=10 name='price0'></td><td><input type='text' size=50 name='secret0'></td></tr>\r\n";
+            echo "\t\t\t\t<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>\r\n";
+            echo "\t\t\t</table>\r\n";
+            echo "\t\t\tEmail<br>\r\n";
+            echo "\t\t\t<input type='email' name='email' required><br>\r\n";
+            echo "\t\t\t<button type=submit name='final'>Finalize</button>\r\n";
+            echo "\t\t</form>\r\n";
         }
 
         /*******************************************************************
@@ -120,14 +124,15 @@
         public function finalizeQuote($controller,$quote)
         {
             //html
-            echo "<title>Finalizing Quote</title></head>";
-            echo "<body>";
+            echo "\t\t<title>Finalizing Quote</title>\r\n";
+            echo "\t</head>\r\n";
+            echo "\t<body>\r\n";
             //check the return value from the controller
             if($controller->finalizeQuote($quote))
-                echo "Quote has been saved and finalized<br>";
+                echo "\t\tQuote has been saved and finalized<br>\r\n";
             else
-                echo "An error has occured<br>";
-            echo "<a href='http://students.cs.niu.edu/~z981329/CSCI467/createquote.php'>Return</a><br>";
+                echo "\t\tAn error has occured<br>\r\n";
+            echo "\t\t<a href='http://students.cs.niu.edu/~z981329/CSCI467/createquote.php'>Return</a><br>\r\n";
         }
     }
 ?>

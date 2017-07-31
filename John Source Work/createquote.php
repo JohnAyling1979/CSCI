@@ -4,7 +4,8 @@
 Driver page for the create quote interface
 -->
 <html>
-    <head><meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <?php
     //needed files
     require "dbconnect.php";
