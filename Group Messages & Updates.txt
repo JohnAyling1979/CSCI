@@ -416,3 +416,10 @@ Updated files in the "Mitch Source Work In Progress" folder. I went ahead and ma
 
 Looks to be coming together well. In the addLine function I ended up haveing to add <br> element to each of the input elements because on a wider screen size it was able to fit 2 side by side.
 -JA
+
+I'm still not sure about having the AllnOne for the PurchaseOrderProcessing in the 
+class diagram. We arn't going to have a class called "PurchaseOrderProcessing". 
+The PurchaseOrderGateway will comunicate with outside system. It's simialer to the 
+LegacyDatabase. So if we keep the AllnOne on the Purchase Order then I think we should
+add one for the LegacyDatabase aswell
+-JA
