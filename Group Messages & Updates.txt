@@ -427,3 +427,9 @@ add one for the LegacyDatabase aswell
 I was thinking with your line items on the sanctionquote page. If you displayed them as input text elements with what is in the database
 as the initual value that would cover the edit part for you.
 -JA
+
+I went ahead and made the changes to the class diagram that you talked about MM. I wasn't sure what kind of free time CJ today. If
+everyone can take a look over it and make sure the classes are the way you like them because after this point if the class/function is
+is in that diagram it will have to be in the code.
+Now from my understanding if it isn't in the class diagram it can still be in the source.
+What time were you thinking you were going to mail the docs off?
