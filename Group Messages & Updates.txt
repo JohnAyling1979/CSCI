@@ -450,13 +450,13 @@ I will upload files as I move along. Thats if GitHub cooperates, as it seems to 
 
 -MM
 
-***NOTES ON UPDATED CLASS DIAGRAM***
--remove sendEmail() from the ManagePurchaseOrder controller, I will implement the classes in both GUI's since they are already 
-there (I already have the code written for it)
+***NOTES ON UPDATED CLASS DIAGRAM*** !!EDIT!!
+-change sendEmail() to emailPurchaseOrder in the ManagePurchaseOrder and remove from CreatePurchaseOrderGUI
+-add emailSanctionedQuote() to the ManageQuote controller and remove from SanctionQuoteGUI
 -add to getFinalizedQuote() and getSanctionedQuote() to the QuoteStore. You could change the quoteSanctioned() to
 getSanctionedQuote()
 
-That should do it for me.
+That should do it for me. -- Sorry to make the last minute changes, I realized this as I opened up my code.
 
 -MM
 
