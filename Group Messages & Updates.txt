@@ -475,3 +475,7 @@ the processing system.  I'll get the diagram done first then change the database
 
 Database and create quote now have the custId which is needed by the purchaseordersystem
 -Ja
+
+Once your done testing the add line item make sure you go to the LineItem database and
+ether delete the ones with a quoteId of 0 or assign them to a valid quote.
+-JA
