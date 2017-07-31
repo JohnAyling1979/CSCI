@@ -29,7 +29,7 @@ Driver page for the create quote interface
         if(isset($_POST[login]))
         {
             $_SESSION[user]=protect($_POST[user]);
-            $interface->submitLogin($controller,$SA,$DBI,$_POST[pass]);
+            $interface->submitLogin($controller,$SA,$DBI,$_POST[pass],$_POST[user]);
         }
 
         //create submit

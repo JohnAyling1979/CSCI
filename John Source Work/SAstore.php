@@ -4,25 +4,25 @@
     {
         /*******************************************************************
             FUNCTION:   SAstore::getSApass
-            ARGUMENTS:  none
-            RETURNS:    encrypted password
+            ARGUMENTS:  $name: Name of the associate
+            RETURNS:    Sales Associate information as an array
             USAGE:      Gets the password from the database
         *******************************************************************/
-        public function getSApass()
+        public function getSA($name)
         {
             //connects to database
             $db=connect("courses","z981329","z981329","1979Jul29");
 
             //creates query
-            $query="select password from SalesAssociate where name='$_SESSION[user]'";
+            $query="select password from SalesAssociate where name='$name'";
 
             //runs query
             $stmt=$db->query($query);
             //gets first row
             $row=$stmt->fetch();
 
-            //returns the encrypted password
-            return $row[password];            
+            //returns the Sales Associate information
+            return $row;            
         }
     }
 ?>

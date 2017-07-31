@@ -3,14 +3,16 @@
     class CreateQuoteController
     {
         /*******************************************************************
-            FUNCTION:   CreateQuoteController::getSA
+            FUNCTION:   CreateQuoteController::getPass
             ARGUMENTS:  $SA: contains the SAstore instance
+                        $name: Name of the associate
             RETURNS:    encrypted password
             USAGE:      To request the password from the SAstore
         *******************************************************************/
-        public function getSApass($SA)
+        public function getPass($SA,$name)
         {
-            return $SA->getSApass();
+            $info=$SA->getSA($name);
+            return $info[password];
         }
 
         /*******************************************************************

@@ -32,13 +32,13 @@
             RETURNS:    none
             USAGE:      To login and display the customer's names
         *******************************************************************/
-        public function submitLogin($controller,$SA,$DBI,$pass)
+        public function submitLogin($controller,$SA,$DBI,$pass,$name)
         {
             //encrypts submitted password
             $pass=hash("sha256",$pass);
 
             //gets encryoted saved password from the controller
-            $testpass=$controller->getSApass($SA);
+            $testpass=$controller->getPass($SA,$name);
 
             //test if they match
             if($pass==$testpass)
