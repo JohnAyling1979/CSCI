@@ -434,7 +434,18 @@ is in that diagram it will have to be in the code.
 Now from my understanding if it isn't in the class diagram it can still be in the source.
 What time were you thinking you were going to mail the docs off?
 
-I think for the admin side it is mostly good I am just going to change one of the names in the AdminGUI to be more explanatory.  
-If it is correct that we can add things to the source code that is not in the class diagram then we don’t have to worry that we have everything in the class diagram. 
-I was thinking about submitting the document tonight around 8pm until someone wants to hold off as we have until Wednesday.
--CJ
+I will see what I can do about the line items on the sanction quote page. I will be spending most of the day working on the
+other functions that need to be implemented in the sanction quote. I am going to try to keep them in a way that
+can be used (with minor changes) in the Create PO page. With that being said, if someone would like to try to code the
+the interface and controller to the purchasing system, that would help out a lot. After today, my time is going to be
+limited due to work, as Wednesday and next Sunday will be the only times that I have a large block of time to sit down
+and keep working on this. I am hoping today that I can make some good head-way, as the main part of displaying the quote
+is done, with minor changes of course. It took a lot longer since we are coding this in a way that I haven't done in web
+programming before. However, I still need to write the updateQuote() class that will be used for both controllers.
+
+As far as the "AllnOne" I just called it that because it seemed like a "catch-all" based off his example that he had provided to
+us. Feel free to call it however you see fit.
+
+I will upload files as I move along.
+
+-MM
