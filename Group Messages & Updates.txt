@@ -466,3 +466,6 @@ If it is true that if something is not in the class diagram but we can put it in
 I will try to post what I have so far tonight for source code if github allows me to.
 I was thinking about turning in the class diagram around 8pm tonight.
 -CJ
+
+I've got some free time tonight so I'll get started on the PurchasingOrderGateway
+-JA
