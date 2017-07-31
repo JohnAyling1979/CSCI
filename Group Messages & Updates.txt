@@ -413,3 +413,6 @@ I was telling my wife the same thing. I would just have the bounday's all talk d
 Updated files in the "Mitch Source Work In Progress" folder. I went ahead and made a function called displayQuote() in the SanctionQuoteGUI class that I will also be using for the CreatePurchaseOrderGUI class, so we will need to add that to our class diagrams. This will work in conjunction with the getFinalizedQuote() and getSanctionedQuote() functions I have suggested instead of getQuote(). John, thank you for the suggestions, and I added your addLine() function to my sanctionQuote driver but have not implemented yet since I have to write a ton of other functions for edit,delete and the discounts. I am calling it a night. You can check out the new implementation thats up and running here: http://students.cs.niu.edu/~z1760164/sanctionQuote.php
 
 -MM
+
+Looks to be coming together well. In the addLine function I ended up haveing to add <br> element to each of the input elements because on a wider screen size it was able to fit 2 side by side.
+-JA
