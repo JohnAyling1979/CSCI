@@ -446,6 +446,6 @@ programming before. However, I still need to write the updateQuote() class that 
 As far as the "AllnOne" I just called it that because it seemed like a "catch-all" based off his example that he had provided to
 us. Feel free to call it however you see fit.
 
-I will upload files as I move along.
+I will upload files as I move along. Thats if GitHub cooperates, as it seems to be running odd today.
 
 -MM
