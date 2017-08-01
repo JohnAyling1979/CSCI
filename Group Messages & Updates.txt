@@ -487,3 +487,6 @@ The HTML docs you uploaded do not match the diagram that are on github
 -JA
 The mdj file is good. I would just remove the html folder and then do a fresh export.
 -JA
+
+Thanks for catching it. For some reason, not all the files uploaded to github. I have reuploaded it and will send it in a few minutes. I will cc you when I send it.
+-CJ
