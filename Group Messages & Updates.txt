@@ -556,3 +556,7 @@ eyes, a rested brain, and an upset stomach.
 
 I'm fine having lines with just notes. I will make changes to the create quote to allow it because of right now it only
 Adds lines with discriprion
+
+If you look at the example that he provides on blackboard he splits them up into separate files. I had them in one file but it was just getting long and I thought it might be less confusing if I split them up. If needed I can copy them back to the one file.
+https://webcourses.niu.edu/webapps/cmsmain/webui/users/a132436/Bb%20Courses/CSCI%20467/Payroll%20Example%20Project/Payroll?action=frameset&subaction=view&pid=pid-4740813-dt-content-rid-28680998_1
+-CJ
