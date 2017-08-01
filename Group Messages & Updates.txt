@@ -494,3 +494,6 @@ Thanks for catching it. For some reason, not all the files uploaded to github. I
 Yeah through the web interface you can only send 100 files at a time. The html file are over that.  If you do each individual
 folder at a time you should be fine.
 -JA
+
+I just uploded it as a zip folder and it worked. Sending email now.
+-CJ
