@@ -479,3 +479,6 @@ Database and create quote now have the custId which is needed by the purchaseord
 Once your done testing the add line item make sure you go to the LineItem database and
 ether delete the ones with a quoteId of 0 or assign them to a valid quote.
 -JA
+
+Last call for any changes on the class diagrams. I have made my change and will submit it soon unless I hear otherwise.
+-CJ
