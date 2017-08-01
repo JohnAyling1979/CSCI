@@ -508,3 +508,21 @@ code for testing and not running from the quote store right now(I emptied out th
 http://students.cs.niu.edu/~z1760164/sanctionQuote.php
 
 -MM
+
+Morning Mitch. One thing that may help is how you are thinking of the secert note. The way the class diagraim and the database
+are setup are by having the option to add a secert note to each description. From what I've seen from your implitation I feel you
+are treating the secert note as a seperate entity that can be added at the end. Which is a plauseable way but at the time being
+our database isn't designed like that.
+
+It looks like at some point you did get it to work. This is from the LneItem database.
+|     35 |      15 | New Quote            |  50000.00 | Note1            |
+|     36 |      15 | Testing custId in DB |    200.00 | Note2            |
+|     37 |      13 | ashghghghhghg        | 494949.00 | NULL             |
+|     38 |      13 | hahaha               |  68787.00 | NULL             |
++--------+---------+----------------------+-----------+------------------+
+lines 37 and 38 were added by you to quote 13.
+
+Feel free to call to if it will be easier to comunicate that way. Tuesdays and Thursday I'm free any time after 12:00
+
+GL
+-JA
