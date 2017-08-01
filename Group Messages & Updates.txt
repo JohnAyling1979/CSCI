@@ -497,3 +497,14 @@ folder at a time you should be fine.
 
 I just uploded it as a zip folder and it worked. Sending email now.
 -CJ
+
+Well I feel I have gotten absolutely nothing done today. Between a bunch of interuptions at home, code errors, and things not
+working, I am calling it a night. I have been working on is the addLineItem and it's still not working. I went ahead and got rid
+of my addLineItems function code in quotestore and put it in line in the code, with code that from a prior project that works,
+and it's still not posting to the quote DB. So needless to say, I'm frustrated and tired.
+
+Take a look at what I have uploded (sanction quote GUI) and see if you can find where its not working. Again, its inline in the
+code for testing and not running from the quote store right now(I emptied out that function, so I could trace my error)
+http://students.cs.niu.edu/~z1760164/sanctionQuote.php
+
+-MM
