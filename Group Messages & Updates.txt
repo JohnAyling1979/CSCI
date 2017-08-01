@@ -535,3 +535,7 @@ In your current inline you have
                 echo $_SESSION["quoteId"];
 
 You set up the query but your missing "$db->exec($addLine);"
+
+Morning CJ. I was looking over the GUI and it works, but I'm not sure if it is what they are looking for. From my understanding
+the iterface should be a class whith each of those pages as a member function.
+-JA
