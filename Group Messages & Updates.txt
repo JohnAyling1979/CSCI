@@ -561,3 +561,6 @@ If you look at the example that he provides on blackboard he splits them up into
 I had them in one file but it was just getting long and I thought it might be less confusing if I split them up. If needed I can copy them back to the one file.
 https://webcourses.niu.edu/webapps/cmsmain/webui/users/a132436/Bb%20Courses/CSCI%20467/Payroll%20Example%20Project/Payroll?action=frameset&subaction=view&pid=pid-4740813-dt-content-rid-28680998_1
 -CJ
+
+Nope that is perfect then. I did notice looking at his that he put the connectection funtion inside each class that made a connection to a database. Do we want to do that with ours?
+-JA
