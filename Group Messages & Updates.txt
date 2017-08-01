@@ -553,3 +553,6 @@ I ended up staying home from work today cause I am not feeling well, which works
 eyes, a rested brain, and an upset stomach.
 
 -MM
+
+I'm fine having lines with just notes. I will make changes to the create quote to allow it because of right now it only
+Adds lines with discriprion
