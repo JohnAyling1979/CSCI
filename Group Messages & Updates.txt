@@ -485,3 +485,5 @@ Last call for any changes on the class diagrams. I have made my change and will 
 
 The HTML docs you uploaded do not match the diagram that are on github
 -JA
+The mdj file is good. I would just remove the html folder and then do a fresh export.
+-JA
