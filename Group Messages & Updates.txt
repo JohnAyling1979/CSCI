@@ -539,3 +539,17 @@ You set up the query but your missing "$db->exec($addLine);"
 Morning CJ. I was looking over the GUI and it works, but I'm not sure if it is what they are looking for. From my understanding
 the iterface should be a class whith each of those pages as a member function.
 -JA
+
+John,
+
+With the secret note, we have the function addSecretNote() [which is just an INSERT statement] and then editSecretNote() [an
+UPDATE statement]. Since we have those listed as separte functions I figure with the addLineLitems() function, it will only
+INSERT an item and it's price. In the DB, lines 37 & 38 were added by me while in Hopper to test my INSERT statement with using
+the quoteId, which did not come from the webpage. At one point yesterday, I did have it working (somewhat), but you will notice
+that the quoteId's came up as 0. To test that the $_SESSION variable is holding the quoteId, i use an echo statement that prints
+out the quoteId next to "reset" button.
+
+I ended up staying home from work today cause I am not feeling well, which works out that I can work on this with a fresh set of
+eyes, a rested brain, and an upset stomach.
+
+-MM
