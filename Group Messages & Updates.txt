@@ -526,3 +526,12 @@ Feel free to call to if it will be easier to comunicate that way. Tuesdays and T
 
 GL
 -JA
+
+In your current inline you have 
+                if (isset($_POST["addLineItems"]))
+                {
+                    $addLine = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$_SESSION[quoteId]', '$_POST[description]', '$_POST[price]');";
+                }
+                echo $_SESSION["quoteId"];
+
+You set up the query but your missing "$db->exec($addLine);"
