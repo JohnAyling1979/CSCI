@@ -36,7 +36,7 @@
                 $secret="secret".$n;
 
                 //while there are lines
-                while(isset($_POST[$desc]))
+                while(isset($desc) && $_POST[$desc]!="")
                 {
                     //checks if the row is empty
                     if($_POST[$desc]!="" || $_POST[$price]!="" || $_POST[$secret]!="")
