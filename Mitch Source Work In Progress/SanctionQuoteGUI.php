@@ -8,7 +8,6 @@
             print ('<title>Sanction a Quote</title>
                     </head>
                     <body>
-                    <form action="sanctionQuote.php" method="POST">
                     <h2>Sanction a Quote</h2>
             ');
         
@@ -34,6 +33,7 @@
 
             // retrieves user selection from dropdown
             $_POST["quoteId"];
+            $_SESSION["quoteId"] = $_POST["quoteId"];
             $db=connect("courses","z981329","z981329","1979Jul29");
 
             // uses the selected ID number to query the quote database
@@ -70,9 +70,34 @@
                         echo "<td>".$rowB["price"]."</td>";
                         echo "<td>".$rowB["secretNote"]."</td></tr>";
                     } // end while for resultB
-       		    } // end while for resultA
+                    echo "</table>";
+       		    } // end while for resultA    
 		    } // end if
         } // end function
+
+        public function addLineItems($quoteList)
+        {
+            //$quotesByID = $quoteList->addLineItems($quoteList);
+
+            if (isset($_SESSION["quoteId"]))
+            {
+                print ('<br><h3>Quote Editing Functions</h3><hr>
+                        <h4>Add Line Items</h4>
+                        Description <input type="text" name="description" size=50 placeholder="Item Description"><br><br>
+                        Price <input type="text" name="price" placeholder="Price"><br><br>
+                        <input type="submit" name="addLineItems" value="Add Line Items">
+                        <input type="reset">
+                ');
+
+                $db=connect("courses","z981329","z981329","1979Jul29");
+
+                if (isset($_POST["addLineItems"]))
+                {
+                    $addLine = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$_SESSION[quoteId]', '$_POST[description]', '$_POST[price]');";
+                }
+                echo $_SESSION["quoteId"];
+            }
+        }
     } // end class
 
 ?>

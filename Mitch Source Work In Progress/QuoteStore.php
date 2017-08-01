@@ -68,5 +68,10 @@
             // return the results
             return $query->fetchAll();
         }
+
+        public function addLineItems()
+        {
+
+        }
     }
 ?>
