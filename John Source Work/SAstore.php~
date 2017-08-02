@@ -14,7 +14,7 @@
             $db=connect("courses","z981329","z981329","1979Jul29");
 
             //creates query
-            $query="select * from SalesAssociate where name='$name'";
+            $query="select password from SalesAssociate where name='$name'";
 
             //runs query
             $stmt=$db->query($query);
