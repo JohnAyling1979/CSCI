@@ -577,3 +577,7 @@ and hopefully get the other two working the right way.
 
 I've got the Add line working. I get it posted here is a separte file for you in a sec.
 -JA
+
+Your item ID in the edit function.  Are you limiting it to only Id's that are attached to the quote? I probably could look but
+I figure asking is faster
+-JA
