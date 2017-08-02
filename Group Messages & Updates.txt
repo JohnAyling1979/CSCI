@@ -620,4 +620,6 @@ it in the final price. Then if they fill in both display an error messages.
 
 With the Edit line.  Say I just need to change the desript. If I do that it zero's out the price so that needs to get looked at.
 Ether have it set the values in the input field default to the the current ones or if it is "" don't update the value.
+
+Also maybe of the first screen have both the quoteID and CustomerName just because you my have mutiple quotes for one customer but the ID will alway be unique
 -JA
