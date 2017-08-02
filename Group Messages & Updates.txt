@@ -636,3 +636,29 @@ would not like having to reselect the same quote over and over again.
 I'll see what I can do.
 
 -MM
+
+***Few Notes***
+-The edit line items has been changed and works
+
+-With adding secret notes, I have it implemented, however; it creates a new line litem with NULL values in both the
+price and description. What I can do is remove the line item id's from displaying (which I put them in there for testing)
+and the notes will just appear in te secret notes column. But now, when you want to edit a note, you will have a bunch of
+blank entries in the dropdown. One way that I would see this making sense is if I leave the lineId on the screen, and have
+them appear next to the item description in the drop down, but even then, thats clunky. How I had it originally setup was that
+you could only edit secret notes with items that already had them. This also included items from the create quote that didn't
+have any secret notes because when the quote is created, the value in the secret note field wasn't set to null. When
+you add a line item on the sanction quote page, the value is null, which allows the add secret note to work on items that
+don't have a note. To me, that made more sense to do it that way. I understand about having just a note, but then it eats
+up a lineitem id in the database because you can only insert based on the quoteid not the itemid since thats the primary key.
+Again, i think if we keep it the way that its set up, its eaiser to manage, and saves space in the db.
+
+- with the return to the sanction quote screen. I have been fighting that since I started, and I haven't found a good way
+for it to reload after changes are made. I believe this is due to having in a post method where the quote id is the main
+choice that runs the page. I could do it using get, but as we know, we are not supposed to use get. Which makes sense for sql
+injection and whatnot. I had a javascript statement in there early on, but it didn't work the way I wanted it to so I canned
+it. I am not sure if I could use the session variable of the quoteid to pass in the view quote function on the sanction quote
+page to reload after it runs through the if statements. I'll mess with it to see if i can get that to work, but if you have any suggestions, or know a good way of doing it, send me the code. After today, my time is going to be limited until sunday cause
+of work.
+
+-MM
+there at on point for the reload, but it didn't work so well
