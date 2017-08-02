@@ -564,3 +564,12 @@ https://webcourses.niu.edu/webapps/cmsmain/webui/users/a132436/Bb%20Courses/CSCI
 
 Nope that is perfect then. I did notice looking at his that he put the connectection funtion inside each class that made a connection to a database. Do we want to do that with ours?
 -JA
+
+I have the addLineItem kind of working, along with the editLineItem. However, the addLineItem isn't recording the quoteId
+POST or SESSION variable in the statement, yet it records everything else. In the DB it shows up with a quoteId of 0.
+I have been trying to figure this out for quite awhile and still no avail. The editLineItem posts a new empty row in the DB even
+when I require the lineId that is going to be UPDATEd. I'm going to step out for a few. If you guys want to take a look,
+its uploaded in my source work folder, and the SQL statements are in my quoteStore. I am probably missing something
+obvious, hahaha. I'm going to work on the remove function when I get back and hopefully get the other two working the right way.
+
+-MM
