@@ -661,4 +661,3 @@ page to reload after it runs through the if statements. I'll mess with it to see
 of work.
 
 -MM
-there at on point for the reload, but it didn't work so well
