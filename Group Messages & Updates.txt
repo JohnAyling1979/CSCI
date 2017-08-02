@@ -640,7 +640,7 @@ I'll see what I can do.
 ***Few Notes***
 -The edit line items has been changed and works
 
--With adding secret notes, I have it implemented, however; it creates a new line litem with NULL values in both the
+-With adding secret notes, I tried it, however; it creates a new line litem with NULL values in both the
 price and description. What I can do is remove the line item id's from displaying (which I put them in there for testing)
 and the notes will just appear in te secret notes column. But now, when you want to edit a note, you will have a bunch of
 blank entries in the dropdown. One way that I would see this making sense is if I leave the lineId on the screen, and have
