@@ -632,3 +632,7 @@ What if they want to add just a Secert Note, but not have it attached to any of 
 Finally I would have it return to the viewQuote screen. More then likly they will be doing mutiple things to a quote and they 
 would not like having to reselect the same quote over and over again.
 -JA
+
+I'll see what I can do.
+
+-MM
