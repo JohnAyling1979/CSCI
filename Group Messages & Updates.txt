@@ -661,3 +661,8 @@ page to reload after it runs through the if statements. I'll mess with it to see
 of work.
 
 -MM
+
+Uploaded the latest code for the sanction quote. I am going to work on trying to get the calcualtions working tonight, along
+with marking the quotes as sanctioned.
+
+-MM
