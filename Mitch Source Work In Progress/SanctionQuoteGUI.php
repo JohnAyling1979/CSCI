@@ -17,13 +17,13 @@
             print ('<form method=post>
                     Select a finalized Quote 
                     <select name="quoteId">
-                    <option value="" disabled selected>Quote by Customer Name</option>
+                    <option value="" disabled selected>Quote by ID and Customer Name</option>
             ');
 
             // diplay quotes by ID in the drop down box
             foreach ($quotesByID as $row)
             {
-                echo "<option value='".$row["quoteId"]. "'>" .$row["customerName"]."</option>";
+                echo "<option value='".$row["quoteId"]. "'>" .$row["quoteId"]. " - " .$row["customerName"]."</option>";
             }
         
             // display submit button
@@ -65,15 +65,13 @@
                     echo "<b>Customer Email: </b>" .$rowA["customerEmail"]. "<br><br>";
                     echo "<h3>Customer Items</h3><hr>";
                     echo "<table border=0 width=75%><tr>";
-                    echo "<th align=left>Line ID</th>";
        			    echo "<th align=left>Description</th>";
        			    echo "<th align=left>Price</th>";
                     echo "<th align=left>Secret Notes</th></tr>";
 
                     while(($rowB = $resultB->fetch()) != NULL)
                     {
-                        echo "<tr><td>".$rowB["lineId"]."</td>";
-                        echo "<td>".$rowB["description"]."</td>";
+                        echo "<tr><td>".$rowB["description"]."</td>";
                         echo "<td>".$rowB["price"]."</td>";
                         echo "<td>".$rowB["secretNote"]."</td></tr>";
                     } // end while for resultB
@@ -199,7 +197,7 @@
                 $db=connect("courses","z981329","z981329","1979Jul29");
 
                 // retrieve line items from quote database based on the quote ID
-                $sql = "SELECT lineId, description FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote IS NULL;";
+                $sql = "SELECT lineId, description FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote = '' OR quoteId = '$_SESSION[quoteId]' AND secretNote IS NULL;";
     	        $result = $db->query($sql);
 
                 // diplay quotes by ID in the drop down box
@@ -231,20 +229,20 @@
                         <form method=post>
                         <span style="white-space:nowrap">
                         <select name="lineId">
-                        <option value="" disabled selected>Select a Secret Note</option>
+                        <option value="" disabled selected>Select an Item with a Secret Note to edit</option>
                 ');
 
                 // connect to the database
                 $db=connect("courses","z981329","z981329","1979Jul29");
 
                 // retrieve line items from quote database based on the quote ID and if a secret note exists
-                $sql = "SELECT lineId, secretNote FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote IS NOT NULL;";
+                $sql = "SELECT lineId, description, secretNote FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote != '';";
     	        $result = $db->query($sql);
 
                 // diplay quotes by ID in the drop down box
                 foreach ($result as $row)
                 {
-                    echo "<option value='".$row["lineId"]. "'>" .$row["secretNote"]."</option>";
+                    echo "<option value='".$row["lineId"]. "'>".$row["description"]." - ".$row["secretNote"]."</option>";
                 } // end foreach
         
                 // display submit button

@@ -88,9 +88,26 @@
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
-            // update the line item in the quote
-            $sql = "UPDATE LineItem SET quoteId='$quoteId', description='$description', price='$price' WHERE lineId='$lineId';";
-            $db->exec($sql);
+            // update only the description
+            if ($description)
+            {
+                $sql1 = "UPDATE LineItem SET quoteId='$quoteId', description='$description' WHERE lineId='$lineId';";
+                $db->exec($sql1);
+            }
+
+            // update only the price
+            if ($price)
+            {
+                $sql2 = "UPDATE LineItem SET quoteId='$quoteId', price='$price' WHERE lineId='$lineId';";
+                $db->exec($sql2);
+            }
+
+            // update both the description and the price
+            if ($description && $price)
+            {
+                $sql3 = "UPDATE LineItem SET quoteId='$quoteId', description='$description', price='$price' WHERE lineId='$lineId';";
+                $db->exec($sql3);
+            }
 
             // disconnect from the database
             $db = null;
@@ -116,6 +133,7 @@
 
             // update the secret note based on the item ID
             $sql = "UPDATE LineItem SET secretNote='$secretNote' WHERE lineId='$lineId';";
+            //$sql = "INSERT INTO LineItem (quoteId, secretNote) VALUES ('$quoteId', '$secretNote');";
             $db->exec($sql);
 
             // disconnect from the database
