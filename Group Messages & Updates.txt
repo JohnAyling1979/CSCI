@@ -627,6 +627,8 @@ but the ID will alway be unique
 I'm not able to add Secret Notes to line items created by the create quote system because those arn't NULL.  I would have it
 check for "" and change the table to be not null and then it will defualt to "" for you. 
 
+What if they want to add just a Secert Note, but not have it attached to any of the current descriptions. 
+
 Finally I would have it return to the viewQuote screen. More then likly they will be doing mutiple things to a quote and they 
 would not like having to reselect the same quote over and over again.
 -JA
