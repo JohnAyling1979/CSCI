@@ -36,9 +36,6 @@
 
         public function viewQuote($controller, $quoteStore)
         {
-            // retrieves user selection from dropdown
-            $_POST["quoteId"];
-
             // save the user selection to a session variable
             $_SESSION["quoteId"] = $_POST["quoteId"];
 
@@ -46,12 +43,11 @@
             $db=connect("courses","z981329","z981329","1979Jul29");
 
             // uses the selected ID number to query the quote database for customer info
-            $qVal = $_POST["quoteId"];
-    	    $sqlA = "SELECT * FROM Quote WHERE quoteId = '$qVal';";
+    	    $sqlA = "SELECT * FROM Quote WHERE quoteId = '$_SESSION[quoteId]';";
     	    $resultA = $db->query($sqlA);
 
             // retrieve line items from quote database based on the quote ID
-            $sqlB = "SELECT * FROM LineItem WHERE quoteId = '$qVal';";
+            $sqlB = "SELECT * FROM LineItem WHERE quoteId = '$_SESSION[quoteId]';";
     	    $resultB = $db->query($sqlB);
 
             // displays quote information to the user based on quote ID number
@@ -256,7 +252,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="editSecretNote" size=50 placeholder="Edit Secret Note">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" name="submitSecretNoteEdit" value="Add Secret Note">
+                        <input type="submit" name="submitSecretNoteEdit" value="Edit Secret Note">
                         <input type="reset">
                         </span>
                         </form>
