@@ -617,3 +617,7 @@ For the discount field i would jist do two separate input feilds. If the percent
 or if the straight dollar one is in do a dollar value. You can do a select sum(price) for the total. Do the math and save
 it in the final price. Then if they fill in both display an error messages.
 -JA
+
+With the Edit line.  Say I just need to change the desript. If I do that it zero's out the price so that needs to get looked at.
+Ether have it set the values in the input field default to the the current ones or if it is "" don't update the value.
+-JA
