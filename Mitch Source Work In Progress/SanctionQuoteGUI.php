@@ -120,7 +120,7 @@
                         <input type="text" name="editDescription" size=50 placeholder="New Item Description">
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="editPrice" placeholder="New Price"><br><br>
-                        <input type="submit" name="submitLineItems" value="Edit Line Items">
+                        <input type="submit" name="editLineItems" value="Edit Line Items">
                         <input type="reset">
                         </span>
                         </form>
