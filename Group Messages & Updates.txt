@@ -622,4 +622,7 @@ With the Edit line.  Say I just need to change the desript. If I do that it zero
 Ether have it set the values in the input field default to the the current ones or if it is "" don't update the value.
 
 Also maybe of the first screen have both the quoteID and CustomerName just because you my have mutiple quotes for one customer but the ID will alway be unique
+
+I'm not able to add Secret Notes to line items created by the create quote because those arn't NULL.  I would have it check for
+"" and change the table to be not null and then it will defualt to "" for you. 
 -JA
