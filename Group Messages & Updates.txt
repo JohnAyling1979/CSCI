@@ -582,7 +582,7 @@ Your item ID in the edit function.  Are you limiting it to only Id's that are at
 I figure asking is faster
 -JA
 
-I'll have to check out the file. thank you!What was it? And you are correct, I have the item id's display when the quote
+I'll have to check out the file. Thank you! What was it? And you are correct, I have the item id's display when the quote
 displays. I figure with having an id input, it reduces code and is a quick way to change it. I had it with drop downs eariler,
 but having the text boxes made more sense and looks better.
 
