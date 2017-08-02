@@ -567,8 +567,10 @@ Nope that is perfect then. I did notice looking at his that he put the connectec
 
 I have the addLineItem kind of working, along with the editLineItem. However, the addLineItem isn't recording the quoteId
 POST or SESSION variable in the statement, yet it records everything else. In the DB it shows up with a quoteId of 0.
-I have been trying to figure this out for quite awhile and still no avail. I'm going to step out for a few. If you guys want to
-take a look, its uploaded in my source work folder, and the SQL statements are in my quoteStore. I am probably missing something
-obvious, hahaha. I'm going to work on the remove function when I get back and hopefully get the other two working the right way.
+I have been trying to figure this out for quite awhile and still no avail. The editLineItem isn't working yet, so if you see
+anything suspect let me know.
+I'm going to step out for a few. If you guys want to take a look, its uploaded in my source work folder, and the SQL statements
+are in my quoteStore. I am probably missing something obvious, hahaha. I'm going to work on the remove function when I get back
+and hopefully get the other two working the right way.
 
 -MM
