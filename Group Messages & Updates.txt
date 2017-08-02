@@ -621,8 +621,12 @@ it in the final price. Then if they fill in both display an error messages.
 With the Edit line.  Say I just need to change the desript. If I do that it zero's out the price so that needs to get looked at.
 Ether have it set the values in the input field default to the the current ones or if it is "" don't update the value.
 
-Also maybe of the first screen have both the quoteID and CustomerName just because you my have mutiple quotes for one customer but the ID will alway be unique
+Also maybe of the first screen have both the quoteID and CustomerName just because you my have mutiple quotes for one customer 
+but the ID will alway be unique
 
-I'm not able to add Secret Notes to line items created by the create quote because those arn't NULL.  I would have it check for
-"" and change the table to be not null and then it will defualt to "" for you. 
+I'm not able to add Secret Notes to line items created by the create quote system because those arn't NULL.  I would have it
+check for "" and change the table to be not null and then it will defualt to "" for you. 
+
+Finally I would have it return to the viewQuote screen. More then likly they will be doing mutiple things to a quote and they 
+would not like having to reselect the same quote over and over again.
 -JA
