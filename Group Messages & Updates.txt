@@ -587,3 +587,7 @@ displays. I figure with having an id input, it reduces code and is a quick way t
 but having the text boxes made more sense and looks better.
 
 -MM
+
+When you look at you see I took your first function and split it in half that way the $_SESSION[quoteId] was only getting set once. Also in the $quoteAddLine it wasn't getting passed any variables.
+
+A drop down would provent them from entering any invalid values for the lineId.  What do you do if they choose a line that isn't attached to the quote?
