@@ -612,3 +612,8 @@ the sanction quote gui is finished, alot of the code can be reused/quickly modif
 See you guys tomorrow,
 
 -MM
+When you set the isSanctioned to 1 also set the isFinalized to 0.
+For the discount field i would jist do two separate input feilds. If the percentage one is filled in treeat it like a percent
+or if the straight dollar one is in do a dollar value. You can do a select sum(price) for the total. Do the math and save
+it in the final price. Then if they fill in both display an error messages.
+-JA
