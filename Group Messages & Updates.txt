@@ -592,3 +592,23 @@ When you look at you see I took your first function and split it in half that wa
 
 A drop down would provent them from entering any invalid values for the lineId.  What do you do if they choose a line that isn't attached to the quote?
 -JA
+
+John, thanks for pointing that out. Once you said it, I realized it about the parms hahaha. I also took your suggestion too
+about the drop downs. I also added IS NULL and IS NOT NULL to the sql statements on the secret notes. Without them, the add and
+edit pretty much did the same thing. So now, you can only add a secret note if the line item doesn't have one, and only edit
+ones that have notes that already exist. The add line item works (thanks again John), edit line, remove item, add secret note
+and edit secret note are also working. I also made some changes in what displays in the drop down boxes, primarily for the
+quote selection. Now it will display the customer name instead of the quote ID. The item descriptions are also displayed
+instead of the line item ids. It makes it much easier to navigate, but if you guys prefer the id's instead, its a quick change.
+I also uploaded the working files to my source folder if you want to check it out so far.
+
+Feel free to mess around with the gui and let me know what you think: http://students.cs.niu.edu/~z1760164/sanctionQuote.php
+
+Now whats left for the sanction quote gui is marking the quote as sanctioned, and possibly the harder part of this page,
+getting the prices to calcualte the final price and the two different discount modes (amount/percentage) from the values
+stored in the database. So if you guys have any suggestions on ways we could do this, i am totally open. But I figure once
+the sanction quote gui is finished, alot of the code can be reused/quickly modified in the create purchase order gui.
+
+See you guys tomorrow,
+
+-MM
