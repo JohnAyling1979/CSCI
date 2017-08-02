@@ -59,7 +59,7 @@
         public function getFinalizedQuote()
         {
             //connect to the database
-            $db=connect("courses","z981329","z981329","1979Jul29");
+            $db = connect("courses","z981329","z981329","1979Jul29");
 
             // Retrieve Quotes that are marked as Finalized
             $sql = "SELECT quoteId FROM Quote WHERE isFinalized = 1;";
@@ -67,11 +67,29 @@
 
             // return the results
             return $query->fetchAll();
+            $db = null;
         }
 
         public function addLineItems()
         {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
 
+            // insert line items into the quote
+            $sql = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$_POST[quoteId]', '$_POST[addDescription]', '$_POST[addPrice]');";
+            $db->exec($sql);
+            $db = null;
+        }
+
+        public function editLineItems()
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            // insert line items into the quote
+            $sql = "UPDATE LineItem SET quoteId='$_POST[quoteId]',description='$_POST[editDescription]',price='$_POST[editPrice]' WHERE lineId='$_POST[lineID]';";
+            $db->exec($sql);
+            $db = null;
         }
     }
 ?>
