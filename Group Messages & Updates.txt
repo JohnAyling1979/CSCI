@@ -574,3 +574,6 @@ are in my quoteStore. I am probably missing something obvious, hahaha. I'm going
 and hopefully get the other two working the right way.
 
 -MM
+
+I've got the Add line working. I get it posted here is a separte file for you in a sec.
+-JA
