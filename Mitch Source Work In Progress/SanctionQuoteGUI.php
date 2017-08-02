@@ -17,13 +17,13 @@
             print ('<form method=post>
                     Select a finalized Quote 
                     <select name="quoteId">
-                    <option value="" disabled selected>Quote by ID</option>
+                    <option value="" disabled selected>Quote by Customer Name</option>
             ');
 
             // diplay quotes by ID in the drop down box
             foreach ($quotesByID as $row)
             {
-                echo "<option value='".$row["quoteId"]. "'>" .$row["quoteId"]."</option>";
+                echo "<option value='".$row["quoteId"]. "'>" .$row["customerName"]."</option>";
             }
         
             // display submit button
@@ -32,7 +32,10 @@
                     </form>
                     <br><br>
             ');
+        } // end function
 
+        public function viewQuote($controller, $quoteStore)
+        {
             // retrieves user selection from dropdown
             $_POST["quoteId"];
 
@@ -98,38 +101,169 @@
                         <span style="white-space:nowrap">
                         <input type="text" name="addDescription" size=50 placeholder="Item Description">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="addPrice" placeholder="Price"><br><br>
+                        <input type="text" name="addPrice" placeholder="Price">&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="submit" name="submitLineItems" value="Add Line Items">
                         <input type="reset">
                         </span>
                         </form>
                 ');
-            }
-        }
+            } // end if
+        } // end function
 
         public function editLineItems()
         {
-            // display the add line item edit functions
+            // display the edit line item edit functions
             if (isset($_SESSION['quoteId']))
             {
-                print ('<form method=post>
-                        <h4>Edit Line Items</h4>
+                print ('<h4>Edit Line Items</h4>
+                        <form method=post>
                         <span style="white-space:nowrap">
-                        <input type="text" name="editID" size=5 placeholder="Item ID">
+                        <select name="lineId">
+                        <option value="" disabled selected>Select an Item</option>
+                ');
+
+                // connect to the database
+                $db=connect("courses","z981329","z981329","1979Jul29");
+
+                // retrieve line items from quote database based on the quote ID
+                $sql = "SELECT lineId, description FROM LineItem WHERE quoteId = '$_SESSION[quoteId]';";
+    	        $result = $db->query($sql);
+
+                // diplay quotes by ID in the drop down box
+                foreach ($result as $row)
+                {
+                    echo "<option value='".$row["lineId"]. "'>" .$row["description"]."</option>";
+                } // end foreach
+        
+                // display submit button
+                print ('</select>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="editDescription" size=50 placeholder="New Item Description">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="editPrice" placeholder="New Price"><br><br>
+                        <input type="text" name="editPrice" placeholder="New Price">&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="submit" name="editLineItems" value="Edit Line Items">
                         <input type="reset">
                         </span>
                         </form>
                 ');
-                echo "<br><br> Session ID is Quote Id: ";
-                echo $_SESSION['quoteId'];
-                echo "<br><br> Post ID is Quote Id: ";
-                echo $_SESSION['quoteId'];
+            } // end if
+            // end connection to the database
+            $db = null;
+        } // end function
+
+        public function removeLineItems()
+        {
+            // display the add line item edit functions
+            if (isset($_SESSION['quoteId']))
+            {
+                print ('<h4>Remove Line Items</h4>
+                        <form method=post>
+                        <span style="white-space:nowrap">
+                        <select name="lineId">
+                        <option value="" disabled selected>Select an Item</option>
+                ');
+
+                // connect to the database
+                $db=connect("courses","z981329","z981329","1979Jul29");
+
+                // retrieve line items from quote database based on the quote ID
+                $sql = "SELECT lineId, description FROM LineItem WHERE quoteId = '$_SESSION[quoteId]';";
+    	        $result = $db->query($sql);
+
+                // diplay quotes by ID in the drop down box
+                foreach ($result as $row)
+                {
+                    echo "<option value='".$row["lineId"]. "'>" .$row["description"]."</option>";
+                } // end foreach
+        
+                // display submit button
+                print ('</select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" name="removeLineItems" value="Remove Line Item">
+                        </form>
+                ');
+            } // end if
+            // end connection to the database
+            $db = null;
+        } // end function
+
+        public function addSecretNote()
+        {
+            // display the add line item edit functions
+            if (isset($_SESSION['quoteId']))
+            {
+                print ('<h4>Add Secret Note to an Item</h4>
+                        <form method=post>
+                        <span style="white-space:nowrap">
+                        <select name="lineId">
+                        <option value="" disabled selected>Select an Item</option>
+                ');
+
+                // connect to the database
+                $db=connect("courses","z981329","z981329","1979Jul29");
+
+                // retrieve line items from quote database based on the quote ID
+                $sql = "SELECT lineId, description FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote IS NULL;";
+    	        $result = $db->query($sql);
+
+                // diplay quotes by ID in the drop down box
+                foreach ($result as $row)
+                {
+                    echo "<option value='".$row["lineId"]. "'>" .$row["description"]."</option>";
+                } // end foreach
+        
+                print ('</select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="addSecretNote" size=50 placeholder="New Secret Note">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" name="submitSecretNote" value="Add Secret Note">
+                        <input type="reset">
+                        </span>
+                        </form>
+                ');
+            } // end if
+            // end connection to the database
+            $db = null;
+        } // end function
+
+        public function editSecretNote()
+        {
+            // display the edit line item edit functions
+            if (isset($_SESSION['quoteId']))
+            {
+                print ('<h4>Edit a Secret Note on an Item</h4>
+                        <form method=post>
+                        <span style="white-space:nowrap">
+                        <select name="lineId">
+                        <option value="" disabled selected>Select a Secret Note</option>
+                ');
+
+                // connect to the database
+                $db=connect("courses","z981329","z981329","1979Jul29");
+
+                // retrieve line items from quote database based on the quote ID and if a secret note exists
+                $sql = "SELECT lineId, secretNote FROM LineItem WHERE quoteId = '$_SESSION[quoteId]' AND secretNote IS NOT NULL;";
+    	        $result = $db->query($sql);
+
+                // diplay quotes by ID in the drop down box
+                foreach ($result as $row)
+                {
+                    echo "<option value='".$row["lineId"]. "'>" .$row["secretNote"]."</option>";
+                } // end foreach
+        
+                // display submit button
+                print ('</select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="editSecretNote" size=50 placeholder="Edit Secret Note">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" name="submitSecretNoteEdit" value="Add Secret Note">
+                        <input type="reset">
+                        </span>
+                        </form>
+                ');
             }
-        }
+            // end connection to the database
+            $db = null;
+        } // end function
     } // end class
 ?>

@@ -62,7 +62,7 @@
             $db = connect("courses","z981329","z981329","1979Jul29");
 
             // Retrieve Quotes that are marked as Finalized
-            $sql = "SELECT quoteId FROM Quote WHERE isFinalized = 1;";
+            $sql = "SELECT quoteId, customerName FROM Quote WHERE isFinalized = 1;";
             $query = $db->query($sql);
 
             // return the results
@@ -70,25 +70,68 @@
             $db = null;
         }
 
-        public function addLineItems()
+        public function addLineItems($quoteId,$description,$price)
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
             // insert line items into the quote
-            $sql = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$_POST[quoteId]', '$_POST[addDescription]', '$_POST[addPrice]');";
+            $sql = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$quoteId', '$description', '$price');";
             $db->exec($sql);
+
+            // disconnect from the database
             $db = null;
         }
 
-        public function editLineItems()
+        public function editLineItems($quoteId,$lineId,$description,$price)
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
-            // insert line items into the quote
-            $sql = "UPDATE LineItem SET quoteId='$_POST[quoteId]',description='$_POST[editDescription]',price='$_POST[editPrice]' WHERE lineId='$_POST[lineID]';";
+            // update the line item in the quote
+            $sql = "UPDATE LineItem SET quoteId='$quoteId', description='$description', price='$price' WHERE lineId='$lineId';";
             $db->exec($sql);
+
+            // disconnect from the database
+            $db = null;
+        }
+
+        public function removeLineItems($lineId)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            // delete the line item from the quote
+            $sql = "DELETE FROM LineItem WHERE lineId='$lineId';";
+            $db->exec($sql);
+
+            // disconnect from the database
+            $db = null;
+        }
+
+        public function addSecretNote($lineId,$secretNote)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            // update the secret note based on the item ID
+            $sql = "UPDATE LineItem SET secretNote='$secretNote' WHERE lineId='$lineId';";
+            $db->exec($sql);
+
+            // disconnect from the database
+            $db = null;
+        }
+
+        public function editSecretNote($quoteId,$lineId,$secretNote)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            // update the secret note based on the item ID
+            $sql = "UPDATE LineItem SET quoteId='$quoteId', secretNote='$secretNote' WHERE lineId='$lineId';";
+            $db->exec($sql);
+
+            // disconnect from the database
             $db = null;
         }
     }
