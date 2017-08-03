@@ -677,3 +677,6 @@ all throwing errors and are considered depreciated. I have to call it a night, b
 function is below the display functions in the quote store.
 
 -MM
+
+Check your QuoteStore::calculatePrice().  You have a $quoteId in the query but $quoteId is never assigned.
+-JA
