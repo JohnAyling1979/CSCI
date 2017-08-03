@@ -70,6 +70,21 @@
             $db = null;
         }
 
+        public function calculatePrice()
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            // calculate the price of the items of the quote
+            $sql = "SELECT SUM(price) AS total FROM LineItem WHERE quoteId = '$quoteId';";
+            $totalPrice = $db->query($sql);
+
+            return $totalPrice->fetch(PDO::FETCH_ASSOC);
+
+            // disconnect from the database
+            $db = null;
+        }
+
         public function addLineItems($quoteId,$description,$price)
         {
             //connect to the database
@@ -91,22 +106,22 @@
             // update only the description
             if ($description)
             {
-                $sql1 = "UPDATE LineItem SET quoteId='$quoteId', description='$description' WHERE lineId='$lineId';";
-                $db->exec($sql1);
+                $sql = "UPDATE LineItem SET quoteId='$quoteId', description='$description' WHERE lineId='$lineId';";
+                $db->exec($sql);
             }
 
             // update only the price
             if ($price)
             {
-                $sql2 = "UPDATE LineItem SET quoteId='$quoteId', price='$price' WHERE lineId='$lineId';";
-                $db->exec($sql2);
+                $sql = "UPDATE LineItem SET quoteId='$quoteId', price='$price' WHERE lineId='$lineId';";
+                $db->exec($sql);
             }
 
             // update both the description and the price
             if ($description && $price)
             {
-                $sql3 = "UPDATE LineItem SET quoteId='$quoteId', description='$description', price='$price' WHERE lineId='$lineId';";
-                $db->exec($sql3);
+                $sql = "UPDATE LineItem SET quoteId='$quoteId', description='$description', price='$price' WHERE lineId='$lineId';";
+                $db->exec($sql);
             }
 
             // disconnect from the database
@@ -149,6 +164,21 @@
             $sql = "UPDATE LineItem SET quoteId='$quoteId', secretNote='$secretNote' WHERE lineId='$lineId';";
             $db->exec($sql);
 
+            // disconnect from the database
+            $db = null;
+        }
+
+        public function markQuoteSanctioned($quoteId,$sanctionYes)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+            
+            if ($sanctionYes)
+            {
+                // update the sanction status of the quote to yes
+                $sql = "UPDATE Quote SET isSanctioned=1, isFinalized=0 WHERE quoteId='$quoteId';";
+                $db->exec($sql);
+            }
             // disconnect from the database
             $db = null;
         }

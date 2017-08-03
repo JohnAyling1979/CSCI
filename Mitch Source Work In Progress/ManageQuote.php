@@ -2,15 +2,15 @@
     class ManageQuote
     {
         // retrieves the finalized quote from the Quote Database
-        public function getFinalizedQuote($quoteList)
+        public function getFinalizedQuote($quoteStore)
         {
-            return $quoteList->getFinalizedQuote();
+            return $quoteStore->getFinalizedQuote();
         }
 
         // updates the sanctioned quote to the Quote Database
-        public function updateQuote($isSanctioned)
+        public function updateQuote($status)
         {
-            return $isSanctioned->updateQuote();
+            return $status->updateQuote();
         }
     }
 ?>

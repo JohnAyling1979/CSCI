@@ -84,6 +84,13 @@
 
         } // end function
 
+        public function calculatePrice($quoteStore)
+        {
+            $quoteTotal = $quoteStore->calculatePrice($totalPrice);
+            echo "<br><b>Total Price: </b>";
+            echo $quoteTotal;
+        }
+
         public function addLineItems()
         {
             // display the add line item edit functions
@@ -259,5 +266,17 @@
             // end connection to the database
             $db = null;
         } // end function
+
+        public function markQuoteSanctioned()
+        {
+            print ('<br><h3>Quote Sanctioning</h3><hr>
+                    <h4>Sanction Quote</h4>
+                    <form method=post>
+                    <input type=radio name="sanctionYes">Yes<br>
+                    <input type=radio name="sanctionNo">No<br><br>
+                    <input type="submit" name="submitSanction" value="Mark quote as Sanctioned">
+                    </form>
+                ');
+        }
     } // end class
 ?>

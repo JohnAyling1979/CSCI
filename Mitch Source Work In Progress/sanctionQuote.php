@@ -6,7 +6,6 @@
 <HTML>
 <head>
     <meta charset="utf-8">
-    <!--<form method="post">-->
 
 	<?php
         // files required for operation
@@ -27,11 +26,13 @@
             if(isset($_POST[viewQuote]))
             {
                 $interface->viewQuote($controller, $quoteStore);
+                $interface->calculatePrice($quoteStore, $quoteId);
                 $interface->addLineItems($quoteStore);
                 $interface->editLineItems($quoteStore);
                 $interface->removeLineItems($quoteStore);
                 $interface->addSecretNote($quoteStore);
                 $interface->editSecretNote($quoteStore);
+                $interface->markQuoteSanctioned($quoteStore);
             }
 
             if(isset($_POST[submitLineItems]))
@@ -68,13 +69,14 @@
                 //echo $_REQUEST['quoteId'];
                 //$interface->viewQuote($controller, $quoteStore); 
             }
-        }
 
-        /*else
-        {
-            $interface->displayQuote($controller, $quoteStore);  
-        }*/
+            if(isset($_POST[submitSanction]))
+            {
+                $quoteStore->markQuoteSanctioned($_SESSION[quoteId], $_POST[sanctionYes], $_POST[sanctionNo]);
+                //echo $_REQUEST['quoteId'];
+                //$interface->viewQuote($controller, $quoteStore); 
+            }
+        }
     ?>
-<!--</form>-->
 </body>
 </HTML>
