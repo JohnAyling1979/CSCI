@@ -25,6 +25,18 @@
         {
         }
 
+        public function deleteSearch()
+        {
+        }
+
+        public function deleteList()
+        {
+        }
+
+        public function deleteSA()
+        {
+        }
+
         public function confirmDelete()
         {
         }
