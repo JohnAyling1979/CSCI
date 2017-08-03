@@ -23,11 +23,15 @@ Driver page for the create PO interface
 
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
+        if(isset($_POST[picked]))
+        {
+            $_SESSION['interface']->displayQuote($_POST[quoteId]);
+        }
 
     }
     else
     {
-        $_SESSION['interface']->displayQuotes();
+        $_SESSION['interface']->chooseQuote();
     }  
 ?>
     </body>
