@@ -669,3 +669,11 @@ with marking the quotes as sanctioned.
 
 I've started the createPO page.  I've stolen quote 7 and 8 incase you were wondering why they were missing from your page.
 -JA
+
+I have the markQuoteSanctioned function working. However, I have been working for awhile trying to catch an error with
+fetching the price from db after doing a SUM statement. It shows up as "Array" on the page, and I have been messing with
+it for awhile. See what you think about it. I used PDO::fetch_assoc because mysql_fetch_assoc (and array, and rows) were
+all throwing errors and are considered depreciated. I have to call it a night, but I'll be back tomorrow night. The calculate
+function is below the display functions in the quote store.
+
+-MM
