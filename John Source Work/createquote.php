@@ -8,19 +8,16 @@ Driver page for the create quote interface
         <meta charset="utf-8">
 <?php
     //needed files
-    require "dbconnect.php";
     require "SalesAssociateInterface.php";
     require "CreateQuoteController.php";
     require "LegacyDatabaseInterface.php";
     require "QuoteStore.php";
     require "SAstore.php";
 
-    //creates instances of the classes
-    $interface=new SalesAssociateInterface;
-    $controller=new CreateQuoteController;
-    $DBI=new LegacyDatabaseInterface;
-    $quote=new QuoteStore;
-    $SA=new SAstore;
+    //creates the instance of the class if not set
+    if(!isset($interface))
+        $interface=new SalesAssociateInterface;
+
 
     //when a post is submited
     if($_SERVER[REQUEST_METHOD]=="POST")
@@ -28,25 +25,25 @@ Driver page for the create quote interface
         //login submit
         if(isset($_POST[login]))
         {
-            $_SESSION[user]=protect($_POST[user]);
-            $interface->submitLogin($controller,$SA,$DBI,$_POST[pass],$_POST[user]);
+            $_SESSION[user]=$_POST[user];
+            $interface->submitLogin($_POST[pass],$_POST[user]);
         }
 
         //create submit
         if(isset($_POST[create]))
         {
-            $interface->createQuote($controller,$DBI,$_POST[cust]);
+            $interface->createQuote($_POST[cust]);
         }
 
         //finalize submit
         if(isset($_POST['final']))
         {
-            $interface->finalizeQuote($controller,$quote);
+            $interface->finalizeQuote();
         }
     }
     //begining interface
     else
-    {
+    {   
         $interface->index();
     }
 ?>

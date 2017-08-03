@@ -2,6 +2,19 @@
     //class which handles the interaction from the user
     class SalesAssociateInterface
     {
+    	var $controller;
+
+        /*******************************************************************
+            FUNCTION:   SalesAssociateInterface::constructor
+            ARGUMENTS:  none
+            RETURNS:    none
+            USAGE:      creates an instance to the controller
+        *******************************************************************/
+    	public function __construct()
+        {
+    		$this->controller = new CreateQuoteController;
+    	}
+
         /*******************************************************************
             FUNCTION:   SalesAssociateInterface::index
             ARGUMENTS:  none
@@ -32,20 +45,20 @@
             RETURNS:    none
             USAGE:      To login and display the customer's names
         *******************************************************************/
-        public function submitLogin($controller,$SA,$DBI,$pass,$name)
+        public function submitLogin($pass,$name)
         {
             //encrypts submitted password
             $pass=hash("sha256",$pass);
 
             //gets encryoted saved password from the controller
-            $testpass=$controller->getPass($SA,$name);
+            $testpass=$this->controller->getPass($name);
 
             //test if they match
             if($pass==$testpass)
             {
                 //gets a statment with all the customer names from the
                 //controller
-                $customerSTMT=$controller->getCustomerNames($DBI);
+                $customerSTMT=$this->controller->getCustomerNames();
 
                 //html to screen
                 echo "\t\t<title>Choose Customer</title>\r\n";
@@ -82,11 +95,11 @@
             USAGE:      gets the informaction for the customer and displays
                         it to the screen to begin the making the quote
         *******************************************************************/
-        public function createQuote($controller,$DBI,$id)
+        public function createQuote($id)
         {
             $_SESSION[custId]=$id;
             //gets a row from the controller containing the customer
-            $customer=$controller->getCustomerInfo($DBI,$id);
+            $customer=$this->controller->getCustomerInfo($id);
 
             //correct the input
             $_SESSION[customerName]=iconv("latin1","UTF-8",$customer[name]);
@@ -122,14 +135,14 @@
             USAGE:      displays wether a quote was saved or if an erro
                         occured
         *******************************************************************/
-        public function finalizeQuote($controller,$quote)
+        public function finalizeQuote()
         {
             //html
             echo "\t\t<title>Finalizing Quote</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
             //check the return value from the controller
-            if($controller->finalizeQuote($quote))
+            if($this->controller->finalizeQuote())
                 echo "\t\tQuote has been saved and finalized<br>\r\n";
             else
                 echo "\t\tAn error has occured<br>\r\n";

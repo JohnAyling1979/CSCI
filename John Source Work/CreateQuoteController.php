@@ -2,6 +2,24 @@
     //class to commuticate between the other classes
     class CreateQuoteController
     {
+    	var $SA;
+    	var $DBI;
+        var $quote;
+
+        /*******************************************************************
+            FUNCTION:   CreateQuoteController::constructor
+            ARGUMENTS:  none
+            RETURNS:    none
+            USAGE:      creates instances to SAstore,LegacyDatabase and
+                        quotestore 
+        *******************************************************************/
+    	public function __construct()
+        {
+    		$this->SA = new SAstore;
+    		$this->DBI = new LegacyDatabaseInterface;
+            $this->quote= new QuoteStore;
+    	}
+
         /*******************************************************************
             FUNCTION:   CreateQuoteController::getPass
             ARGUMENTS:  $SA: contains the SAstore instance
@@ -9,9 +27,9 @@
             RETURNS:    encrypted password
             USAGE:      To request the password from the SAstore
         *******************************************************************/
-        public function getPass($SA,$name)
+        public function getPass($name)
         {
-            $info=$SA->getSA($name);
+            $info=$this->SA->getSA($name);
             return $info[password];
         }
 
@@ -24,9 +42,9 @@
             USAGE:      To request the customer info from the 
                         legacyDatabaseInterface for one customer
         *******************************************************************/
-        public function getCustomerInfo($DBI,$id)
+        public function getCustomerInfo($id)
         {
-            return $DBI->getCustomerInfo($id);
+            return $this->DBI->getCustomerInfo($id);
         }
 
 
@@ -37,9 +55,9 @@
             USAGE:      To request the customer's names from the 
                         legacyDatabaseInterface
         *******************************************************************/
-        public function getCustomerNames($DBI)
+        public function getCustomerNames()
         {
-            return $DBI->getCustomerNames();
+            return $this->DBI->getCustomerNames();
         }
 
         /*******************************************************************
@@ -49,9 +67,9 @@
             USAGE:      To request the customer's names from the 
                         legacyDatabaseInterface
         *******************************************************************/
-        public function finalizeQuote($quote)
+        public function finalizeQuote()
         {
-            return $quote->finalizeQuote();
+            return $this->quote->finalizeQuote();
         }
     }
 ?>
