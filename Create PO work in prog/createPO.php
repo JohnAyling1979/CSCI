@@ -1,4 +1,3 @@
-<?php     session_start(); ?>
 <!DOCTYPE html>
 <!--
 Driver page for the create PO interface
@@ -6,6 +5,13 @@ Driver page for the create PO interface
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+            td
+            {
+                text-align:center;
+            }
+        </style>
+        
 <?php
     //needed files
     require "CreatePurchaseOrderGUI.php";
@@ -15,23 +21,24 @@ Driver page for the create PO interface
     require "SAStore.php";
 
     //creates instances of the classes
-    $_SESSION['interface']=new CreatePurchaseOrderGUI;
-    $_SESSION['controller']=new ManagePurchaseOrder;
-    $_SESSION['POGateway']=new PurchaseOrderGateway;
-    $_SESSION['quote']=new QuoteStore;
-    $_SESSION['SA']=new SAStore;
+    if(!isset($interface))
+        $interface=new CreatePurchaseOrderGUI;
 
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
         if(isset($_POST[picked]))
         {
-            $_SESSION['interface']->displayQuote($_POST[quoteId]);
+            $interface->displayQuote($_POST[quoteId]);
         }
 
+        if(isset($_POST[update]))
+        {
+            $interface->createPurchaseOrder($_POST[quoteId],$_POST[amount],$_POST[percent]);
+        }
     }
     else
     {
-        $_SESSION['interface']->chooseQuote();
+        $interface->chooseQuote();
     }  
 ?>
     </body>

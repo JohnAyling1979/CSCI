@@ -66,7 +66,7 @@
                 $desc="desc".$n;
                 $price="price".$n;
                 $secret="secret".$n;
-
+                $currentPrice=0;
                 //while there are lines
                 while(isset($_POST[$desc]))
                 {
@@ -79,6 +79,7 @@
 
                         //execute the statement
                         $db->exec($into);
+                        $currentPrice=$currentPrice+$_POST[$price];
                     }
                     //move to next line
                     $n=$n+1;
@@ -87,6 +88,9 @@
                     $secret="secret".$n;
                 }
             }
+
+            $update="update Quote set currentPrice=$currentPrice where quoteId=$quote";
+            $db->query($update);
             //return status
             return $isCreated;
         }
