@@ -691,3 +691,6 @@ Hay Mitch, I'm getting ready to add the final discount for the createPo. When yo
 In the table there is a are three final feilds. I don't think there are necicary. It doesn't say we need to save it. I would just
 say have a current price that is updated when you apply your discount. I can even add it to the create quote so you only need to
 pull from that when you get it
+
+CreatePO is done.  I will be uploading it shortly. Link is in the source folder
+-JA
