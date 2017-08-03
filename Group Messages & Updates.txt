@@ -684,3 +684,6 @@ Check your QuoteStore::calculatePrice().  You have a $quoteId in the query but 
 I would probably change the button "Mark quote as sactioned" to just something like "update" because if you select no it
 Doesn't become sactioned.
 -JA
+
+Hay Mitch, I'm getting ready to add the final discount for the createPo. When you saction the quote are you saving the discounted price or discount you applied into the database anywhere?
+-JA
