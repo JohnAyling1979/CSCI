@@ -680,3 +680,7 @@ function is below the display functions in the quote store.
 
 Check your QuoteStore::calculatePrice().  You have a $quoteId in the query but $quoteId is never assigned.
 -JA
+
+I would probably change the button "Mark quote as sactioned" to just something like "update" because if you select no it
+Doesn't become sactioned.
+-JA
