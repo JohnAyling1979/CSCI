@@ -12,15 +12,23 @@ Driver page for the create PO interface
     require "ManagePurchaseOrder.php";
     require "PurchaseOrderGateway.php";
     require "QuoteStore.php";
-    require "SAstore.php";
+    require "SAStore.php";
 
     //creates instances of the classes
     $_SESSION['interface']=new CreatePurchaseOrderGUI;
-    $_SESSION['controller']=new CreateQuoteController;
+    $_SESSION['controller']=new ManagePurchaseOrder;
     $_SESSION['POGateway']=new PurchaseOrderGateway;
     $_SESSION['quote']=new QuoteStore;
-    $_SESSION['SA']=new SAstore;
->?
+    $_SESSION['SA']=new SAStore;
 
+    if($_SERVER[REQUEST_METHOD]=="POST")
+    {
+
+    }
+    else
+    {
+        $_SESSION['interface']->displayQuotes();
+    }  
+?>
     </body>
 </html>

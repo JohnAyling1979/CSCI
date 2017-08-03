@@ -3,95 +3,43 @@
     class QuoteStore
     {
         /*******************************************************************
-            FUNCTION:   QuoteStrore::finalizeQuote
+            FUNCTION:   connect()
             ARGUMENTS:  none
-            RETURNS:    a bool value for wether a quote was saved
-            USAGE:      To save a quote to the database
+            RETURNS:    a PDO object
+            USAGE:      to create a connection to a database
         *******************************************************************/
-        public function finalizeQuote()
+        private function connect()
         {
-            //status of quote
-            $isCreated=0;
-
-            //connect to the database
-            $db=connect("courses","z981329","z981329","1979Jul29");
-
-            //insert statment
-            $into="insert into Quote(customerName,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
-                   values('$_SESSION[customerName]','$_SESSION[customerAdd]','$_SESSION[customerCity]','$_POST[email]',1,'$_SESSION[user]')";
- 
-            //execute the statement and check if the row was added
-            if($db->exec($into)>0)
+            $host="courses";
+            $DB="z981329";
+            $user="z981329";
+            $password="1979Jul29";
+            //creates the dsn for the PDO
+            $dsn="mysql:dbname=".$DB.";host=".$host;
+    
+            //trys the connection
+            try
             {
-                //change the status
-                $isCreated=1;
-
-                //get id number of the quote
-                $quote=$db->lastInsertId();
-
-                //set the first line item variable
-                $n=0;
-                $desc="desc".$n;
-                $price="price".$n;
-                $secret="secret".$n;
-
-                //while there are lines
-                while(isset($_POST[$desc]))
-                {
-                    //insert statement
-                    $into="insert into LineItem(quoteId,description,price,secretNote)
-                           values($quote,'$_POST[$desc]','$_POST[$price]','$_POST[$secret]')";
-
-                    //execute the statement
-                    $db->exec($into);
-
-                    //move to next line
-                    $n=$n+1;
-                    $desc="desc".$n;
-                    $price="price".$n;
-                    $secret="secret".$n;
-                }
+                $db=new PDO($dsn,$user,$password);
             }
-            //return status
-            return $isCreated;
+            //if there are errors display error and exit
+            catch(PDOException $e)
+            {
+                echo "Connection failed: Database can not be reached<br>".$e->getMessage();
+                die();
+            }
+    
+            //returns PDO object
+            return $db;
         }
 
-        public function getFinalizedQuote()
+        public function getSanctionedQuotes()
         {
-            //connect to the database
-            $db = connect("courses","z981329","z981329","1979Jul29");
+            $DB=$this->connect();
+            $query="select quoteId,customerName from Quote where isSanctioned";
 
-            // Retrieve Quotes that are marked as Finalized
-            $sql = "SELECT quoteId FROM Quote WHERE isFinalized = 1;";
-            $query = $db->query($sql);
-
-            // return the results
-            return $query->fetchAll();
-            $db = null;
+            return $DB->query($query);
         }
 
-        public function addLineItems($quoteId,$desc,$price)
-        {
-            //connect to the database
-            $db = connect("courses","z981329","z981329","1979Jul29");
-
-
-
-            // insert line items into the quote
-            $sql = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$quoteId', '$desc', '$price');";
-            $db->exec($sql);
-            $db = null;
-        }
-
-        public function editLineItems()
-        {
-            //connect to the database
-            $db = connect("courses","z981329","z981329","1979Jul29");
-
-            // insert line items into the quote
-            $sql = "UPDATE LineItem SET quoteId='$_POST[quoteId]',description='$_POST[editDescription]',price='$_POST[editPrice]' WHERE lineId='$_POST[lineID]';";
-            $db->exec($sql);
-            $db = null;
-        }
     }
 ?>
