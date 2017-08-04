@@ -66,7 +66,7 @@
                 echo "\t</head>\r\n";
                 echo "\t<body>\r\n";
                 echo "\t\t<form method=post>\r\n";
-                echo "\t\t\t<select name='cust'>\r\n";
+                echo "\t\t\t<select name='cust' required>\r\n";
                 echo "\t\t\t\t<option disabled selected>Customer List</option>";
                 foreach($customerSTMT as $row)
                 {
