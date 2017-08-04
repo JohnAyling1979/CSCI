@@ -54,11 +54,18 @@
             $db=$this->connect();
 
             //insert statment
-            $into="insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
-                   values('$customerName','$custId','$customerAdd','$customerCity','$email',1,'$user')";
+            $into=$db->prepare("insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
+                   values(:customerName,:custId,:customerAdd,:customerCity,:email,1,:user)");
+
+            $into->bindParam(':customerName',$customerName);
+            $into->bindParam(':custId',$custId);
+            $into->bindParam(':customerAdd',$customerAdd);
+            $into->bindParam(':customerCity',$customerCity);
+            $into->bindParam(':email',$email);
+            $into->bindParam(':user',$user);
 
             //execute the statement and check if the row was added
-            if($db->exec($into)>0)
+            if($into->execute())
             {
                 //change the status
                 $isCreated=1;
