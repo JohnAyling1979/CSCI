@@ -1,4 +1,3 @@
-<?php     session_start(); ?>
 <!DOCTYPE html>
 <!--
 Driver page for the create quote interface
@@ -18,14 +17,12 @@ Driver page for the create quote interface
     if(!isset($interface))
         $interface=new SalesAssociateInterface;
 
-
     //when a post is submited
     if($_SERVER[REQUEST_METHOD]=="POST")
     {
         //login submit
         if(isset($_POST[login]))
         {
-            $_SESSION[user]=$_POST[user];
             $interface->submitLogin($_POST[pass],$_POST[user]);
         }
 
@@ -38,7 +35,7 @@ Driver page for the create quote interface
         //finalize submit
         if(isset($_POST['final']))
         {
-            $interface->finalizeQuote();
+            $interface->finalizeQuote($_POST[customerName],$_POST[custId],$_POST[customerAdd],$_POST[customerCity],$_POST[email],$_POST[user]);
         }
     }
     //begining interface

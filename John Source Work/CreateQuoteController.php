@@ -2,6 +2,7 @@
     //class to commuticate between the other classes
     class CreateQuoteController
     {
+        //so the controller can call the legacyDatebase,quotestore,and SAstore
     	var $SA;
     	var $DBI;
         var $quote;
@@ -15,6 +16,7 @@
         *******************************************************************/
     	public function __construct()
         {
+            //creates instances of the other classes when controller is created
     		$this->SA = new SAstore;
     		$this->DBI = new LegacyDatabaseInterface;
             $this->quote= new QuoteStore;
@@ -22,8 +24,7 @@
 
         /*******************************************************************
             FUNCTION:   CreateQuoteController::getPass
-            ARGUMENTS:  $SA: contains the SAstore instance
-                        $name: Name of the associate
+            ARGUMENTS:  $name: Name of the associate
             RETURNS:    encrypted password
             USAGE:      To request the password from the SAstore
         *******************************************************************/
@@ -35,9 +36,8 @@
 
         /*******************************************************************
             FUNCTION:   CreateQuoteController::getCustomerInfo
-            ARGUMENTS:  $DBI: contains the LegacyDatabaseInterface instance
-                        $id: the id number of the customer for the info to
-                             find
+            ARGUMENTS:  $id: the id number of the customer for the info to
+                        find
             RETURNS:    A row containing the customer info
             USAGE:      To request the customer info from the 
                         legacyDatabaseInterface for one customer
@@ -50,7 +50,7 @@
 
         /*******************************************************************
             FUNCTION:   CreateQuoteController::getCustomerNames
-            ARGUMENTS:  $DBI: contains the LegacyDatabaseInterface instance
+            ARGUMENTS:  none
             RETURNS:    A PDO statemtn containing all the customer's names
             USAGE:      To request the customer's names from the 
                         legacyDatabaseInterface
@@ -62,14 +62,19 @@
 
         /*******************************************************************
             FUNCTION:   CreateQuoteController::finalizeQuote
-            ARGUMENTS:  $quote: The QuoteStore instance
+            ARGUMENTS:  $customerName: Name of the customer
+                        $custId: unique customer #
+                        $customerAdd: customer address
+                        $customerCity: customer city
+                        $email: customer email
+                        $user: sales associate name
             RETURNS:    A bool that tells wether a quote was saved
             USAGE:      To request the customer's names from the 
                         legacyDatabaseInterface
         *******************************************************************/
-        public function finalizeQuote()
+        public function finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user)
         {
-            return $this->quote->finalizeQuote();
+            return $this->quote->finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user);
         }
     }
 ?>

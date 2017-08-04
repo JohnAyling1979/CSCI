@@ -36,11 +36,16 @@
 
         /*******************************************************************
             FUNCTION:   QuoteStrore::finalizeQuote
-            ARGUMENTS:  none
+            ARGUMENTS:  $customerName: Name of the customer
+                        $custId: unique customer #
+                        $customerAdd: customer address
+                        $customerCity: customer city
+                        $email: customer email
+                        $user: sales associate name
             RETURNS:    a bool value for wether a quote was saved
             USAGE:      To save a quote to the database
         *******************************************************************/
-        public function finalizeQuote()
+        public function finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user)
         {
             //status of quote
             $isCreated=0;
@@ -50,8 +55,8 @@
 
             //insert statment
             $into="insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
-                   values('$_SESSION[customerName]','$_SESSION[custId]','$_SESSION[customerAdd]','$_SESSION[customerCity]','$_POST[email]',1,'$_SESSION[user]')";
- 
+                   values('$customerName','$custId','$customerAdd','$customerCity','$email',1,'$user')";
+
             //execute the statement and check if the row was added
             if($db->exec($into)>0)
             {
