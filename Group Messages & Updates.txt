@@ -722,5 +722,5 @@ Like we talk on the phone $rowA[currentPrice] will give you the current total pr
 
 then in the quotestore calculatePrice isn't excepting any var
 
-Just a heads up I think all NIU web services sre down. I am unavailable to connect to any NIU hosted website. So no access to hopper.
+Just a heads up I think all NIU web services are down. I am unable to connect to any NIU hosted website. So no access to hopper.
 -CJ
