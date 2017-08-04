@@ -33,9 +33,11 @@
             echo "<title>Create PO</title>";
             echo "</head>";
             echo "<body>";
+            echo "<h1>Create PO system</h1>";
             echo "Select a sactioned quote from the dropdown<br>";
             echo "<form method=POST>";
-            echo "<select name='quoteId'>";
+            echo "<select name='quoteId' required>";
+            echo "<option disabled selected>Sactioned Quotes</option>";
             foreach($list as $row)
                 echo "<option value=$row[quoteId]>$row[quoteId]-$row[customerName]</option>";
             echo "</select>";
