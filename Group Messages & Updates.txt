@@ -724,3 +724,6 @@ then in the quotestore calculatePrice isn't excepting any var
 
 Just a heads up I think all NIU web services are down. I am unable to connect to any NIU hosted website. So no access to hopper.
 -CJ
+
+Yep... I was just going to say the same thing. It's been hit or miss for the last hour. I guess I'm calling it a night hahaha.
+-MM
