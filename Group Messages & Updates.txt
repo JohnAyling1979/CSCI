@@ -743,5 +743,7 @@ createing a new instane of all the classes each time there was a POST. To fix it
 added a if(!isset($interface)) before $interface=new SanctionQuoteGUI;
 -JA
 
-If either of you have a second to look at my code that would be helpful I am having issues trying to get any variables to pass though for some reason. It is probably something simple that I am overlooking. I think it might be something with starting the session but I copied over all the session code from his example to see if I was missing something but it is not working.
+If either of you have a second to look at my code that would be helpful I am having issues trying to get any variables to pass though for some reason. 
+It is probably something simple that I am overlooking. I think it might be something with starting the session but I copied over all the session code from his example to see if I was missing something but it is not working. 
+I am off work today so I am working on the program all day.
 -CJ
