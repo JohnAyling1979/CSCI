@@ -1,8 +1,9 @@
 <?php
-    class SAStore
+    //used to communicate to the sales associate database
+    class SAstore
     {
         /*******************************************************************
-            FUNCTION:   connect()
+            FUNCTION:   SAstore::connect
             ARGUMENTS:  none
             RETURNS:    a PDO object
             USAGE:      to create a connection to a database
@@ -32,6 +33,13 @@
             return $db;
         }
 
+        /*******************************************************************
+            FUNCTION:   SAstore::updateCommission
+            ARGUMENTS:  $salesAssociate: Sales associate's name
+                        $commission: commission vale
+            RETURNS:    none
+            USAGE:      To update the commission rate for the associate
+        *******************************************************************/
         public function updateCommission($salesAssociate,$commission)
         {
             $DB=$this->connect();

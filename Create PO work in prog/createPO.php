@@ -18,7 +18,7 @@ Driver page for the create PO interface
     require "ManagePurchaseOrder.php";
     require "PurchaseOrderGateway.php";
     require "QuoteStore.php";
-    require "SAStore.php";
+    require "SAstore.php";
 
     //creates instances of the classes
     if(!isset($interface))

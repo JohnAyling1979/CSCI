@@ -3,7 +3,7 @@
     class QuoteStore
     {
         /*******************************************************************
-            FUNCTION:   connect()
+            FUNCTION:   QuoteStore::connect
             ARGUMENTS:  none
             RETURNS:    a PDO object
             USAGE:      to create a connection to a database
@@ -33,6 +33,12 @@
             return $db;
         }
 
+        /*******************************************************************
+            FUNCTION:   QuoteStore::getSanctionedQuotes
+            ARGUMENTS:  none
+            RETURNS:    a PDO statment containing the sactioned quotes
+            USAGE:      to find all the sactioned quotes
+        *******************************************************************/
         public function getSanctionedQuotes()
         {
             $DB=$this->connect();
@@ -41,6 +47,12 @@
             return $DB->query($query);
         }
 
+        /*******************************************************************
+            FUNCTION:   QuoteStore::getQuote
+            ARGUMENTS:  $quoteId: unique id of the quote
+            RETURNS:    an array containing the quote information
+            USAGE:      to get the information of a quote
+        *******************************************************************/
         public function getQuote($quoteId)
         {
             $DB=$this->connect();
@@ -52,6 +64,12 @@
 
         }
 
+        /*******************************************************************
+            FUNCTION:   QuoteStore::getLineItems()
+            ARGUMENTS:  $quoteId: unique id of the quote
+            RETURNS:    a pdo statement contain all the line items
+            USAGE:      to get the line items attached to the quote
+        *******************************************************************/
         public function getLineItems($quoteId)
         {
             $DB=$this->connect();
@@ -60,6 +78,13 @@
             return $DB->query($query);
         }
 
+        /*******************************************************************
+            FUNCTION:   QuoteStore::createPurchaseOrder
+            ARGUMENTS:  $quoteId: unique id of the quote
+                        $price: new discounted price
+            RETURNS:    none
+            USAGE:      to update the cost of the quote an change it to a PO
+        *******************************************************************/
         public function createPurchaseOrder($quoteId,$price)
         {
             $DB=$this->connect();
@@ -74,6 +99,14 @@
             $DB->query($query);
         }
 
+        /*******************************************************************
+            FUNCTION:   QuoteStore::setDateAndCommission
+            ARGUMENTS:  $quoteId: unique id of the quote
+                        $processDay: process day for the quote
+                        $commission: commission value
+            RETURNS:    none
+            USAGE:      to set the proccess date and commission
+        *******************************************************************/
         public function setDateAndCommission($quoteId,$processDay,$commission)
         {
             $DB=$this->connect();

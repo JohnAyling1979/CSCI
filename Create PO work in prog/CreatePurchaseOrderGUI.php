@@ -1,16 +1,35 @@
 <?php
+    //class used to display to the user
     class CreatePurchaseOrderGUI
     {
+        //will hold an instance to the controller
         var $controller;
 
+        /*******************************************************************
+            FUNCTION:   CreatePurchaseOrderGUI::__construct
+            ARGUMENTS:  none
+            RETURNS:    none
+            USAGE:      To create an instance of the controller when the
+                        interface is created
+        *******************************************************************/
         public function __construct()
         {
             $this->controller=new ManagePurchaseOrder;
 
         }
+
+        /*******************************************************************
+            FUNCTION:   CreatePurchaseOrderGUI::chooseQuote
+            ARGUMENTS:  none
+            RETURNS:    none
+            USAGE:      To display the sactioned quotes
+        *******************************************************************/
         public function chooseQuote()
         {
+            //get the current sactioned quotes
             $list=$this->controller->getSanctionedQuotes();
+
+            //html
             echo "<title>SanctionedQuotes</title>";
             echo "</head>";
             echo "<body>";
@@ -24,9 +43,18 @@
             echo "</form>";
         }
 
+        /*******************************************************************
+            FUNCTION:   CreatePurchaseOrderGUI::displayQuote
+            ARGUMENTS:  quoteId: unique id number of the quote
+            RETURNS:    none
+            USAGE:      To display the quote information
+        *******************************************************************/
         public function displayQuote($quoteId)
         {
+            //gets the information of the quote
             $quote=$this->controller->getQuote($quoteId);
+
+            //html
             echo "<title>Quote</title>";
             echo "</head>";
             echo "<body>";
@@ -38,6 +66,8 @@
             echo "<hr>";
             echo "<table width=100%>";
             echo "<tr><th>Description</th><th>Price</th><th>Secert Note</th></tr>";
+
+            //gets the line items attached to the quote
             $lines=$this->controller->getLineItems($quoteId);
             foreach($lines as $line)
             {
@@ -57,17 +87,29 @@
             echo "</form>";        
         }
 
+        /*******************************************************************
+            FUNCTION:   CreatePurchaseOrderGUI::createPurchaseOrder
+            ARGUMENTS:  $quoteId: unique quote number
+                        $amount: the amount to be discounted
+                        $percent: the percentage
+            RETURNS:    none
+            USAGE:      To display that the email is sent after the Po is
+                        created
+        *******************************************************************/
         public function createPurchaseOrder($quoteId,$amount,$percent)
         {
+            //gets the quote info
             $quote=$this->controller->getQuote($quoteId);
 
+            //gets the price and applies the discount
             $price=$quote[currentPrice];
-
             $price=$price-$amount;
             $price=$price-$price*$percent;
             
+            //create the PO
             $this->controller->createPurchaseOrder($quoteId,$price);
 
+            //html
             echo "<title>Quote</title>";
             echo "</head>";
             echo "<body>";

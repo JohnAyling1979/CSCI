@@ -1,4 +1,5 @@
 <?php
+    //class used to communicate to the outside proccess system
     class PurchaseOrderGateway
     {
         /*******************************************************************
