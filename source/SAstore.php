@@ -57,7 +57,27 @@
             return $row;            
         }
 
-        
+        /*******************************************************************
+            FUNCTION:   SAstore::updateCommission
+            ARGUMENTS:  $salesAssociate: Sales associate's name
+                        $commission: commission vale
+            RETURNS:    none
+            USAGE:      To update the commission rate for the associate
+        *******************************************************************/
+        public function updateCommission($salesAssociate,$commission)
+        {
+            $DB=$this->connect();
+
+            $query="select * from SalesAssociate where Name='$salesAssociate'";
+            $stmt=$DB->query($query);
+            $info=$stmt->fetch();
+
+            $newCommission=$info[commission]+$commission;
+
+            $query="update SalesAssociate set commission=$newCommission where Name='$salesAssociate'";
+            $info=$DB->query($query);
+        }        
+
         public function findSA()
         {
         }
@@ -67,10 +87,6 @@
         }
 
         public function deleteSA()
-        {
-        }
-
-        public function updateCommission()
         {
         }
     }
