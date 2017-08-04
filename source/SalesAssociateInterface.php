@@ -154,7 +154,7 @@
                 echo "\t\tQuote has been saved and finalized<br>\r\n";
             else
                 echo "\t\tAn error has occured<br>\r\n";
-            echo "\t\t<a href='http://students.cs.niu.edu/~z981329/CSCI467/createquote.php'>Return</a><br>\r\n";
+            echo "\t\t<a href='createquote.php'>Return</a><br>\r\n";
         }
     }
 ?>
