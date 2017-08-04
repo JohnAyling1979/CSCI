@@ -30,7 +30,7 @@
             $list=$this->controller->getSanctionedQuotes();
 
             //html
-            echo "<title>SanctionedQuotes</title>";
+            echo "<title>Create PO</title>";
             echo "</head>";
             echo "<body>";
             echo "Select a sactioned quote from the dropdown<br>";
@@ -38,7 +38,7 @@
             echo "<select name='quoteId'>";
             foreach($list as $row)
                 echo "<option value=$row[quoteId]>$row[quoteId]-$row[customerName]</option>";
-            echo "</select><br>";
+            echo "</select>";
             echo "<input type='submit' name='picked' value='choose'>";
             echo "</form>";
         }
@@ -55,7 +55,7 @@
             $quote=$this->controller->getQuote($quoteId);
 
             //html
-            echo "<title>Quote</title>";
+            echo "<title>Quote Information</title>";
             echo "</head>";
             echo "<body>";
             echo "Customer: ".$quote[customerName]."<br>";
@@ -110,7 +110,7 @@
             $this->controller->createPurchaseOrder($quoteId,$price);
 
             //html
-            echo "<title>Quote</title>";
+            echo "<title>Email Sent</title>";
             echo "</head>";
             echo "<body>";
             echo "Email has been sent<br>";
