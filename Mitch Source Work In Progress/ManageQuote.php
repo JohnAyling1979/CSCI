@@ -1,16 +1,20 @@
 <?php
     class ManageQuote
     {
-        // retrieves the finalized quote from the Quote Database
-        public function getFinalizedQuote($quoteStore)
+        public function __construct()
         {
-            return $quoteStore->getFinalizedQuote();
+            $this->quoteStore = new QuoteStore;
+        }
+        // retrieves the finalized quote from the Quote Database
+        public function getFinalizedQuote()
+        {
+            return $this->quoteStore->getFinalizedQuote();
         }
 
         // updates the sanctioned quote to the Quote Database
-        public function updateQuote($status)
+        public function updateQuote($quoteId)
         {
-            return $status->updateQuote();
+            return $this->quoteStore->updateQuote($quoteId);
         }
     }
 ?>

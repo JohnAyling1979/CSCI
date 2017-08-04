@@ -32,7 +32,7 @@
                 $interface->removeLineItems($quoteStore);
                 $interface->addSecretNote($quoteStore);
                 $interface->editSecretNote($quoteStore);
-                $interface->markQuoteSanctioned($quoteStore);
+                $interface->updateQuote($controller, $quoteStore);
             }
 
             if(isset($_POST[submitLineItems]))
@@ -72,7 +72,7 @@
 
             if(isset($_POST[submitSanction]))
             {
-                $quoteStore->markQuoteSanctioned($_SESSION[quoteId], $_POST[sanctionYes], $_POST[sanctionNo]);
+                $quoteStore->updateQuote($_SESSION[quoteId]);
                 //echo $_REQUEST['quoteId'];
                 //$interface->viewQuote($controller, $quoteStore); 
             }
