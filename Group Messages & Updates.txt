@@ -701,3 +701,11 @@ update the current price. I removed all quote with a current price so if you nee
 
 The create quote and create PO functions have been added to final sourcer files.
 -JA
+
+I am still fighting displaying the total price from the DB. At least now it returns a value of zero. However, I am not sure
+why it isn't pulling down the value. I went ahead and made the where clause to match the session variable as I am trying
+to track down what is going on. Would you want to take a look at it and see if you can find anything? I also made the
+markQuoteSanction into updateQuote. So the markQuoteSanction will not be used. I'm going to step away for a few and keep
+trying to figure out why the value doesn't show.
+
+-MM
