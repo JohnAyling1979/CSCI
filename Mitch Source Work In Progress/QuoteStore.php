@@ -70,23 +70,18 @@
             $db = null;
         }
 
-        public function calculatePrice()
+        public function calculatePrice($quoteId)
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
-            // calculate the price of the items of the quote
-            $sql = $db->query("SELECT SUM(price) FROM LineItem WHERE quoteId = '$SESSION($quoteId)';");
-            
-            while ($total = $sql->fetch(PDO::FETCH_ASSOC))
-            {
-                $totalPrice += $total[0];
-            }
+            // Retrieve Quotes that are marked as Finalized
+            $sql = "SELECT * FROM Quote WHERE quoteId = '$quoteId';";
+            $query = $db->query($sql);
 
-            return $totalPrice;
-
-            // disconnect from the database
-            $db = null;
+            // return the results
+            return $query->fetch();
+            //$db = null;
         }
 
         public function addLineItems($quoteId,$description,$price)

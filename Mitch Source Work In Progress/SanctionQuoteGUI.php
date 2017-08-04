@@ -84,11 +84,10 @@
 
         } // end function
 
-        public function calculatePrice($quoteStore)
+        public function calculatePrice($quoteId)
         {
-            $quoteTotal = $quoteStore->calculatePrice($totalPrice);
-            echo "<br><b>Total Price: </b>$";
-            echo $quoteTotal;
+            $price = $this->controller->calculatePrice($quoteId);
+            echo "<b>Current Total: </b>$" .$price[currentPrice];
         }
 
         public function addLineItems()

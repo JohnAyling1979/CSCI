@@ -16,5 +16,10 @@
         {
             return $this->quoteStore->updateQuote($quoteId);
         }
+
+        public function calculatePrice($quoteId)
+        {
+            return $this->quoteStore->calculatePrice($quoteId);
+        }
     }
 ?>
