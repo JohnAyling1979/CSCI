@@ -734,4 +734,11 @@ Yep... I was just going to say the same thing. It's been hit or miss for the las
 -MM
 
 I went a head and made some small correction to display the current price in your sanction quote code.
+I saw that you had a constructor in the contoller class that links it to the quote store.
+You could do the same with the Gui to connect it to the controller. Then you don't
+have to create them on the sanctionQuote page.
+
+Another thing I noticed with mine was that since it is all done on one page it was
+createing a new instane of all the classes each time there was a POST. To fix it I
+added a if(!isset($interface)) before $interface=new SanctionQuoteGUI;
 -JA
