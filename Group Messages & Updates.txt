@@ -698,3 +698,6 @@ CreatePO is done.  I will be uploading it shortly. Link is in the source folder
 Ok create Quote now sets the currentprice when it is created so you can use that for your deduction and then when yo saction it
 update the current price. I removed all quote with a current price so if you need more quotes you'll have to create them.
 -JA
+
+The create quote functions have been added to final sourcer files.
+-JA
