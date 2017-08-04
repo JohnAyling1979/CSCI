@@ -1,15 +1,8 @@
-        <div class="header">
-            <h2>Edit Employee Data</h2>
-        </div>
+<h2>Edit sales associate</h2>
 
-        <div class="content">
-            <h2 class="content-subhead">Enter Search Criteria</h2>
+<h3>Enter Search</h3>
             
-				<form method=POST action="index.php?page=editList" class="pure-form">
-					<input type=text name=search width=10>
-					<button>Find Matching Employees</button>
-				</form>
-              
-			<?php include 'php/footer.php'; ?>
-
-       </div>
+<form method=POST action="admin.php?page=editList">
+<input type=text name=search>
+<button>Find</button>
+</form>

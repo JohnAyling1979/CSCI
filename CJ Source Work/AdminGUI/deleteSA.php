@@ -1,8 +1,8 @@
 <h2>Delete sales associate</h2>
 
- <h2">sales associate Information</h2>
+ <h3>sales associate Information</h3>
  <p>
 <?php
-print $_SESSION['controller']->deleteEmployee($_POST['id']);
+print $_SESSION['controller']->deleteSA($_POST['saId']);
 ?>
 </p>

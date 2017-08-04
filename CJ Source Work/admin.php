@@ -1,19 +1,22 @@
+<?php
+include "AdminManage.php";
+session_start();
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Administir System</title>
 </head>
 <?php
-//if (!isset($_SESSION['controller'])) {
-//	$_SESSION['controller'] = new ManageEmployee;
-//	trace("new controller created and put in session");
-//} else {
-//	trace("controller already in session");
-//}
+if (!isset($_SESSION['controller'])) 
+{
+	$_SESSION['controller'] = new AdminManage;
+}
 ?>
 <body>
 <center><h1>Administer System</h1></center>
 <p  align="center">
- [ <a href="?page=createSA">Manage Sales Associate</a> ]
+ [ <a href="?page=manageSA">Manage Sales Associate</a> ]
  [ <a href="?page=quoteOption">View Quote</a> ]
 <p>
 

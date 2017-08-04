@@ -1,34 +1,36 @@
-        <div class="header">
-            <h2>Update Employee Data</h2>
-        </div>
+<h2>Update Sales Associate</h2>
 
-        <div class="content">
-            <h2 class="content-subhead">Employee Information</h2>
-            <p>
-				<?php
-					$emp = $_SESSION['controller']->getEmployee($_POST['id']);
-					$projList = $_SESSION['controller']->getProjects();
-					print "<form method=POST action=index.php?page=updateEmployee>";
-					print "<input type=hidden name='id' value='" . $emp->id . "'>";
-					print "<table>";
-					print "<tr><td>Name: </td><td><input type=text name=name value='" . $emp->name . "'></td></tr>";
-					print "<tr><td>Address: </td><td><input type=text name=address value='" . $emp->address . "'></td></tr>";
-					print "<tr><td>Salary: </td><td><input type=text name=salary value='" . $emp->salary . "'></td></tr>";
-					print "<tr><td>Project: </td><td><select name=project>";
-					foreach ($projList as $proj) {
-						if ($proj->id == $emp->project) {
-							print "<option selected>" . $proj->id . "</option>";
-						} else {
-							print "<option>" . $proj->id . "</option>";
-						}
-					}
-					print "</select></td></tr>";
-					print "<tr><td>Bank #: </td><td><input type=text name=routingnumber value='" . $emp->routingnumber . "'></td></tr>";
-					print "<tr><td>Account #: </td><td><input type=text name=accountnumber value='" . $emp->accountnumber . "'></td></tr>";
-					print "</table><p>";
-					print "<button>Update</button>";
-					print "</p></form>";
-				?>
-			</p>
-			<?php include 'php/footer.php'; ?>
-       </div>       
+<h3>Sales Associate Information</h3>
+ <p>
+	<?php
+	$emp = $_SESSION['controller']->getSA($_POST['saId']);
+	echo "<form method=POST action=admin.php?page=updateSA>";
+	//ID as key hidden
+	echo "<input type=hidden name='saId' value='" . $sa->asId . "'>";
+	echo "<table>";
+	//insert Name
+	echo "<tr><td>";
+	echo "Name";
+	echo "</td><td>";
+	echo "<input type=text name=name value='" . $sa->name . "'><br>";
+	echo "</td></tr><tr><td>";
+	//insert Password
+	echo "Password";
+	echo "</td><td>";
+	echo "<input type=password name=password value='" . $sa->password . "'><br>";
+	echo "</td></tr><tr><td>";
+	//insert address
+	echo "Address";
+	echo "</td><td>";
+	echo "<input type=text name=address value='" . $sa->address . "'><br>";
+	echo "</td></tr><tr><td>";
+	//insert commission
+	echo "Commission";
+	echo "</td><td>";
+	echo "<input type=text name=commission value='" . $sa->commission . "'><br>";
+	echo "</td></tr><tr><td>";
+	echo "</table>";
+	echo "<button>Update</button>";
+	echo "</form>";
+	?>
+</p>

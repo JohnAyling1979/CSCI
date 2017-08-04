@@ -1,9 +1,10 @@
 <h2>Delete sales associate</h2>
 
-<h2> Select sales associate to be delete</h2>
+<h3> Select sales associate to be delete</h3>
 	<p>
 	<?php
-	print "<table><tr><th>ID</th><th>Name</th><th>Address</th></tr>";
+	$empList = $_SESSION['controller']->findSA($_POST['search']);
+	print "<table><tr><th>select</th><th>Name</th><th>Address</th></tr>";
 	foreach ($saList as $sa)
 	{
 		print "<tr><td><form method=POST action=admin.php?page=confirmDelete>";
