@@ -123,7 +123,7 @@
             echo "\t\t\t</table>\r\n";
             echo "\t\t\tEmail<br>\r\n";
             echo "\t\t\t<input type='email' name='email' required><br>\r\n";
-            echo "\t\t\t<input type='hidden' name='customerName' value='$customerName'>";
+            echo "\t\t\t<input type='hidden' name='customerName' value=".'"'.$customerName.'"'.">\r\n";
             echo "\t\t\t<input type='hidden' name='custId' value='$id'>";
             echo "\t\t\t<input type='hidden' name='customerAdd' value='$customerAdd'>";
             echo "\t\t\t<input type='hidden' name='customerCity' value='$customerCity'>";
