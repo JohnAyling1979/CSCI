@@ -709,3 +709,15 @@ markQuoteSanction into updateQuote. So the markQuoteSanction will not be used. I
 trying to figure out why the value doesn't show.
 
 -MM
+
+in your function
+        public function calculatePrice($quoteStore)
+        {
+            $quoteTotal = $quoteStore->calculatePrice($totalPrice);
+            echo "<br><b>Total Price: </b>$";
+            echo $quoteTotal;
+        }
+you are sending a var $totalPrice to the calculatePrice which doesn't exist.
+Like we talk on the phone $rowA[currentPrice] will give you the current total price
+
+then in the quotestore calculatePrice isn't excepting any var
