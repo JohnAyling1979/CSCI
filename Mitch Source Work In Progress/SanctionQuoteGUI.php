@@ -87,7 +87,7 @@
         public function calculatePrice($quoteStore)
         {
             $quoteTotal = $quoteStore->calculatePrice($totalPrice);
-            echo "<br><b>Total Price: </b>";
+            echo "<br><b>Total Price: </b>$";
             echo $quoteTotal;
         }
 
@@ -267,13 +267,10 @@
             $db = null;
         } // end function
 
-        public function markQuoteSanctioned()
+        public function updateQuote($controller, $quoteStore)
         {
-            print ('<br><h3>Quote Sanctioning</h3><hr>
-                    <h4>Sanction Quote</h4>
+            print ('<br><h3>Quote Sanctioning</h3><hr><br>
                     <form method=post>
-                    <input type=radio name="sanctionYes">Yes<br>
-                    <input type=radio name="sanctionNo">No<br><br>
                     <input type="submit" name="submitSanction" value="Mark quote as Sanctioned">
                     </form>
                 ');

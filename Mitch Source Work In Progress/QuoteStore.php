@@ -70,16 +70,20 @@
             $db = null;
         }
 
-        public function calculatePrice()
+        public function calculatePrice($quoteId)
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
             // calculate the price of the items of the quote
-            $sql = "SELECT SUM(price) AS total FROM LineItem WHERE quoteId = '$quoteId';";
-            $totalPrice = $db->query($sql);
+            $sql = $db->query("SELECT SUM(price) FROM LineItem WHERE quoteId = '$quoteId';");
+            
+            while ($total = $sql->fetch(PDO::FETCH_ASSOC))
+            {
+                $totalPrice += $total[0];
+            }
 
-            return $totalPrice->fetch(PDO::FETCH_ASSOC);
+            return $totalPrice;
 
             // disconnect from the database
             $db = null;
@@ -168,17 +172,15 @@
             $db = null;
         }
 
-        public function markQuoteSanctioned($quoteId,$sanctionYes)
+        public function updateQuote($quoteId)
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
             
-            if ($sanctionYes)
-            {
-                // update the sanction status of the quote to yes
-                $sql = "UPDATE Quote SET isSanctioned=1, isFinalized=0 WHERE quoteId='$quoteId';";
-                $db->exec($sql);
-            }
+            // update the sanction status of the quote to yes
+            $sql = "UPDATE Quote SET isSanctioned=1, isFinalized=0 WHERE quoteId='$quoteId';";
+            $db->exec($sql);
+
             // disconnect from the database
             $db = null;
         }
