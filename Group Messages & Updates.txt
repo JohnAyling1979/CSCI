@@ -753,3 +753,9 @@ object(SalesAssociateInterface)#1 (1) { ["controller"]=> object(CreateQuoteContr
 yours looks
 object(__PHP_Incomplete_Class)#1 (3) { ["__PHP_Incomplete_Class_Name"]=> string(11) "AdminManage" ["Sstore"]=> object(__PHP_Incomplete_Class)#2 (1) { ["__PHP_Incomplete_Class_Name"]=> string(7) "SAstore" } ["Qstore"]=> object(__PHP_Incomplete_Class)#3 (1) { ["__PHP_Incomplete_Class_Name"]=> string(10) "QuoteStore" } } 
 I'll see if I can track it down more.
+
+I uploaded what I did under temp
+I removed the if(!isset) SESSION doesn't seem to like that
+I went for include to require and I moved that all to the first page
+the if isset is causeing it not to create properly. it may have something to do with how the $_SESSION value is handled.  I didn't use session in ether of the 2 case I made because everything was on one page
+-JA
