@@ -70,13 +70,13 @@
             $db = null;
         }
 
-        public function calculatePrice($quoteId)
+        public function calculatePrice()
         {
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
             // calculate the price of the items of the quote
-            $sql = $db->query("SELECT SUM(price) FROM LineItem WHERE quoteId = '$quoteId';");
+            $sql = $db->query("SELECT SUM(price) FROM LineItem WHERE quoteId = '$SESSION($quoteId)';");
             
             while ($total = $sql->fetch(PDO::FETCH_ASSOC))
             {
