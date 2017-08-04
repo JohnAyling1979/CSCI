@@ -80,8 +80,8 @@
             echo "<table>";
             echo "<input type='hidden' name='quoteId' value='$quoteId'>";
             echo "<tr><th>Final discount</th></tr>";
-            echo "<tr><td>Dollor amount:</td><td><input type='text' name='amount'></td></tr>";
-            echo "<tr><td>Percent amount:</td><td><input type='text' name='percent'></td></tr>";
+            echo "<tr><td>Dollor amount:</td><td>$<input type='text' name='amount'></td></tr>";
+            echo "<tr><td>Percent amount:</td><td><input type='text' name='percent'>%</td></tr>";
             echo "</table>";
             echo "<input type='submit' name='update' value='Create PO'>";
             echo "</form>";        
@@ -104,7 +104,7 @@
             //gets the price and applies the discount
             $price=$quote[currentPrice];
             $price=$price-$amount;
-            $price=$price-$price*$percent;
+            $price=$price-$price*$percent/100;
             
             //create the PO
             $this->controller->createPurchaseOrder($quoteId,$price);
