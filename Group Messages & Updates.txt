@@ -732,3 +732,6 @@ Just a heads up I think all NIU web services are down. I am unable to connect to
 
 Yep... I was just going to say the same thing. It's been hit or miss for the last hour. I guess I'm calling it a night hahaha.
 -MM
+
+I went a head and made some small correction to display the current price in your sanction quote code.
+-JA
