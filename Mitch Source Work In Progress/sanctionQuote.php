@@ -26,7 +26,7 @@
             if(isset($_POST[viewQuote]))
             {
                 $interface->viewQuote($controller, $quoteStore);
-                $interface->calculatePrice($_SESSION[quoteId]);
+                $interface->calculatePrice($controller,$_SESSION[quoteId]);
                 $interface->addLineItems($quoteStore);
                 $interface->editLineItems($quoteStore);
                 $interface->removeLineItems($quoteStore);
