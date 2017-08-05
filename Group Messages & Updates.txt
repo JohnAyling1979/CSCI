@@ -807,3 +807,6 @@ I am still confused about how to pass multiple variables. I have been trying to 
 Do you mind correcting one of them so I have something to base it off and see what I did wrong? I am just not having any luck trying. 
 Thanks,
 CJ
+ Also does anyone know of an SQL query for a date range. This is how it says to do it online but it returns no records.
+select * from Quote where processingDate between "2017/9/4" and "2017/10/4";
+CJ
