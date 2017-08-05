@@ -82,8 +82,8 @@
             echo "<table>";
             echo "<input type='hidden' name='quoteId' value='$quoteId'>";
             echo "<tr><th>Final discount</th></tr>";
-            echo "<tr><td>Dollor amount:</td><td>$<input type='text' name='amount'></td></tr>";
-            echo "<tr><td>Percent amount:</td><td><input type='text' name='percent'>%</td></tr>";
+            echo "<tr><td><input type='radio' name='type' value='dollar' checked>Dollar amount:</td><td>$<input type='text' name='amount'></td></tr>";
+            echo "<tr><td><input type='radio' name='type' value='percent'>Percent amount:</td><td><input type='text' name='percent'>%</td></tr>";
             echo "</table>";
             echo "<input type='submit' name='update' value='Create PO'>";
             echo "</form>";        
@@ -98,15 +98,17 @@
             USAGE:      To display that the email is sent after the Po is
                         created
         *******************************************************************/
-        public function createPurchaseOrder($quoteId,$amount,$percent)
+        public function createPurchaseOrder($quoteId,$amount,$percent,$type)
         {
             //gets the quote info
             $quote=$this->controller->getQuote($quoteId);
 
             //gets the price and applies the discount
             $price=$quote[currentPrice];
-            $price=$price-$amount;
-            $price=$price-$price*$percent/100;
+            if($type=="dollar")
+                $price=$price-$amount;
+            else
+                $price=$price-$price*$percent/100;
             
             //create the PO
             $this->controller->createPurchaseOrder($quoteId,$price);

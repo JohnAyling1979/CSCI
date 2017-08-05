@@ -33,7 +33,7 @@ Driver page for the create PO interface
 
         if(isset($_POST[update]))
         {
-            $interface->createPurchaseOrder($_POST[quoteId],$_POST[amount],$_POST[percent]);
+            $interface->createPurchaseOrder($_POST[quoteId],$_POST[amount],$_POST[percent],$_POST[type]);
         }
     }
     else
