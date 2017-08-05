@@ -838,3 +838,5 @@ so
 will get moved from the main driver program
 the controller will get put into the interface class and the quotestore into the ManageQuote. Then make the constructor for the
 interface and controller class.
+
+Just learned something super nice that will make stuff alot easier. We don't have to pass the $_POST variables through all of the functions. They can be accessed from the end function without being passed
