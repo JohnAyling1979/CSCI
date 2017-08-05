@@ -800,3 +800,9 @@ $interface->updateSA($_POST[name],$_POST[password],$_POST[address],$_POST[commis
 but in the GUI you have 
 public function updateSA($saId,$name,$password,$address,$commission)
 and all other are the same after that.
+
+
+John,
+I am still confused about how to pass multiple variables. I have been trying to look at your project to find an example on how to do it but I can’t get it working. Do you mind correcting one of them so I have something to base it off and see what I did wrong? I am just not having any luck trying. 
+Thanks,
+CJ
