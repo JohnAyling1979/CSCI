@@ -795,3 +795,8 @@ for update you could have something that looks like this or the SA values could 
 
 Just took a quick looked over all the class and it looks like you got a good chunk of it.
 -JA
+in admin.php you have 
+$interface->updateSA($_POST[name],$_POST[password],$_POST[address],$_POST[commission],$_POST[saId])
+but in the GUI you have 
+public function updateSA($saId,$name,$password,$address,$commission)
+and all other are the same after that.
