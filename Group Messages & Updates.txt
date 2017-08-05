@@ -846,3 +846,6 @@ I looked at it for a while and could not figure out why so I took a break on it.
 I also have not yet tried the date search but all the other searches are working.
 On the mange side, everything is done minus submit update (same function for create and edit).
 I am going to work on it for another hour then I will take a break until tomorrow around noon. I will reupload the changes I have done when I am done for today.
+
+Admin system is all done minus the submit on the edit user. Submit on new user is working.  I will fix the edit user tomorrow midafternoon. Let me know if you find anything I should change.
+-CJ
