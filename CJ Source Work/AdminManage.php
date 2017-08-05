@@ -3,7 +3,7 @@
     class AdminManage
     {	
 		var $SA;
-		//var $quote;
+		var $QUOTE;
 		 /*******************************************************************
             FUNCTION:   CreateQuoteController::constructor
             ARGUMENTS:  none
@@ -15,7 +15,7 @@
         {
             //creates instances of the other classes when controller is created
     		$this->SA = new SAstore;
-            //$this->quote= new QuoteStore;
+            $this->QUOTE= new QuoteStore;
     	}
 			
 		/*******************************************************************
@@ -37,10 +37,10 @@
             USAGE:      To request the sa info from the 
                        sastore for one customer
         *******************************************************************/
-        public function getSA($saId)
+        public function getSA($name)
         {
             //$info=$this->SA->findSA($name);
-			return $this->SA->getSA($saId);
+			return $this->SA->getSA($name);
         }
 		
 		/*******************************************************************
@@ -65,6 +65,36 @@
         public function deleteSA($saId)
         {
             return $this->SA->deleteSA ($saId);
+        }
+		
+		/*******************************************************************
+            FUNCTION:   getCustomerNames
+            ARGUMENTS:  none
+            USAGE:      List of customer names
+        *******************************************************************/
+        public function getCustomerNames()
+        {
+            return $this->QUOTE->getCustomerNames();
+        }
+		
+		/*******************************************************************
+            FUNCTION:   getSANames
+            ARGUMENTS:  none
+            USAGE:      List of Associats names
+        *******************************************************************/
+        public function getSANames()
+        {
+            return $this->SA->getSANames();
+        }
+		
+		/*******************************************************************
+            FUNCTION:   getSANames
+            ARGUMENTS:  none
+            USAGE:      List of Associats names
+        *******************************************************************/
+        public function getStausQuote()
+        {
+            return $this->SA->getSANames();
         }
 	}
 ?>

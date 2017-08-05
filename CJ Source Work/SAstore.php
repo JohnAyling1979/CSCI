@@ -55,12 +55,12 @@ class SAstore
             RETURNS:    Sales Associate information as an array
             USAGE:      To be able to edit or delete
         *******************************************************************/
-    public function getSA($saId)
+    public function getSA($name)
         {
             //connects to database
             $db=$this->connect();
             //creates query
-            $query="select * from SalesAssociate where saId = $saId ";
+            $query="select * from SalesAssociate where name = '$ name' ";
             $stmt=$db->query($query);
             return new $stmt->fetchAll();
         }
@@ -74,7 +74,7 @@ class SAstore
 						$commission
             USAGE:      Creats or updes a sa record
         *******************************************************************/
-    public function updateSA($saId,$name,$password,$address,$commission)
+	public function updateSA($saId,$name,$password,$address,$commission)
     {
 		//status of quote
         $isCreated=0;
@@ -99,8 +99,38 @@ class SAstore
 			$sql .= "commission = '" . $commission . "', ";
 			$sql .= "address = '" . $address . "' WHERE saId = " . $saId . ";";
 		}
-		//return $isCreated;
+		return $DB->query($sql);
 	}
+	
+	/*
+	    public function updateSA($new,$id,$name,$pass,$comm,$add)
+        {
+            $DB=$this->connect();
+            //if a new password
+            if($pass!="")
+            {
+                //hash it
+                $pass=hash("sha256",$pass);
+                //if it's not new SA
+                //update the current
+                if(!$new)
+                {
+                    $into="update SalesAssociate set password='$pass; where saId='$id'"; 
+                    $DB->query($into);
+                }
+            }
+
+            //if it is new it is an insert
+            //else it will be an update
+            if($new)
+                $into="insert into SalesAssociate(name,password,commission,address) values('$name','$pass','$comm','$add')";
+            else
+                $into="update SalesAssociate set name='$name',commission=$comm,address='$add' where saId='$id'";
+
+           return $DB->query($into);
+        }
+		*/
+
 
     /*******************************************************************
             FUNCTION:   deleteSA

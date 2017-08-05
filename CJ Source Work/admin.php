@@ -9,7 +9,7 @@ Driver page for the admin interface
 //needed files
 require "AdminManage.php";
 require "SAstore.php";
-//require "QuoteStore.php";
+require "QuoteStore.php";
 require "AdminGUI.php";
 
 //creates the instance of the class if not set
@@ -47,17 +47,17 @@ require "AdminGUI.php";
 		//editFind
         if(isset($_POST['eFind']))
         {
-            $interface->editSA($_POST[sa]);
+            $interface->editSA($_POST[saName]);
         }
 		//Edit SA
         if(isset($_POST['editUpdate']))
         {
-            $interface->updateSA($_POST[name],$_POST[password],$_POST[address],$_POST[commission],$_POST[saId]);
+            $interface->updateSA($_POST[saId],$_POST[name],$_POST[password],$_POST[address],$_POST[commission]);
         }
 		//creat SA
         if(isset($_POST['screat']))
         {
-            $interface->updateSA($_POST[name],$_POST[password],$_POST[address],$_POST[commission],$_POST[saId]);
+            $interface->updateSA($_POST[saId],$_POST[name],$_POST[password],$_POST[address],$_POST[commission]);
         }
 		//DeleteSearch
         if(isset($_POST['Dsearch']))
@@ -73,6 +73,36 @@ require "AdminGUI.php";
         if(isset($_POST['sdelete']))
         {
             $interface->deleteSA();
+        }
+		//View Quots
+        if(isset($_POST['quote']))
+        {
+            $interface->quoteOption();
+        }
+		//View quots by status
+        if(isset($_POST['status']))
+        {
+            $interface->Qstatus();
+        }
+		//View quots by date
+        if(isset($_POST['date']))
+        {
+            $interface->Qdate();
+        }
+		//View quots by associate
+        if(isset($_POST['QuoteAssociate']))
+        {
+            $interface->Qassociate();
+        }
+		//View quots by customer
+        if(isset($_POST['customer']))
+        {
+            $interface->Qcustomer();
+        }
+		//List matching customers
+        if(isset($_POST['statusSUB']))
+        {
+            $interface->QStatusList($_POST[Stype]);
         }
     }
     //begining interface
