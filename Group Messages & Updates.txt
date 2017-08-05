@@ -840,3 +840,9 @@ the controller will get put into the interface class and the quotestore into the
 interface and controller class.
 
 Just learned something super nice that will make stuff alot easier. We don't have to pass the $_POST variables through all of the functions. They can be accessed from the end function without being passed
+
+Just an update on the admin system. The View quotes is almost complete minus when you view a quote I having issues showing the main quote information (QuoteID, Name...) but I am able to get line item rows to display.  
+I looked at it for a while and could not figure out why so I took a break on it. 
+I also have not yet tried the date search but all the other searches are working.
+On the mange side, everything is done minus submit update (same function for create and edit).
+I am going to work on it for another hour then I will take a break until tomorrow around noon. I will reupload the changes I have done when I am done for today.
