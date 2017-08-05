@@ -792,3 +792,6 @@ for update you could have something that looks like this or the SA values could 
 
             return $DB->query($into);
         }
+
+Just took a quick looked over all the class and it looks like you got a good chunk of it.
+-JA
