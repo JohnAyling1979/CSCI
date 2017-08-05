@@ -813,3 +813,6 @@ CJ
 
 for your date range you can use:
 select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_TO_DATE('2017/9/15','%Y/%m/%d') and STR_TO_DATE(processingDate,'%Y/%m/%d') < STR_TO_DATE('2017/10/15','%Y/%m/%d');
+
+and if you want it in order you can add
+order by STR_TO_DATE(processingDate,'%Y/%m/%d')
