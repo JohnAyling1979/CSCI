@@ -6,9 +6,9 @@
             $this->quoteStore = new QuoteStore;
         }
         // retrieves the finalized quote from the Quote Database
-        public function getFinalizedQuote($quoteId)
+        public function getFinalizedQuote()
         {
-            return $this->quoteStore->getFinalizedQuote($quoteId);
+            return $this->quoteStore->getFinalizedQuote();
         }
 
         // updates the sanctioned quote to the Quote Database
@@ -20,7 +20,12 @@
         public function calculatePrice($quoteId)
         {
             $row=$this->quoteStore->calculatePrice($quoteId);
+            return $row[currentPrice];
+        }
 
+        public function calculateFinalPrice($quoteId)
+        {
+            $row=$this->quoteStore->calculateFinalPrice($quoteId);
             return $row[currentPrice];
         }
     }

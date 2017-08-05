@@ -75,13 +75,11 @@
             //connect to the database
             $db = connect("courses","z981329","z981329","1979Jul29");
 
-            // Retrieve Quotes that are marked as Finalized
             $sql = "SELECT * FROM Quote WHERE quoteId = '$quoteId';";
             $query = $db->query($sql);
-
             // return the results
             return $query->fetch();
-            //$db = null;
+            $db = null;
         }
 
         public function addLineItems($quoteId,$description,$price)
@@ -164,6 +162,39 @@
             $db->exec($sql);
 
             // disconnect from the database
+            $db = null;
+        }
+
+        public function calculateDiscounts($quoteId,$amount,$percentage)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            if ($amount)
+            {
+                $sql = "UPDATE Quote SET currentPrice = (currentPrice - '$amount') WHERE quoteId='$quoteId';";
+                $db->exec($sql);
+            }
+
+            if ($percentage)
+            {
+                $sql = "UPDATE Quote SET currentPrice = (currentPrice - ((currentPrice * '$percentage') / 100)) WHERE quoteId='$quoteId';";
+                $db->exec($sql);
+            }
+
+            // disconnect from the database
+            $db = null;
+        }
+
+        public function calculateFinalPrice($quoteId)
+        {
+            //connect to the database
+            $db = connect("courses","z981329","z981329","1979Jul29");
+
+            $sql = "SELECT * FROM Quote WHERE quoteId = '$quoteId';";
+            $query = $db->query($sql);
+            // return the results
+            return $query->fetch();
             $db = null;
         }
 

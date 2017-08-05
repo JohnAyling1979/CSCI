@@ -32,6 +32,8 @@
                 $interface->removeLineItems($quoteStore);
                 $interface->addSecretNote($quoteStore);
                 $interface->editSecretNote($quoteStore);
+                $interface->calculateDiscounts($quoteStore);
+                $interface->calculateFinalPrice($controller,$_SESSION[quoteId]);
                 $interface->updateQuote($controller, $quoteStore);
             }
 
@@ -66,6 +68,13 @@
             if(isset($_POST[submitSecretNoteEdit]))
             {
                 $quoteStore->editSecretNote($_SESSION[quoteId], $_POST[lineId], $_POST[editSecretNote]);
+                //echo $_REQUEST['quoteId'];
+                //$interface->viewQuote($controller, $quoteStore); 
+            }
+
+            if(isset($_POST[applyDiscount]))
+            {
+                $quoteStore->calculateDiscounts($_SESSION[quoteId], $_POST[amount], $_POST[percentage]);
                 //echo $_REQUEST['quoteId'];
                 //$interface->viewQuote($controller, $quoteStore); 
             }

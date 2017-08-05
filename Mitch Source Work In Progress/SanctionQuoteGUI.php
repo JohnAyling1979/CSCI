@@ -87,7 +87,7 @@
         public function calculatePrice($controller,$quoteId)
         {
             $price = $controller->calculatePrice($quoteId);
-            echo "<b>Current Total: </b>$" .$price;
+            echo "<br><b>Current Total: </b>$" .$price;
         }
 
         public function addLineItems()
@@ -265,6 +265,32 @@
             // end connection to the database
             $db = null;
         } // end function
+
+        public function calculateDiscounts()
+        {
+            // display the discount functions
+            if (isset($_SESSION['quoteId']))
+            {
+                print ('<br><h3>Apply Quote Discounts</h3><hr>
+                        <h4>Discounts</h4>
+                        <form method=post>
+                        <span style="white-space:nowrap">
+                        Enter Discount as an Amount <input type="text" name="amount" min="0" max="9999999999">
+                        <br><br>
+                        Enter Discount as a Percetage <input type="text" name="percentage" min="0" max="100"><br><br>
+                        <input type="submit" name="applyDiscount" value="Apply Discount">
+                        <input type="reset">
+                        </span>
+                        </form>
+                ');
+            } // end if
+        } // end function
+
+        public function calculateFinalPrice($controller,$quoteId)
+        {
+            $price = $controller->calculateFinalPrice($quoteId);
+            echo "<br><b>Total After Discounts Applied: </b>$" .$price;
+        }
 
         public function updateQuote($controller, $quoteStore)
         {
