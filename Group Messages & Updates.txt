@@ -810,3 +810,6 @@ CJ
  Also does anyone know of an SQL query for a date range. This is how it says to do it online but it returns no records.
 select * from Quote where processingDate between "2017/9/4" and "2017/10/4";
 CJ
+
+for your date range you can use:
+select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_TO_DATE('2017/9/15','%Y/%m/%d') and STR_TO_DATE(processingDate,'%Y/%m/%d') < STR_TO_DATE('2017/10/15','%Y/%m/%d');
