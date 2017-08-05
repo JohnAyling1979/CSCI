@@ -34,110 +34,73 @@ class SAstore
             return $db;
         }
 		
-		 /*******************************************************************
-            FUNCTION:   findSA
-            ARGUMENTS:  $name: Name of the associate
-            RETURNS:    name of Sales Associate in a list that match
-            USAGE:      To be able to retreve a list of accocites
-        *******************************************************************/
+		 //search records from the SalesAssociate database
 		public function findSA($name)
         {
 			//connects to database
             $db=$this->connect();;
             //creates query
             $query="select * from SalesAssociate WHERE name LIKE '%" . $name . "%';";
-			return $db->query($query);
+            //runs query
+            $stmt=$db->query($query);
+            
+			$saList = array ();
+		
+			if ($stmt->num_rows > 0) 
+			{
+				while ( $row = $stmt->fetch_assoc () ) 
+				{
+					$saList [$row ['saId']] = new SalesAssociate ( $row );
+				}
+			}
+			return $saList;
         }
 
-    /*******************************************************************
-            FUNCTION:   SAstore::getSA
-            ARGUMENTS:  $name: Name of the associate
-            RETURNS:    Sales Associate information as an array
-            USAGE:      To be able to edit or delete
-        *******************************************************************/
-    public function getSA($name)
+    //gets info from the SalesAssociate database
+    public function getSA($saId)
         {
-
             //connects to database
             $db=$this->connect();
             //creates query
-            $query="select * from SalesAssociate where name = '$name' ";
+            $query="select * from SalesAssociate where saId = " .$saId . ";";
+            //runs query
             $stmt=$db->query($query);
-            return $stmt->fetch();
+            //gets first row
+            $row=$stmt->fetch();
+            //returns the Sales Associate information
+            return new Associate ($row);
         }
 
-    /*******************************************************************
-            FUNCTION:   updateSA
-            ARGUMENTS:  $saId
-						$name
-						$password
-						$address
-						$commission
-            USAGE:      Creats or updes a sa record
-        *******************************************************************/
-	public function updateSA($saId,$name,$password,$address,$commission)
+    //updates SalesAssociate database
+    public function updateSA($sa)
     {
-		//status of quote
-        $isCreated=0;
-			
 		//connects to database
         $db=$this->connect();
 			
 		// id -1 indicates to create new Sales Associate in DB
-		if ($saId == - 1) 
+		if ($sa->saId == - 1) 
 		{
 			// Creat new Sales Associate
 			$sql = "INSERT INTO SalesAssociate (name, password, address) VALUES (";
-			$sql .= "'" . $name . "', ";
-			$sql .= "'" . $password . "', ";
-			$sql .= "'" . $address . "');";
+			$sql .= "'" . $sa->name . "', ";
+			$sql .= "'" . $sa->password . "', ";
+			$sql .= "'" . $sa->address . "');";
 		} 
 		else 
 		{
 			// update Sales Associate that is alrady in database
-			$sql = "UPDATE SalesAssociate SET name = '" . $name . "', ";
-			$sql .= "password = '" . $password . "', ";
-			$sql .= "commission = '" . $commission . "', ";
-			$sql .= "address = '" . $address . "' WHERE saId = " . $saId . ";";
+			$sql = "UPDATE SalesAssociate SET name = '" . $sa->name . "', ";
+			$sql .= "password = '" . $sa->password . "', ";
+			$sql .= "commission = '" . $sa->commission . "', ";
+			$sql .= "address = '" . $sa->address . "' WHERE saId = " . $sa->saId . ";";
 		}
-		return $DB->query($sql);
+		if ($db->query ( $sql ) === TRUE) 
+		{
+			return "Updated";
+		}
 	}
-	
-	/*
-	    public function updateSA($new,$id,$name,$pass,$comm,$add)
-        {
-            $DB=$this->connect();
-            //if a new password
-            if($pass!="")
-            {
-                //hash it
-                $pass=hash("sha256",$pass);
-                //if it's not new SA
-                //update the current
-                if(!$new)
-                {
-                    $into="update SalesAssociate set password='$pass; where saId='$id'"; 
-                    $DB->query($into);
-                }
-            }
 
-            //if it is new it is an insert
-            //else it will be an update
-            if($new)
-                $into="insert into SalesAssociate(name,password,commission,address) values('$name','$pass','$comm','$add')";
-            else
-                $into="update SalesAssociate set name='$name',commission=$comm,address='$add' where saId='$id'";
-
-           return $DB->query($into);
-        }
-		*/
-
-
-    /*******************************************************************
-            FUNCTION:   deleteSA
-            ARGUMENTS:  $saId
-            USAGE:      Delets SA records
-        *******************************************************************/
+    //delets the record from the SalesAssociate database
     public function deleteSA($saId)
     {
 		//connects to database
@@ -145,9 +108,27 @@ class SAstore
 		// delete SalesAssociate
 		$sql = "DELETE FROM SalesAssociate WHERE id = " . $saId . ";";
 		$db->exec($sql);
-		$db->query($update);
-            //return status
-            return $isCreated;
+		if ($db->query ( $sql ) === TRUE)
+		{
+			return "Deleated";
+		}
+	}
+}
+
+class Associate 
+{
+	var $saId;
+	var $name;
+	var $address;
+	var $password;
+	var $commission;
+	// create Associate from array
+	function __construct($row) {
+		$this->saId = $row ['saId'];
+		$this->name = $row ['name'];
+		$this->address = $row ['address'];
+		$this->password = $row ['password'];
+		$this->commission = $row ['commission'];
 	}
 }
 ?>

@@ -1,100 +1,54 @@
 <?php
+	//include store classes
+	include 'SAstore.php';
+	include 'QuoteStore.php';
+
     //class which handles the interaction from the user
     class AdminManage
     {	
-		var $SA;
-		var $QUOTE;
-		 /*******************************************************************
-            FUNCTION:   CreateQuoteController::constructor
-            ARGUMENTS:  none
-            RETURNS:    none
-            USAGE:      creates instances to SAstore and
-                        quotestore 
-        *******************************************************************/
-    	public function __construct()
-        {
-            //creates instances of the other classes when controller is created
-    		$this->SA = new SAstore;
-            $this->QUOTE= new QuoteStore;
-    	}
+		var $Sstore;
+		var $Qstore;
+		//creates instances of the classes
+		function __construct()
+		{
+			$this->Sstore = new SAstore ();
+			$this->Qstore = new QuoteStore ();
+		}
 			
-		/*******************************************************************
-            FUNCTION:   findSA
-            ARGUMENTS:  $search from editSearch and delete search
-            RETURNS:    A PDO statemtn containing all the sa names that match
-            USAGE:      get a list of matching sa
-        *******************************************************************/
+		//called when admin wants to search for associate 
         public function findSA($name)
-        {	
-			$info=$this->SA->findSA($name);
-            return $info;
-        }
-		
-		/*******************************************************************
-            FUNCTION:   getSA
-            ARGUMENTS:  $saId from editSearch and delete search
-            RETURNS:    A row containing the sa info
-            USAGE:      To request the sa info from the 
-                       sastore for one customer
-        *******************************************************************/
-        public function getSA($name)
         {
-            //$info=$this->SA->findSA($name);
-			return $this->SA->getSA($name);
+			return $this->Sstore->findSA($name);
         }
 		
-		/*******************************************************************
-            FUNCTION:   updateSA
-            ARGUMENTS:  $name
-                        $saId
-                        $commision
-                        $password
-                        $address
-            USAGE:      To update sa records in database
-        *******************************************************************/
-        public function updateSA($saId,$name,$password,$address,$commission)
+		//called when admin want to retreave an associate
+        public function getSA($saId)
         {
-            return $this->SA->updateSA($saId,$name,$password,$address,$commission);
+            return $this->Sstore->getSA($saId);
         }
 		
-		/*******************************************************************
-            FUNCTION:   deleteSA
-            ARGUMENTS:  $saId
-            USAGE:      To delete sa records in database
-        *******************************************************************/
+		//called when admin chooses to update associate
+        public function updateSA($sa)
+        {
+            return $this->Sstore->updateSA ($sa);
+        }
+		
+		//called when admin chooses to deleat an associate
         public function deleteSA($saId)
         {
-            return $this->SA->deleteSA ($saId);
+            return $this->Sstore->deleteSA ($saId);
         }
 		
-		/*******************************************************************
-            FUNCTION:   getCustomerNames
-            ARGUMENTS:  none
-            USAGE:      List of customer names
-        *******************************************************************/
-        public function getCustomerNames()
+		//called to retreive a quote
+        public function findQuote($quote)
         {
-            return $this->QUOTE->getCustomerNames();
+            return $this->Qstore->finalizeQuote($quote);
         }
 		
-		/*******************************************************************
-            FUNCTION:   getSANames
-            ARGUMENTS:  none
-            USAGE:      List of Associats names
-        *******************************************************************/
-        public function getSANames()
+		//called when admin chooses a quote to view
+        public function getQuote($quote)
         {
-            return $this->SA->getSANames();
-        }
-		
-		/*******************************************************************
-            FUNCTION:   getSANames
-            ARGUMENTS:  none
-            USAGE:      List of Associats names
-        *******************************************************************/
-        public function getStausQuote()
-        {
-            return $this->SA->getSANames();
+            return $this->Qstore->getCustomerInfo($quote);
         }
 	}
-?>
+	?>
