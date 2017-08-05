@@ -759,3 +759,8 @@ I removed the if(!isset) SESSION doesn't seem to like that
 I went for include to require and I moved that all to the first page
 the if isset is causeing it not to create properly. it may have something to do with how the $_SESSION value is handled.  I didn't use session in ether of the 2 case I made because everything was on one page
 -JA
+
+I have rewritten the admin system to be in one page instead of multiple pages. 
+I have part of it working but I am having isues passing queries that have multiple variables (getSA, updateSA, deleteSA). 
+If you have any recommendations that would be helpful. I am going to take a break for today as I have been working on rewriting it nonstop since 9am.
+-CJ
