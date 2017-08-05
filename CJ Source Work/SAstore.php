@@ -57,12 +57,13 @@ class SAstore
         *******************************************************************/
     public function getSA($name)
         {
+
             //connects to database
             $db=$this->connect();
             //creates query
-            $query="select * from SalesAssociate where name = '$ name' ";
+            $query="select * from SalesAssociate where name = '$name' ";
             $stmt=$db->query($query);
-            return new $stmt->fetchAll();
+            return $stmt->fetch();
         }
 
     /*******************************************************************

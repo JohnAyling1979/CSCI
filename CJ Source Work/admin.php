@@ -52,7 +52,12 @@ require "AdminGUI.php";
 		//Edit SA
         if(isset($_POST['editUpdate']))
         {
-            $interface->updateSA($_POST[saId],$_POST[name],$_POST[password],$_POST[address],$_POST[commission]);
+echo $_POST[saId]."<br>";
+echo $_POST[name]."<br>";
+echo $_POST[password]."<br>";
+echo $_POST[address]."<br>";
+echo $_POST[commission]."<br>";
+//            $interface->updateSA($_POST[saId],$_POST[name],$_POST[password],$_POST[address],$_POST[commission]);
         }
 		//creat SA
         if(isset($_POST['screat']))

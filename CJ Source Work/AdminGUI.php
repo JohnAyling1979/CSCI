@@ -93,7 +93,7 @@
                 {
                     //$associate=iconv("latin1","UTF-8",$row[1]);
                     //echo "<option value=$row[saId]>$associate</option>\r\n";
-					echo "<option value=$row[name]>$row[name]</option>\r\n";
+					echo "<option value='$row[name]'>$row[name]</option>\r\n";
                 }
                 echo "\t\t\t</select>\r\n";
 			echo "<button type=submit name='eFind'>Find</button>";
@@ -110,6 +110,7 @@
         {
             //gets a row from the controller containing the customer
             $associate=$this->controller->getSA($saName);
+
             //html to the screen
             echo "\t\t<title>Edit Sales Associate</title>\r\n";
             echo "\t</head>\r\n";
@@ -117,13 +118,13 @@
 			echo "\t\t<form method=post>\r\n";
             echo "\t\t\tName<br>\r\n";
             echo "\t\t\t<input type='text' name='name' value='$associate[name]'><br>\r\n";
-            echo "\t\t\Password<br>\r\n";
-			echo "\t\t\t<input type='password' name='password'";
-            echo "\t\t\Address<br>\r\n";
-			echo "\t\t\t<input type='text' name='address' value='$associate[address]'>";
+            echo "\t\t\tPassword<br>\r\n";
+			echo "\t\t\t<input type='password' name='password'><br>";
+            echo "\t\t\tAddress<br>\r\n";
+			echo "\t\t\t<input type='text' name='address' value='$associate[address]'><br>";
 			echo "\t\t\tCommission<br>\r\n";
 			echo "\t\t\t<input type='text' name='commission' value='$associate[commission]'>";
-            echo "\t\t\t<input type='hidden' name='asId' value='$associate[asId]'>";
+            echo "\t\t\t<input type='hidden' name='saId' value='$associate[saId]'><br>";
             echo "\t\t\t<button type=submit name='editUpdate'>Update</button>\r\n";
             echo "\t\t</form>\r\n";
         }
