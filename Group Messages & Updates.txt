@@ -827,3 +827,5 @@ button (sanction a quote/create PO) is clicked? If you guys have a different sug
 a quick and easy way to say that an email was sent even though its just a dummy message.
 
 -MM
+
+I just went and had display "Email sent" on last page of the createPO. If you want to add an onClick function that is fine aswell.
