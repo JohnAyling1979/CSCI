@@ -137,5 +137,15 @@
         {
             return $this->QUOTE->getQuotsLine($quoteId);
         }
+		
+		/*******************************************************************
+            FUNCTION:   getDates
+            ARGUMENTS:  $start, $end
+            USAGE:      Gets quot in date range
+        *******************************************************************/
+        public function getDates($start,$end)
+        {
+            return $this->QUOTE->getDates($start,$end);
+        }
 	}
 ?>

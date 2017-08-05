@@ -127,7 +127,7 @@ echo $_POST[commission]."<br>";
 		//View Quots
         if(isset($_POST['VIEWQUOTE']))
         {
-            $interface->QuoteView($_POST[quoteId]);
+			$interface->QuoteView($_POST[quoteId]);
 		}
 		//View Quots
         if(isset($_POST['DELEATNOW']))

@@ -81,7 +81,7 @@ class SAstore
 			
 		//connects to database
         $db=$this->connect();
-			
+		$password=hash("sha256",$password);	
 		// id -1 indicates to create new Sales Associate in DB
 		if ($saId == - 1) 
 		{
@@ -99,38 +99,10 @@ class SAstore
 			$sql .= "commission = '" . $commission . "', ";
 			$sql .= "address = '" . $address . "' WHERE saId = " . $saId . ";";
 		}
-		return $DB->query($sql);
+		$db->exec($sql);
+		$db->query($update);
+		return $isCreated;
 	}
-	
-	/*
-	    public function updateSA($new,$id,$name,$pass,$comm,$add)
-        {
-            $DB=$this->connect();
-            //if a new password
-            if($pass!="")
-            {
-                //hash it
-                $pass=hash("sha256",$pass);
-                //if it's not new SA
-                //update the current
-                if(!$new)
-                {
-                    $into="update SalesAssociate set password='$pass; where saId='$id'"; 
-                    $DB->query($into);
-                }
-            }
-
-            //if it is new it is an insert
-            //else it will be an update
-            if($new)
-                $into="insert into SalesAssociate(name,password,commission,address) values('$name','$pass','$comm','$add')";
-            else
-                $into="update SalesAssociate set name='$name',commission=$comm,address='$add' where saId='$id'";
-
-           return $DB->query($into);
-        }
-		*/
-
 
     /*******************************************************************
             FUNCTION:   deleteSA

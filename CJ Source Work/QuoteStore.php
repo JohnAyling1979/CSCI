@@ -105,7 +105,7 @@
             //connects to database
             $db=$this->connect();
             //creates query
-            $query="select * from SalesAssociate where quoteId = '$quoteId';";
+            $query="select * from Quote where quoteId = '$quoteId';";
             return $db->query($query);
         }
 		
@@ -118,9 +118,27 @@
 		public function getQuotsLine($quoteId)
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from LineItem where quoteId = '$quoteId';";
+			return $db->query($query);
+        }
+		
+		/*******************************************************************
+            FUNCTION:   getDates
+            ARGUMENTS:  none	
+            RETURNS:    all quots in date range
+            USAGE:      Get quots in a date range
+        *******************************************************************/
+		public function getDates($start,$end)
+        {
+			//connects to database
+            $db=$this->connect();;
+			$new_start = date('Y/n/j', strtotime($start));
+			$new_end = date('Y/n/j', strtotime($end));
+			
+            //creates query
+			$query="select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_TO_DATE('$new_start','%Y/%m/%d') and STR_TO_DATE(processingDate,'%Y/%m/%d') < STR_TO_DATE('$new_end','%Y/%m/%d');";
 			return $db->query($query);
         }
     }

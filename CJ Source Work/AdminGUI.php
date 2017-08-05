@@ -230,11 +230,12 @@
 			echo "\t\t<title>Updating</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
+			
             //check the return value from the controller
             if($this->controller->updateSA($saId,$name,$password,$address,$commission))
-                echo "\t\t Sales Associate updated\<br>\r\n";
+                echo "\t\t An error has accored\<br>\r\n";
             else
-                echo "\t\tAn error has occured<br>\r\n";
+                echo "\t\tSales Associate Updated<br>\r\n";
             echo "\t\t<a href='admin.php'>Return</a><br>\r\n";
         }
 		
@@ -392,22 +393,13 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 			echo "<form method=post>\n";
-			echo "<table>";
-			echo "<tr>";
-					echo "<th>View</th>";
-					echo "<th>Quote ID</th>"; 
-					echo "<th>Customer Name</th>";
-					echo "</tr>";
+				echo "<select name=quoteId>";
                 foreach($associateSTMT as $row)
                 {
-					echo "<tr>";
-					echo "<td><button type=submit value=$row[quoteId] name='LstatusSUB'>View Quote</button></td>";
-					echo "\t\t\t<input type='hidden' name='quoteId' value='$row[quoteId]'><br>\r\n";
-					echo "<td>\t\t ".$row[quoteId]."\r\n</td>";
-					echo "<td>\t\t ".$row[customerName]."\r\n</td>";
-					echo "</tr>";
+					echo "<option value='$row[quoteId]'>$row[quoteId] - $row[customerName] </option>\r\n";
                 }
-			echo "</table>";
+                echo "\t\t\t</select>\r\n";
+				echo "<td><button type=submit name='VIEWQUOTE'>View Quote</button></td>";
 			echo "</form>";
         }
 		
@@ -425,22 +417,13 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 			echo "<form method=post>\n";
-			echo "<table>";
-			echo "<tr>";
-					echo "<th>View</th>";
-					echo "<th>Quote ID</th>"; 
-					echo "<th>Customer Name</th>";
-					echo "</tr>";
+				echo "<select name=quoteId>";
                 foreach($associateSTMT as $row)
                 {
-					echo "<tr>";
-					echo "<td><button type=submit value=$row[quoteId] name='LcustSUB'>View Quote</button></td>";
-					echo "\t\t\t<input type='hidden' name='quoteId' value='$row[quoteId]'><br>\r\n";
-					echo "<td>\t\t ".$row[quoteId]."\r\n</td>";
-					echo "<td>\t\t ".$row[customerName]."\r\n</td>";
-					echo "</tr>";
+					echo "<option value='$row[quoteId]'>$row[quoteId] - $row[customerName] </option>\r\n";
                 }
-			echo "</table>";
+                echo "\t\t\t</select>\r\n";
+				echo "<td><button type=submit name='VIEWQUOTE'>View Quote</button></td>";
 			echo "</form>";
             
         }
@@ -459,22 +442,13 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 			echo "<form method=post>\n";
-			echo "<table>";
-			echo "<tr>";
-					echo "<th>View</th>";
-					echo "<th>Quote ID</th>"; 
-					echo "<th>Customer Name</th>";
-					echo "</tr>";
+				echo "<select name=quoteId>";
                 foreach($listSTMT as $row)
                 {
-					echo "<tr>";
-					echo "<td><button type=submit name='VIEWQUOTE'>View Quote</button></td>";
-					echo "<td>\t\t ".$row[quoteId]."\r\n</td>";
-					echo "<td>\t\t ".$row[customerName]."\r\n</td>";
-					echo "</tr>";
-					echo "\t\t\t<input type='hidden' name='quoteId' value='$row[quoteId]'><br>\r\n";
+					echo "<option value='$row[quoteId]'>$row[quoteId] - $row[customerName] </option>\r\n";
                 }
-			echo "</table>";
+                echo "\t\t\t</select>\r\n";
+				echo "<td><button type=submit name='VIEWQUOTE'>View Quote</button></td>";
 			echo "</form>";
             
         }
@@ -485,30 +459,21 @@
             RETURNS:    none
             USAGE:      List of quots thare in a date range
         *******************************************************************/
-		public function QDateList($Stype)
-        {
-			$associateSTMT=$this->controller->getQuotsStatus($Stype);
-			
+		public function QDateList($start,$end)
+        {	
+			$associateSTMT=$this->controller->getDates($start,$end);
+
 			echo "\t\t<title>Select a quote to view</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 			echo "<form method=post>\n";
-			echo "<table>";
-			echo "<tr>";
-					echo "<th>View</th>";
-					echo "<th>Quote ID</th>"; 
-					echo "<th>Customer Name</th>";
-					echo "</tr>";
+				echo "<select name=quoteId>";
                 foreach($associateSTMT as $row)
                 {
-					echo "<tr>";
-					echo "<td><button type=submit name='LdateSUB'>View Quote</button></td>";
-					echo "<td>\t\t ".$row[quoteId]."\r\n</td>";
-					echo "<td>\t\t ".$row[customerName]."\r\n</td>";
-					echo "\t\t\t<input type='hidden' name='quoteId' value='$row[quoteId]'><br>\r\n";
-					echo "</tr>";
+					echo "<option value='$row[quoteId]'>$row[quoteId] - $row[customerName] </option>\r\n";
                 }
-			echo "</table>";
+                echo "\t\t\t</select>\r\n";
+				echo "<td><button type=submit name='VIEWQUOTE'>View Quote</button></td>";
 			echo "</form>";
             
         }
@@ -527,6 +492,8 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 
+			foreach($test as $QuoteSTMT)
+			{
 				echo "\t\tQuote ID: ".$QuoteSTMT[quoteId]."<br>\r\n";
 				echo "\t\tCustomer Name: ".$QuoteSTMT[customerName]."<br>\r\n";
 				echo "\t\tCustomer Address: ".$QuoteSTMT[customerAddress]."<br>\r\n";
@@ -549,6 +516,7 @@
 				{
 					echo "\t\tStatus: PO Created<br>\r\n";
 				}
+			}
 			  
 			  echo "<table>";
 			  echo "<tr>";
