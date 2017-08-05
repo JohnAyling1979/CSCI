@@ -816,3 +816,14 @@ select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_
 
 and if you want it in order you can add
 order by STR_TO_DATE(processingDate,'%Y/%m/%d')
+
+Sorry I was absent all day yesterday, it was a very long and very busy day. A fully function SanctionQuotePage has been uploaded
+to my source folder. I am going to work on keeping the page displayed when changes are made instead of having to keep reloading
+it. I believe I can do this by changing the post method to get. We'll see how it goes.
+
+A quick question, I know that the Prof said that the email functionality on Hopper doesn't work, and he said that we could
+just display a message that an email is sent. What do you think about putting in javascript alert messages when the final submit
+button (sanction a quote/create PO) is clicked? If you guys have a different suggestion let me know. I figure this would be
+a quick and easy way to say that an email was sent even though its just a dummy message.
+
+-MM
