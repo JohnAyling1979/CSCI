@@ -902,3 +902,10 @@ for the input
 
 If you look at the customer name list you'll see some messed up characters. If you want to fix it you can use:
 $customerName=iconv("latin1","UTF-8",$row[name]);
+
+
+I have changed the page to display “View or edit” with the ID number as disabled. I have also set all text fields to required throughout the program.  
+I have also updated the $isCreated in the deleatSA.
+For the date, I am using a “date” type input instead of a “text” input so on my computer it shows up with an example and calendar. I don’t think it works on Firefox but it does work on Chrome.
+For the customer number, I tried to pass it though that but I was not seeing any changes so I remove it again. He said the other class that it was fine if they showed up.
+-CJ
