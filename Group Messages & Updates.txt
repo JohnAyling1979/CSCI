@@ -879,3 +879,11 @@ Tnanks for the remined on the Sales associate view. I forgot all about it. I wil
 
 Just finished going through the SA and everything looks nice and is work well.
 -JA
+
+I havn't finished going through the quote yet, but from what I have seen it looks good. Daughter wants to go out and practice
+driving so I'll check more after that.
+
+One thing we may want to add is on the Ordered quotes is the order number. We needed a unique order number. To make it I took the
+quoteId-custId-SAId and made a string of it. 
+Back in a bit
+-JA
