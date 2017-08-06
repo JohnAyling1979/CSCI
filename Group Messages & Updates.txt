@@ -894,3 +894,5 @@ Also do you think we should show the sales associate ID number on the edit page?
 -CJ
 yep that works adding it to the button. Yes I would show the userId but set it as disabled so it can't be changed because the UML diagram says "system displays sales 
 associate info (name,user id,password,accumulated commission and address)"
+
+In the deleteSA($name) function of the a SAstore class you have a isCreated=1 inside the if statement,but the isCreate is never initualized before hand. Also isCreated a good name for a delete test variable?
