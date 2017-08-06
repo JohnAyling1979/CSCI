@@ -860,3 +860,5 @@ is laid out. I have also though about splitting the pages up, but that could get
 Any ideas?
 
 -MM
+I will look at yours and see if I can see anything. I worked on my own verson today and just uploaded it so you could look at it. Maybe something in there will help
+-JA
