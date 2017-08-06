@@ -896,3 +896,6 @@ yep that works adding it to the button. Yes I would show the userId but set it a
 associate info (name,user id,password,accumulated commission and address)"
 
 In the deleteSA($name) function of the a SAstore class you have a isCreated=1 inside the if statement,but the isCreate is never initualized before hand. Also isCreated a good name for a delete test variable?
+
+for the date range you may what to have a some type of display so that the user knows the order and format of the date you need
+for the input
