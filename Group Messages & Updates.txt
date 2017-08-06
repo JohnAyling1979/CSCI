@@ -862,3 +862,7 @@ Any ideas?
 -MM
 I will look at yours and see if I can see anything. I worked on my own verson today and just uploaded it so you could look at it. Maybe something in there will help
 -JA
+
+Good morning. As the cases finish up add your files to the source folder. Your driver, gui and controller are only used by
+you and can be uploaded freely.  The three database interfaces are shared between cases so when those are updated make sure
+we are only adding to them and that we are not repeating functionality.
