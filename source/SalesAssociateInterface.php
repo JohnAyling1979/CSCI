@@ -32,8 +32,8 @@
             echo "\t\t<h1>Create Quote System login</h1>\r\n";
             echo "\t\t<form method=post>\r\n";
             echo "\t\t\t<table>\r\n";
-            echo "\t\t\t\t<tr><td>User Name:</td><td><input type='text' name='user'></td></tr>\r\n";
-            echo "\t\t\t\t<tr><td>Password:</td><td><input type='password' name='pass'></td></tr>\r\n";
+            echo "\t\t\t\t<tr><td>User Name:</td><td><input type='text' name='name'></td></tr>\r\n";
+            echo "\t\t\t\t<tr><td>Password:</td><td><input type='password' name='password'></td></tr>\r\n";
             echo "\t\t\t</table>\r\n";
             echo "\t\t\t<button type=submit name='login'>Login</button>\r\n";
             echo "\t\t</form>\r\n";
@@ -46,16 +46,16 @@
             RETURNS:    none
             USAGE:      To login and display the customer's names
         *******************************************************************/
-        public function submitLogin($pass,$name)
+        public function submitLogin($name,$password)
         {
             //encrypts submitted password
-            $pass=hash("sha256",$pass);
+            $password=hash("sha256",$password);
 
             //gets encryoted saved password from the controller
             $testpass=$this->controller->getPass($name);
 
             //test if they match
-            if($pass==$testpass)
+            if($password==$testpass)
             {
                 //gets a statment with all the customer names from the
                 //controller
@@ -66,15 +66,15 @@
                 echo "\t</head>\r\n";
                 echo "\t<body>\r\n";
                 echo "\t\t<form method=post>\r\n";
-                echo "\t\t\t<select name='cust' required>\r\n";
+                echo "\t\t\t<select name='id' required>\r\n";
                 echo "\t\t\t\t<option disabled selected>Customer List</option>";
                 foreach($customerSTMT as $row)
                 {
-                    $customer=iconv("latin1","UTF-8",$row[1]);
-                    echo "\t\t\t\t<option value=$row[id]>$customer</option>\r\n";
+                    $customerName=iconv("latin1","UTF-8",$row[name]);
+                    echo "\t\t\t\t<option value=$row[id]>$customerName</option>\r\n";
                 }
                 echo "\t\t\t</select>\r\n";
-                echo "\t\t\t<input type='hidden' name='user' value='$name'>";
+                echo "\t\t\t<input type='hidden' name='name' value='$name'>";
                 echo "\t\t\t<button type=submit name='create'>Create Quote</button>\r\n";
                 echo "\t\t</form>\r\n";
             }
@@ -96,14 +96,14 @@
             USAGE:      gets the informaction for the customer and displays
                         it to the screen to begin the making the quote
         *******************************************************************/
-        public function createQuote($id)
+        public function createQuote($custId,$salesAssociate)
         {
             //gets a row from the controller containing the customer
-            $customer=$this->controller->getCustomerInfo($id);
+            $customer=$this->controller->getCustomerInfo($custId);
 
             //correct the input
             $customerName=iconv("latin1","UTF-8",$customer[name]);
-            $customerAdd=iconv("latin1","UTF-8",$customer[street]);
+            $customerAddress=iconv("latin1","UTF-8",$customer[street]);
             $customerCity=iconv("latin1","UTF-8",$customer[city]);
 
             //html to the screen
@@ -111,9 +111,9 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
             echo "\t\tCustomer: ".$customerName."<br>\r\n";
-            echo "\t\tStreet: ".$customerAdd."<br>\r\n";
+            echo "\t\tStreet: ".$customerAddress."<br>\r\n";
             echo "\t\tCity: ".$customerCity."<br>\r\n";
-            echo "\t\tSales Associate: ".$_POST[user]."<br><br><br>\r\n";
+            echo "\t\tSales Associate: ".$salesAssociate."<br><br><br>\r\n";
             echo "\t\t<button onclick='addLine()'>Add Line</button>\r\n";
             echo "\t\t<form method=post>\r\n";
             echo "\t\t\t<table>\r\n";
@@ -122,12 +122,12 @@
             echo "\t\t\t\t<tr><td id='line1'></td><td id='line2'></td><td id='line3'></td></tr>\r\n";
             echo "\t\t\t</table>\r\n";
             echo "\t\t\tEmail<br>\r\n";
-            echo "\t\t\t<input type='email' name='email' required><br>\r\n";
+            echo "\t\t\t<input type='email' name='customerEmail' required><br>\r\n";
             echo "\t\t\t<input type='hidden' name='customerName' value=".'"'.$customerName.'"'.">\r\n";
-            echo "\t\t\t<input type='hidden' name='custId' value='$id'>";
-            echo "\t\t\t<input type='hidden' name='customerAdd' value='$customerAdd'>";
-            echo "\t\t\t<input type='hidden' name='customerCity' value='$customerCity'>";
-            echo "\t\t\t<input type='hidden' name='user' value='$_POST[user]'>";
+            echo "\t\t\t<input type='hidden' name='custId' value='$custId'>";
+            echo "\t\t\t<input type='hidden' name='customerAddress' value=".'"'.$customerAddress.'"'.">";
+            echo "\t\t\t<input type='hidden' name='customerCity' value=".'"'.$customerCity.'"'.">";
+            echo "\t\t\t<input type='hidden' name='salesAssociate' value='$salesAssociate'>";
             echo "\t\t\t<button type=submit name='final'>Finalize</button>\r\n";
             echo "\t\t</form>\r\n";
         }
@@ -144,14 +144,14 @@
             USAGE:      displays wether a quote was saved or if an erro
                         occured
         *******************************************************************/
-        public function finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user)
+        public function finalizeQuote($customerName,$custId,$customerAddress,$customerCity,$customerEmail,$salesAssociate)
         {
             //html
             echo "\t\t<title>Finalizing Quote</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
             //check the return value from the controller
-            if($this->controller->finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user))
+            if($this->controller->finalizeQuote($customerName,$custId,$customerAddress,$customerCity,$customerEmail,$salesAssociate))
                 echo "\t\tQuote has been saved and finalized<br>\r\n";
             else
                 echo "\t\tAn error has occured<br>\r\n";

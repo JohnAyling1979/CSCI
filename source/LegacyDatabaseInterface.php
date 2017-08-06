@@ -41,10 +41,10 @@
             RETURNS:    a row containing the customers information
             USAGE:      to get the saved information from the database
         *******************************************************************/
-        public function getCustomerInfo($id)
+        public function getCustomerInfo($custId)
         {
             $db=$this->connect();
-            $query="select name,street,city from customers where id=$id";
+            $query="select name,street,city from customers where id=$custId";
 
             $stmt=$db->query($query);
             return $stmt->fetch();

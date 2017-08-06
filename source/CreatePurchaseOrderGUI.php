@@ -55,6 +55,7 @@
         {
             //gets the information of the quote
             $quote=$this->controller->getQuote($quoteId);
+            $lines=$this->controller->getLineItems($quoteId);
 
             //html
             echo "<title>Quote Information</title>";
@@ -70,7 +71,6 @@
             echo "<tr><th>Description</th><th>Price</th><th>Secert Note</th></tr>";
 
             //gets the line items attached to the quote
-            $lines=$this->controller->getLineItems($quoteId);
             foreach($lines as $line)
             {
                 echo "<tr><td>$line[description]</td><td>$$line[price]</td><td>$line[secretNote]</td></tr>";

@@ -45,7 +45,7 @@
             RETURNS:    a bool value for wether a quote was saved
             USAGE:      To save a quote to the database
         *******************************************************************/
-        public function finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user)
+        public function finalizeQuote($customerName,$custId,$customerAddress,$customerCity,$customerEmail,$salesAssociate)
         {
             //status of quote
             $isCreated=0;
@@ -54,24 +54,17 @@
             $db=$this->connect();
 
             //insert statment
-            $into=$db->prepare("insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
-                   values(:customerName,:custId,:customerAdd,:customerCity,:email,1,:user)");
-
-            $into->bindParam(":customerName",$customerName);
-            $into->bindParam(":custId",$custId);
-            $into->bindParam(":customerAdd",$customerAdd);
-            $into->bindParam(":customerCity",$customerCity);
-            $into->bindParam(":email",$email);
-            $into->bindParam(":user",$user);
+            $into='insert into Quote(customerName,custId,customerAddress,customerCity,customerEmail,isFinalized,salesAssociate)
+                   values("'.$customerName.'","'.$custId.'","'.$customerAddress.'","'.$customerCity.'","'.$customerEmail.'","1","'.$salesAssociate.'")';
 
             //execute the statement and check if the row was added
-            if($into->execute())
+            if($db->exec($into)>0)
             {
                 //change the status
                 $isCreated=1;
 
                 //get id number of the quote
-                $quote=$db->lastInsertId();
+                $quoteId=$db->lastInsertId();
 
                 //set the first line item variable
                 $n=0;
@@ -86,9 +79,8 @@
                     if($_POST[$desc]!="" || $_POST[$price]!="" || $_POST[$secret]!="")
                     {
                         //insert statement
-                        $into="insert into LineItem(quoteId,description,price,secretNote)
-                               values($quote,'$_POST[$desc]','$_POST[$price]','$_POST[$secret]')";
-
+                        $into='insert into LineItem(quoteId,description,price,secretNote)
+                               values("'.$quoteId.'","'.$_POST[$desc].'","'.$_POST[$price].'","'.$_POST[$secret].'")';
                         //execute the statement
                         $db->exec($into);
                         $currentPrice=$currentPrice+$_POST[$price];
@@ -101,7 +93,7 @@
                 }
             }
 
-            $update="update Quote set currentPrice=$currentPrice where quoteId=$quote";
+            $update="update Quote set currentPrice=$currentPrice where quoteId=$quoteId";
             $db->query($update);
             //return status
             return $isCreated;

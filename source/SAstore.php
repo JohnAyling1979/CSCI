@@ -46,7 +46,7 @@
             $db=$this->connect();
 
             //creates query
-            $query="select password from SalesAssociate where name='$name'";
+            $query="select * from SalesAssociate where name='$name'";
 
             //runs query
             $stmt=$db->query($query);

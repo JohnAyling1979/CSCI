@@ -42,9 +42,9 @@
             USAGE:      To request the customer info from the 
                         legacyDatabaseInterface for one customer
         *******************************************************************/
-        public function getCustomerInfo($id)
+        public function getCustomerInfo($custId)
         {
-            return $this->DBI->getCustomerInfo($id);
+            return $this->DBI->getCustomerInfo($custId);
         }
 
 
@@ -72,9 +72,9 @@
             USAGE:      To request the customer's names from the 
                         legacyDatabaseInterface
         *******************************************************************/
-        public function finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user)
+        public function finalizeQuote($customerName,$custId,$customerAddress,$customerCity,$customerEmail,$salesAssociate)
         {
-            return $this->quote->finalizeQuote($customerName,$custId,$customerAdd,$customerCity,$email,$user);
+            return $this->quote->finalizeQuote($customerName,$custId,$customerAddress,$customerCity,$customerEmail,$salesAssociate);
         }
     }
 ?>

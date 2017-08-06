@@ -23,19 +23,19 @@ Driver page for the create quote interface
         //login submit
         if(isset($_POST[login]))
         {
-            $interface->submitLogin($_POST[pass],$_POST[user]);
+            $interface->submitLogin($_POST[name],$_POST[password]);
         }
 
         //create submit
         if(isset($_POST[create]))
         {
-            $interface->createQuote($_POST[cust]);
+            $interface->createQuote($_POST[id],$_POST[name]);
         }
 
         //finalize submit
         if(isset($_POST['final']))
         {
-            $interface->finalizeQuote($_POST[customerName],$_POST[custId],$_POST[customerAdd],$_POST[customerCity],$_POST[email],$_POST[user]);
+            $interface->finalizeQuote($_POST[customerName],$_POST[custId],$_POST[customerAddress],$_POST[customerCity],$_POST[customerEmail],$_POST[salesAssociate]);
         }
     }
     //begining interface
