@@ -48,7 +48,7 @@
             echo "<body>";
             echo "<h1>Please select how you want to manage a sales associate</h1>";
 			echo "<form method=post>\n";
-			echo "<button type=submit name='edit'>edit</button>\n";
+			echo "<button type=submit name='edit'>View or Edit</button>\n";
 			echo "<button type=submit name='create'>create</button>\n";
 			echo "<button type=submit name='dSA'>delete</button>\n";
 			echo "<form>\n";
@@ -86,7 +86,7 @@
             echo "<title>Manage Sales Associate</title>";
             echo "</head>";
             echo "<body>";
-			echo "<h3>Select Sales Associate to edit</h3>";
+			echo "<h3>Select Sales Associate to manage</h3>";
 			echo "<form method=post>\n";
 			echo "\t\t\t<select name='saName'>\r\n";
                 foreach($saSTMT as $row)
@@ -114,15 +114,16 @@
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
 			echo "\t\t<form method=post>\r\n";
+			echo "\t\tSales Associate ID<br>\r\n";
+			echo "\t\t\t<input type='text' readonly name='saId' value='$associate[saId]'><br>";
             echo "\t\t\tName<br>\r\n";
-            echo "\t\t\t<input type='text' name='name' value='$associate[name]'><br>\r\n";
+            echo "\t\t\t<input type='text' name='name' required value='$associate[name]'><br>\r\n";
             echo "\t\t\tPassword<br>\r\n";
 			echo "\t\t\t<input type='password' name='password'><br>";
             echo "\t\t\tAddress<br>\r\n";
-			echo "\t\t\t<input type='text' name='address' value='$associate[address]'><br>";
+			echo "\t\t\t<input type='text' name='address' required value='$associate[address]'><br>";
 			echo "\t\t\tCommission<br>\r\n";
-			echo "\t\t\t<input type='text' name='commission' value='$associate[commission]'>";
-            echo "\t\t\t<input type='hidden' name='saId' value='$associate[saId]'><br>";
+			echo "\t\t\t<input type='text' name='commission' required value='$associate[commission]'>";
             echo "\t\t\t<button type=submit name='editUpdate'>Update</button>\r\n";
             echo "\t\t</form>\r\n";
         }
@@ -142,11 +143,11 @@
 			echo "\t\t<form method=post>\r\n";
 			echo "\t\t\t<input type='hidden' name='saId' value='-1'><br>\r\n";
             echo "\t\t\tName<br>\r\n";
-            echo "\t\t\t<input type='text' name='name'><br>\r\n";
+            echo "\t\t\t<input type='text' name='name' required><br>\r\n";
             echo "\t\t\tPassword<br>\r\n";
-			echo "\t\t\t<input type='password' name='password'<br>\r\n";
+			echo "\t\t\t<input type='password' name='password' required><br>\r\n";
             echo "<br>\t\t\tAddress<br>\r\n";
-			echo "\t\t\t<input type='text' name='address'><br>";
+			echo "\t\t\t<input type='text' name='address' required><br>";
             echo "\t\t\t<button type=submit name='screat'>Create</button>\r\n";
             echo "\t\t</form>\r\n";;
         }
@@ -234,7 +235,7 @@
 			
             //check the return value from the controller
             if($this->controller->updateSA($saId,$name,$password,$address,$commission))
-                echo "\t\t Sales Associate Updated\<br>\r\n";
+                echo "\t\t Sales Associate Updated<br>\r\n";
             else
                 echo "\t\t An error has accored<br>\r\n";
             echo "\t\t<a href='admin.php'>Return</a><br>\r\n";
@@ -316,9 +317,9 @@
             echo "<h1>Please select how you want to view a quote</h1>";
 			echo "<form method=post>\n";
 			echo "Start Date";
-			echo "<input type='date' name='start'>";
+			echo "<input type='date' name='start' required>";
 			echo "End Date";
-			echo "<input type='date' name='end'>";
+			echo "<input type='date' name='end' required>";
 			echo "<button type=submit name='dateSUB'>Find</button>\n";
 			echo "<form>\n";;
             
