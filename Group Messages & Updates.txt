@@ -876,3 +876,6 @@ Also at "Sales Associate Updated\" there is that \ at the end
 
 Tnanks for the remined on the Sales associate view. I forgot all about it. I will also take the "\" out. I have uploaded my files to the source folder and will upodate the sections that need to be udpated when view is done.
 -CJ
+
+Just finished going through the SA and everything looks nice and is work well.
+-JA
