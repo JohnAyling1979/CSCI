@@ -111,13 +111,23 @@
                 $price=$price-$price*$percent/100;
             
             //create the PO
-            $this->controller->createPurchaseOrder($quoteId,$price);
+            $info=$this->controller->createPurchaseOrder($quoteId,$price);
 
             //html
-            echo "<title>Email Sent</title>";
-            echo "</head>";
-            echo "<body>";
-            echo "Email has been sent<br>";
+            if(!isset($info->errors))
+            {
+                echo "<title>Email Sent</title>";
+                echo "</head>";
+                echo "<body>";
+                echo "Email has been sent<br>";
+            }else
+            {
+                echo "<title>Error</title>";
+                echo "</head>";
+                echo "<body>";
+                foreach ($info->errors as $error)
+                    echo "Error: ".$error."<br>";
+            }
             echo "<a href='createPO.php'>Return</a>";
         }
     }

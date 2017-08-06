@@ -68,19 +68,18 @@
         *******************************************************************/
         public function createPurchaseOrder($quoteId,$price)
         {
-            //creates teh PO
+            //creates the PO
             $this->quote->createPurchaseOrder($quoteId,$price);
-
             //gets the PO information
             $quote=$this->quote->getQuote($quoteId);
-
             //get the Sales Associate ID
             $sa=$this->SA->getSa($quote[salesAssociate]);
 
             //prepares the data for the PO system
+            //unique order #
             $data=array
             (
-                'order' => $quote[quoteId], 
+                'order' => $quote[quoteId]."-".$quote[custId]."-".$sa[saId], 
 				'associate' => $sa[saId],
 				'custid' => $quote[custId], 
 				'amount' => $quote[currentPrice]
@@ -89,12 +88,17 @@
             //gets the return value
             $info=$this->POGateway->getDateAndRate($data);
 
-            //calculate the commission
-            $commission=$quote[currentPrice]*($info->commission/100);
+            if(!isset($info->errors))
+            {
+                //calculate the commission
+                $commission=$quote[currentPrice]*($info->commission/100);
 
-            //update the the commission to the PO and sales associate
-            $this->quote->setDateAndCommission($quoteId,$info->processDay,$commission);
-            $this->SA->updateCommission($quote[salesAssociate],$commission);
+                //update the the commission to the PO and sales associate
+                $this->quote->setDateAndCommission($quoteId,$info->processDay,$commission);
+                $this->SA->updateCommission($quote[salesAssociate],$commission);
+            }
+
+            return $info;
         }
     }
 ?>
