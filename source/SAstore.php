@@ -147,8 +147,9 @@
     *******************************************************************/
     public function deleteSA($name)
     {
+	    	$isCreated=0;
 		//connects to database
-        $db=$this->connect();
+      	       $db=$this->connect();
 		// delete SalesAssociate
 		$sql = "DELETE FROM SalesAssociate WHERE name = '$name' ";
             //return status
