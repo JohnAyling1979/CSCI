@@ -849,3 +849,14 @@ I am going to work on it for another hour then I will take a break until tomorro
 
 Admin system is all done minus the submit on the edit user. Submit on new user is working.  I will fix the edit user tomorrow midafternoon. Let me know if you find anything I should change.
 -CJ
+
+I still havent found goo a way to redisplay the page after making an edit. It has to do with the buttons being submit buttons.
+I have tried all sorts of things but nothing has worked out right. This has included changing them to buttons and passing
+the functions with onclick (which results in error.. but it seems to be the best way at this point). Tried some AJAX but
+that led to nowhere. Thought about creating a modal but that could take a bit of time. Changing things to GET also
+created a mess. I am going to keep working with the button on click as that seems to be the best solution for how the page
+is laid out. I have also though about splitting the pages up, but that could get really ugly (and a ton of files.)
+
+Any ideas?
+
+-MM
