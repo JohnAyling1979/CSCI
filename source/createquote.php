@@ -7,7 +7,7 @@ Driver page for the create quote interface
         <meta charset="utf-8">
 <?php
     //needed files
-    require "SalesAssociateInterface.php";
+    require "CreateQuoteGUI.php";
     require "CreateQuoteController.php";
     require "LegacyDatabaseInterface.php";
     require "QuoteStore.php";
