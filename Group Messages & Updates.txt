@@ -909,3 +909,8 @@ I have also updated the $isCreated in the deleatSA.
 For the date, I am using a “date” type input instead of a “text” input so on my computer it shows up with an example and calendar. I don’t think it works on Firefox but it does work on Chrome.
 For the customer number, I tried to pass it though that but I was not seeing any changes so I remove it again. He said the other class that it was fine if they showed up.
 -CJ
+
+Just the reminder on the saction quote page to have to update the current price in the database when you make any changes to the
+line items. Also to make sure the driver page only calls to the interface, the interface to the controller and then the 
+controller to the quotestore.
+-JA
