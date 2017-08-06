@@ -887,3 +887,8 @@ One thing we may want to add is on the Ordered quotes is the order number. We ne
 quoteId-custId-SAId and made a string of it. 
 Back in a bit
 -JA
+
+I just looked at the admin activity diagram and we have edit/View in the same window. 
+What do you think about if I just change the name from edit to view/edit and on the edit page I put a continue without saving button? 
+Also do you think we should show the sales associate ID number on the edit page? 
+-CJ
