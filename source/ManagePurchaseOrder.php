@@ -74,11 +74,14 @@
             //gets the PO information
             $quote=$this->quote->getQuote($quoteId);
 
+            //get the Sales Associate ID
+            $sa=$this->SA->getSa($quote[salesAssociate]);
+
             //prepares the data for the PO system
             $data=array
             (
                 'order' => $quote[quoteId], 
-				'associate' => $quote[salesAssociate],
+				'associate' => $sa[saId],
 				'custid' => $quote[custId], 
 				'amount' => $quote[currentPrice]
             );
