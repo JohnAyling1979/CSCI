@@ -531,7 +531,7 @@
 					echo "<th>\t\t price\r\n</th>";
 					echo "<th>\t\t secretNote\r\n</th>";
 					echo "</tr>";
-			  $LineSTMT=$this->controller->getQuotsLine($quoteId);
+			  $LineSTMT=$this->controller->getLineItems($quoteId);
                 foreach($LineSTMT as $rows)
                 {
 					echo "<tr>";

@@ -129,13 +129,13 @@
         }
 		
 		/*******************************************************************
-            FUNCTION:   getQuotsLine
+            FUNCTION:   getLineItems
             ARGUMENTS:  $quoteId
             USAGE:      Get Lins of the quote
         *******************************************************************/
-        public function getQuotsLine($quoteId)
+        public function getLineItems($quoteId)
         {
-            return $this->QUOTE->getQuotsLine($quoteId);
+            return $this->QUOTE->getLineItems($quoteId);
         }
 		
 		/*******************************************************************
