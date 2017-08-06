@@ -899,3 +899,6 @@ In the deleteSA($name) function of the a SAstore class you have a isCreated=1 in
 
 for the date range you may what to have a some type of display so that the user knows the order and format of the date you need
 for the input
+
+If you look at the customer name list you'll see some messed up characters. If you want to fix it you can use:
+$customerName=iconv("latin1","UTF-8",$row[name]);
