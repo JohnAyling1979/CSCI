@@ -78,16 +78,101 @@
             $info=$DB->query($query);
         }        
 
-        public function findSA()
+        /*******************************************************************
+            FUNCTION:   findSA
+            ARGUMENTS:  $name: Name of the associate
+            RETURNS:    name of Sales Associate in a list that match
+            USAGE:      To be able to retreve a list of accocites
+        *******************************************************************/
+		public function findSA($name)
         {
+			//connects to database
+            $db=$this->connect();;
+            //creates query
+            $query="select * from SalesAssociate WHERE name LIKE '%" . $name . "%';";
+			return $db->query($query);
         }
 
-        public function updateSA()
-        {
-        }
+        /*******************************************************************
+            FUNCTION:   updateSA
+            ARGUMENTS:  $saId
+						$name
+						$password
+						$address
+						$commission
+            USAGE:      Creats or updes a sa record
+        *******************************************************************/
+	public function updateSA($saId,$name,$password,$address,$commission)
+    {
+		//status of quote
+        $isCreated=0;
+			
+		//connects to database
+        $db=$this->connect();
+		$password=hash("sha256",$password);	
+		// id -1 indicates to create new Sales Associate in DB
+		if ($saId == - 1) 
+		{
+			// Creat new Sales Associate
+			$sql = "INSERT INTO SalesAssociate (name, password, address) VALUES (";
+			$sql .= "'" . $name . "', ";
+			$sql .= "'" . $password . "', ";
+			$sql .= "'" . $address . "');";
+		} 
+		else 
+		{
+			if($password != "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")
+			{
+				// update Sales Associate that is alrady in database that password is reset
+				$sql = "UPDATE SalesAssociate SET name = '$name', password = '$password', commission = '$commission', address = '$address' WHERE saId = '$saId';";
+			}
+			else
+			{
+				// update Sales Associate that is alrady in database that password is not reset
+				$sql = "UPDATE SalesAssociate SET name = '$name', commission = '$commission', address = '$address' WHERE saId = '$saId';";
+			}
+		}
+		if($db->exec($sql))
+            {
+                //change the status
+                $isCreated=1;
+			}
+            return $isCreated;
+	}
 
-        public function deleteSA()
+    /*******************************************************************
+            FUNCTION:   deleteSA
+            ARGUMENTS:  $name
+            USAGE:      Delets SA records
+    *******************************************************************/
+    public function deleteSA($name)
+    {
+		//connects to database
+        $db=$this->connect();
+		// delete SalesAssociate
+		$sql = "DELETE FROM SalesAssociate WHERE name = '$name' ";
+            //return status
+		if($db->exec($sql))
+            {
+                //change the status
+                $isCreated=1;
+			}
+            return $isCreated;
+	}
+	
+	/*******************************************************************
+			FUNCTION:   getSANames
+            ARGUMENTS:  none
+            RETURNS:    name of Sales Associate in a list
+            USAGE:      To be able to retreve a list of SA
+    *******************************************************************/
+		public function getSANames()
         {
-        }
+			//connects to database
+            $db=$this->connect();;
+            //creates query
+            $query="select * from SalesAssociate;";
+			return $db->query($query);
+		}
     }
 ?>
