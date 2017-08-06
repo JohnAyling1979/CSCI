@@ -870,3 +870,5 @@ we are only adding to them and that we are not repeating functionality.
 Just wanted to touch base with everyone. I'm hopping we can get the final cases finished up today and have all the sources posted
 by 8PM tonight. That way there is time to make sure there is no negetive interactions between cases once they are in the same 
 folder
+
+Hay CJ on the Sales associate side did you want to and a view option to it.
