@@ -1010,3 +1010,9 @@ and will not have any free time before the presentation today.
 
 In the quotestore there are two similar functions
 getQuote and getFinalQuote. Whoever is using the get final one could they change it to getquote
+
+I've uploaded a second option for the presentation today. Mitch I know you have been working hard trying to get the saction 
+quote system finished but I feel it still needs a lot of work before it would be ready to showcase. We have the one I made up. 
+It works and follows the UML. I feel we should use that one for the presentation. It has to be a group disistion on which one to 
+submit.
+-JA
