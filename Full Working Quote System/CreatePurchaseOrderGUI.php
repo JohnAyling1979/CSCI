@@ -119,6 +119,7 @@
                 echo "<title>Email Sent</title>";
                 echo "</head>";
                 echo "<body>";
+                echo "Order# ".$info->order." has been created<br>"; 
                 echo "Email has been sent<br>";
             }else
             {
