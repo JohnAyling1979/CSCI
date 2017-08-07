@@ -160,20 +160,5 @@
 			}
             return $isCreated;
 	}
-	
-	/*******************************************************************
-			FUNCTION:   getSANames
-            ARGUMENTS:  none
-            RETURNS:    name of Sales Associate in a list
-            USAGE:      To be able to retreve a list of SA
-    *******************************************************************/
-		public function getSANames()
-        {
-			//connects to database
-            $db=$this->connect();;
-            //creates query
-            $query="select * from SalesAssociate;";
-			return $db->query($query);
-		}
     }
 ?>

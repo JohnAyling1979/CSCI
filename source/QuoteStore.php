@@ -310,5 +310,20 @@
 			$query="select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_TO_DATE('$new_start','%Y/%m/%d') and STR_TO_DATE(processingDate,'%Y/%m/%d') < STR_TO_DATE('$new_end','%Y/%m/%d');";
 			return $db->query($query);
         }
+			/*******************************************************************
+			FUNCTION:   getSANames
+            ARGUMENTS:  none
+            RETURNS:    name of Sales Associate in a list
+            USAGE:      To be able to retreve a list of SA
+    *******************************************************************/
+		public function getSANames()
+        {
+			//connects to database
+            $db=$this->connect();;
+            //creates query
+            $query="select * from Quote group by salesAssociate;";
+			return $db->query($query);
+		}
+		
     }
 ?>
