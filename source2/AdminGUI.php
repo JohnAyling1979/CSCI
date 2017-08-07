@@ -146,7 +146,7 @@
             echo "\t\t\t<input type='text' name='name' required><br>\r\n";
             echo "\t\t\tPassword<br>\r\n";
 			echo "\t\t\t<input type='password' name='password' required><br>\r\n";
-            echo "\t\t\tAddress<br>\r\n";
+            echo "<br>\t\t\tAddress<br>\r\n";
 			echo "\t\t\t<input type='text' name='address' required><br>";
             echo "\t\t\t<button type=submit name='screat'>Create</button>\r\n";
             echo "\t\t</form>\r\n";;
@@ -493,13 +493,12 @@
         *******************************************************************/
 		public function QuoteView($quoteId)
         {
-			$test=$this->controller->getFinalQuote($quoteId);
+			
+			$QuoteSTMT=$this->controller->getQuote($quoteId);
 			
 			echo "\t\t<title>quote to view</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
-			foreach($test as $QuoteSTMT)
-			{
 				echo "\t\t<b>Quote ID:</b> ".$QuoteSTMT[quoteId]."<br>\r\n";
 				echo "\t\t<b>Customer Name:</b> ".$QuoteSTMT[customerName]."<br>\r\n";
 				echo "\t\t<b>Customer Address:</b> ".$QuoteSTMT[customerAddress]."<br>\r\n";
@@ -521,7 +520,6 @@
 				{
 					echo "\t\t<b>Status:</b> PO Created<br>\r\n";
 				}
-			}
 			  
 			  echo "<table>";
 			  echo "<tr>";
@@ -541,8 +539,8 @@
 			  echo "</table>";
 			  
 			  
-			  echo "\t\t<br><br><br><br><a href='admin.php'>Return</a><br>\r\n";
+			   echo "\t\t<br><br><br><br><a href='admin.php'>Return</a><br>\r\n";
         }
 		
 	}
-?>
+	?>

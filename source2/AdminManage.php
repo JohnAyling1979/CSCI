@@ -122,9 +122,9 @@
             USAGE:      To request the sa info from the 
                        sastore for one customer
         *******************************************************************/
-        public function getFinalQuote($quoteId)
+        public function getQuote($quoteId)
         {
-			return $this->QUOTE->getFinalQuote($quoteId);
+			return $this->QUOTE->getQuote($quoteId);
         }
 		
 		/*******************************************************************
