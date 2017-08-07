@@ -80,7 +80,7 @@
 
         /*******************************************************************
             FUNCTION:   QuoteStore::calculatePrice
-            ARGUMENTS:  none
+            ARGUMENTS:  quoteId
             RETURNS:    SQL query of quotes marked as finalized
             USAGE:      Displays all finalized quotes
         *******************************************************************/
@@ -164,7 +164,7 @@
 
         /*******************************************************************
             FUNCTION:   QuoteStore::removeLineItems
-            ARGUMENTS:  lineId
+            ARGUMENTS:  quoteId, lineId
             RETURNS:    none
             USAGE:      Removes a line item from the selected quote
         *******************************************************************/
@@ -207,7 +207,7 @@
 
         /*******************************************************************
             FUNCTION:   QuoteStore::editSecretNote
-            ARGUMENTS:  lineId, secretNote
+            ARGUMENTS:  quoteId, lineId, secretNote
             RETURNS:    none
             USAGE:      Edits a secret note to line items that have a
                         secret note already attached
