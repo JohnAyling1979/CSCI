@@ -12,7 +12,6 @@
         require "QuoteStore.php";
         require "ManageQuote.php";
         require "SanctionQuoteGUI.php";
-        require "dbconnect.php";
 
         // create new instance of the classes
         $quoteStore = new QuoteStore;
