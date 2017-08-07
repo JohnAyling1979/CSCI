@@ -936,3 +936,7 @@ Search SA is now pulling from the quote database and and documentation is update
 
 I am turning off my computer for tonight so if you keed to get ahold of me feel free to text or call me.
 -CJ
+
+Something has happened to all the current prices in the quote database. All most all of them are -. I'm just going to wipe it
+clean and then repoplate it with new quotes
+-JA
