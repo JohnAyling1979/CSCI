@@ -940,3 +940,25 @@ I am turning off my computer for tonight so if you keed to get ahold of me feel 
 Something has happened to all the current prices in the quote database. All most all of them are -. I'm just going to wipe it
 clean and then repoplate it with new quotes
 -JA
+
+The sanction quote page is complete. Here is a rundown of what has been fixed and added
+-currentPrice is updated when line items are added
+-currentPrice is updated when line items are edited
+-currentPrice is updated when a line item is removed
+-Popup window that says the customer was emailed appears when the submit button to sanction a quote is clicked
+-Code has been fully documented
+-All functions have been fully tested and they work
+
+Unfortunately, I was never able to keep the page displayed after a chnage was made. I did have an AJAX script going, but
+as soon as you clicked the submit button to view a quote, it'd lock you out. It is what it is. I am more concerned with
+it working like how we had planned it; especially taking in consideration the short amount of time we had to build it. Thank
+you John for tackling the Create PO code. I really appreciate it, as well as all of your help and communication.
+
+I apologize for being absent on here today, and for submiting my work so late. I had somethings I really needed to take care of
+around the house since I put it off all week to work on this project. My wife and I also had to go to my nephew's birthday party
+and step-sister's graduation party. Again, everything is done, and it all works. If you were able to implement my previous source
+code, then you should have no problems implementing the new code. The updates all came in the form of mySQL statements and a
+small JavaScript function.
+
+See you tommorrow,
+-MM
