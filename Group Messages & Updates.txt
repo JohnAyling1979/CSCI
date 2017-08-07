@@ -958,7 +958,7 @@ I apologize for being absent on here today, and for submiting my work so late. I
 around the house since I put it off all week to work on this project. My wife and I also had to go to my nephew's birthday party
 and step-sister's graduation party. Again, everything is done, and it all works. If you were able to implement my previous source
 code, then you should have no problems implementing the new code. The updates all came in the form of mySQL statements and a
-small JavaScript function.
+small JavaScript function. Feel free to make any changes to the code that is needed.
 
 See you tommorrow,
 -MM
