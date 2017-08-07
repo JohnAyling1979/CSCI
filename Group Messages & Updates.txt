@@ -1016,3 +1016,14 @@ quote system finished but I feel it still needs a lot of work before it would be
 It works and follows the UML. I feel we should use that one for the presentation. It has to be a group disistion on which one to 
 submit.
 -JA
+
+So... I fixed the sanction quote part of the system. Here were the problems that I found with the code migration
+
+-When the code was written there was a different way to connect to the db. Since that was changed (added as a private function
+in the quoteStore) I had to add a copy the function to my GUI page. Now they all use the $this->connect statement. Now it
+connects to the DB.
+
+-When the "new" quoteStore functions were added, half of my functions weren't even in there. This included add/edit secret notes
+and remove line items. This has also been fixed.
+
+I tested it. It works again.
