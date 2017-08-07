@@ -1027,3 +1027,12 @@ connects to the DB.
 and remove line items. This has also been fixed.
 
 I tested it. It works again.
+
+The GUI shouldn't call the database. That is the problem. The GUI can only call controller. From there the controller calls the 
+quote store and then the quote store talks to the database and send it back through each of the class. If you wanted the GUI to 
+call the database we would of had to had a line for the GUI to the quote entity.
+
+Also however your updating the price still isn't working properly. What ever you add or subtrack to the current quote your 
+program is doing it to everycurrent price in the database.
+
+With it going back to the main screen it is not following the uml diagram
