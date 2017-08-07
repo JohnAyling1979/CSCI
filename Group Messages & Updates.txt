@@ -1041,3 +1041,8 @@ With it going back to the main screen it is not following the uml diagram
 I fixed the prices (you were editing as I was and overrode)... test it here and compare to the DB.
 
 http://students.cs.niu.edu/~z1760164/quotesystem/sanctionQuote.php
+
+The files are uploaded in the folder. As far as the connect to DB... I am running multiple queries on the page and this was
+a way to fix it.
+
+Do whatever you want man. I tried.
