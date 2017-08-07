@@ -20,7 +20,7 @@
 			
 		/*******************************************************************
             FUNCTION:   findSA
-            ARGUMENTS:  $search from editSearch and delete search
+            ARGUMENTS:  $name
             RETURNS:    A PDO statemtn containing all the sa names that match
             USAGE:      get a list of matching sa
         *******************************************************************/
@@ -32,7 +32,7 @@
 		
 		/*******************************************************************
             FUNCTION:   getSA
-            ARGUMENTS:  $saId from editSearch and delete search
+            ARGUMENTS:  $name
             RETURNS:    A row containing the sa info
             USAGE:      To request the sa info from the 
                        sastore for one customer
@@ -58,7 +58,7 @@
 		
 		/*******************************************************************
             FUNCTION:   deleteSA
-            ARGUMENTS:  $saId
+            ARGUMENTS:  $name
             USAGE:      To delete sa records in database
         *******************************************************************/
         public function deleteSA($name)
@@ -108,7 +108,7 @@
 		
 		/*******************************************************************
             FUNCTION:   getQuotsBySA
-            ARGUMENTS:  $custId
+            ARGUMENTS:  $assoc
             USAGE:      List of quots by a matching SA
         *******************************************************************/
         public function getQuotsBySA($assoc)
@@ -118,8 +118,7 @@
 		
 		/*******************************************************************
             FUNCTION:   getFinalQuote
-            ARGUMENTS:  $saId from editSearch and delete search
-            RETURNS:    A row containing the sa info
+            ARGUMENTS:  $quoteId
             USAGE:      To request the sa info from the 
                        sastore for one customer
         *******************************************************************/

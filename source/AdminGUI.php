@@ -71,7 +71,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::editList
-            ARGUMENTS:  none
+            ARGUMENTS:  $name
             RETURNS:    none
             USAGE:      admin search varable to search for Sales Associate
         *******************************************************************/
@@ -130,7 +130,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::creatSA
-            ARGUMENTS:  none
+            ARGUMENTS:  $creatSA
             RETURNS:    none
             USAGE:      admin cresats Associate record
         *******************************************************************/
@@ -172,7 +172,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::editList
-            ARGUMENTS:  none
+            ARGUMENTS:  $name
             RETURNS:    none
             USAGE:      admin search varable to search for Sales Associate
         *******************************************************************/
@@ -199,7 +199,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::submitDelete
-            ARGUMENTS:  $saId
+            ARGUMENTS:  $Dsa
             RETURNS:    none
             USAGE:      admin confers this is the Sales Associate to delete
         *******************************************************************/
@@ -243,7 +243,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::Deleteing
-            ARGUMENTS:  $saId
+            ARGUMENTS:  $name
             RETURNS:    none
             USAGE:      deleats user
         *******************************************************************/
@@ -385,7 +385,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::QStatusList
-            ARGUMENTS:  none
+            ARGUMENTS:  $Stype
             RETURNS:    none
             USAGE:      List of quots that are that status
         *******************************************************************/
@@ -410,7 +410,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::QCustList
-            ARGUMENTS:  none
+            ARGUMENTS:  $cust
             RETURNS:    none
             USAGE:      List of quots thare equal to a customer
         *******************************************************************/
@@ -436,7 +436,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::QAssoList
-            ARGUMENTS:  none
+            ARGUMENTS:  $assoc
             RETURNS:    none
             USAGE:      List of quots thare equal to a SA
         *******************************************************************/
@@ -462,7 +462,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::QDateList
-            ARGUMENTS:  none
+            ARGUMENTS:  $start,$end
             RETURNS:    none
             USAGE:      List of quots thare in a date range
         *******************************************************************/
@@ -487,7 +487,7 @@
 		
 		/*******************************************************************
             FUNCTION:   AdminGUI::QuoteView
-            ARGUMENTS:  none
+            ARGUMENTS:  $quoteId
             RETURNS:    none
             USAGE:      List of quots thare in a date range
         *******************************************************************/
