@@ -962,3 +962,24 @@ small JavaScript function. Feel free to make any changes to the code that is nee
 
 See you tommorrow,
 -MM
+
+p.s. - here is the AJAX function for grins
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+ $(function () 
+ {
+    $('form').on('submit', function (e) 
+    {
+        e.preventDefault();
+         $.ajax({
+         type: 'post',
+         url: 'sanctionQuote.php',
+         data: $('form').serialize(),
+         success: function () {
+         alert('Changes have been submitted');
+    }
+  });
+ });
+});
+</script>
