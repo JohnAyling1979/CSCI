@@ -102,6 +102,7 @@
         {
             //gets the quote info
             $quote=$this->controller->getQuote($quoteId);
+            $lines=$this->controller->getLineItems($quoteId);
 
             //gets the price and applies the discount
             $price=$quote[currentPrice];
@@ -112,14 +113,30 @@
             
             //create the PO
             $info=$this->controller->createPurchaseOrder($quoteId,$price);
-
+            
             //html
             if(!isset($info->errors))
             {
-                echo "<title>Email Sent</title>";
+                echo "<title>Order created</title>";
                 echo "</head>";
                 echo "<body>";
-                echo "Order# ".$info->order." has been created<br>"; 
+                echo "Order#: ".$info->order."<br>";
+                echo "Customer: ".$info->name."<br>";
+                echo "Street: ".$quote[customerAddress]."<br>";
+                echo "City: ".$quote[customerCity]."<br>";
+                echo "Sales Associate: ".$quote[salesAssociate]."<br>";
+                echo "Process date: ".$info->processDay."<br>";
+                echo "<hr>";
+                echo "<table width=100%>";
+                echo "<tr><th>Description</th><th>Price</th><th>Secert Note</th></tr>";
+
+                //gets the line items attached to the quote
+                foreach($lines as $line)
+                {
+                    echo "<tr><td>$line[description]</td><td>$$line[price]</td><td>$line[secretNote]</td></tr>";
+                }
+                echo "</table>";
+                echo "Final Price: ".$info->amount."<br>";
                 echo "Email has been sent<br>";
             }else
             {
