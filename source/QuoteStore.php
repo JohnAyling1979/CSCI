@@ -100,6 +100,25 @@
         }
 
         /*******************************************************************
+            FUNCTION:   QuoteStore::getFinalizeQuote
+            ARGUMENTS:  none
+            RETURNS:    SQL query of quotes marked as finalized
+            USAGE:      Displays all finalized quotes
+        *******************************************************************/
+        public function getFinalizedQuote()
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // Retrieve Quotes that are marked as Finalized
+            $sql = "SELECT quoteId, customerName FROM Quote WHERE isFinalized = 1;";
+            $query = $db->query($sql);
+
+            // return the results
+            return $query->fetchAll();
+        }
+
+        /*******************************************************************
             FUNCTION:   QuoteStore::getSanctionedQuotes
             ARGUMENTS:  none
             RETURNS:    a PDO statment containing the sactioned quotes
@@ -183,38 +202,6 @@
             $query="update Quote set commission=$commission where quoteId=$quoteId";
             $DB->query($query);
         }
-
-        public function updateQuote()
-        {
-        }
-
-        public function findQuote()
-        {
-        }
-
-        public function addLineItems()
-        {
-        }
-
-        public function removeLineItems()
-        {
-        }
-
-        public function discountPercentage()
-        {
-        }
-
-        public function discountAmount()
-        {
-        }
-
-        public function addSecretNote()
-        {
-        }
-
-        public function getFinizedQuote()
-        {
-        }
         
         /*******************************************************************
             FUNCTION:   getCustomerNames
@@ -225,12 +212,12 @@
 		public function getCustomerNames()
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from Quote group by custId;";
 			return $db->query($query);
         }
-		
+
 		/*******************************************************************
             FUNCTION:   getQuotsStatus
             ARGUMENTS:  none	
@@ -241,7 +228,7 @@
         {
 			$one="1";
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from Quote where " . $Stype . " = '$one';";
 			return $db->query($query);
@@ -256,7 +243,7 @@
 		public function getQuotsByCust($custId)
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from Quote where custId = '$custId';";
 			return $db->query($query);
@@ -271,7 +258,7 @@
 		public function getQuotsBySA($assoc)
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from Quote where salesAssociate LIKE  '$assoc';";
 			return $db->query($query);
@@ -302,7 +289,7 @@
 		public function getDates($start,$end)
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
 			$new_start = date('Y/n/j', strtotime($start));
 			$new_end = date('Y/n/j', strtotime($end));
 			
@@ -310,20 +297,159 @@
 			$query="select * from Quote where isPO and STR_TO_DATE(processingDate,'%Y/%m/%d') > STR_TO_DATE('$new_start','%Y/%m/%d') and STR_TO_DATE(processingDate,'%Y/%m/%d') < STR_TO_DATE('$new_end','%Y/%m/%d');";
 			return $db->query($query);
         }
-			/*******************************************************************
+		/*******************************************************************
 			FUNCTION:   getSANames
             ARGUMENTS:  none
             RETURNS:    name of Sales Associate in a list
             USAGE:      To be able to retreve a list of SA
-    *******************************************************************/
+        *******************************************************************/
 		public function getSANames()
         {
 			//connects to database
-            $db=$this->connect();;
+            $db=$this->connect();
             //creates query
             $query="select * from Quote group by salesAssociate;";
 			return $db->query($query);
 		}
-		
+
+        /*******************************************************************
+            FUNCTION:   QuoteStore::calculatePrice
+            ARGUMENTS:  quoteId
+            RETURNS:    SQL query of quotes marked as finalized
+            USAGE:      Displays all finalized quotes
+        *******************************************************************/
+        public function calculatePrice($quoteId)
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // Retrieve the currentPrice of the selected quote
+            $sql = "SELECT currentPrice FROM Quote WHERE quoteId = '$quoteId';";
+            $query = $db->query($sql);
+            
+            // return the results
+            return $query->fetch();
+        }
+
+        /*******************************************************************
+            FUNCTION:   QuoteStore::addLineItems
+            ARGUMENTS:  quoteId, description, price
+            RETURNS:    none
+            USAGE:      Inserts new line items with prices and descriptions
+                        into the selected quote
+        *******************************************************************/
+        public function addLineItems($quoteId,$description,$price)
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // insert line items into the quote
+            $sql1 = "INSERT INTO LineItem (quoteId, description, price) VALUES ('$quoteId', '$description', '$price');";
+            $db->exec($sql1);
+
+            // add price of the line item to the current price
+            $sql2 = "UPDATE Quote SET currentPrice = (currentPrice + '$price') WHERE quoteId='$quoteId';";
+            $db->exec($sql2);
+        }
+
+        /*******************************************************************
+            FUNCTION:   QuoteStore::editLineItems
+            ARGUMENTS:  quoteId, lineId, description, price
+            RETURNS:    none
+            USAGE:      Updates the description and price of a line item in
+                        the selected quote
+        *******************************************************************/
+        public function editLineItems($quoteId,$lineId,$description,$price)
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // update only the description
+            if ($description)
+            {
+                $sql1 = "UPDATE LineItem SET quoteId='$quoteId', description='$description' WHERE lineId='$lineId';";
+                $db->exec($sql1);
+            }
+
+            if ($price)
+            {
+                // subtract the old price of the selected line item from the current price of the quote
+                $sql2 = "UPDATE Quote SET currentPrice = currentPrice - (SELECT price FROM LineItem WHERE lineId='$lineId');";
+                $db->exec($sql2);
+
+                // update the line item description and price
+                $sql3 = "UPDATE LineItem SET quoteId='$quoteId', price='$price' WHERE lineId='$lineId';";
+                $db->exec($sql3);
+
+                // add the new price of the selected line item to the current price of the quote
+                $sql4 = "UPDATE Quote SET currentPrice = currentPrice + (SELECT price FROM LineItem WHERE lineId='$lineId');";
+                $db->exec($sql4);
+            }
+        }
+
+        /*******************************************************************
+            FUNCTION:   QuoteStore::calculateDiscounts
+            ARGUMENTS:  quoteId, amount, percentage
+            RETURNS:    none
+            USAGE:      Calculates a discount as either a dollar amount or
+                        as a percentage
+        *******************************************************************/
+        public function calculateDiscounts($quoteId,$amount,$percentage)
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // if a dollar amount was entered, calculate the discount as a dollar amount
+            if ($amount)
+            {
+                $sql = "UPDATE Quote SET currentPrice = (currentPrice - '$amount') WHERE quoteId='$quoteId';";
+                $db->exec($sql);
+            }
+
+            // else a percentage was entered, calculate the discount as a percentage
+            else
+            {
+                $sql = "UPDATE Quote SET currentPrice = (currentPrice - ((currentPrice * '$percentage') / 100)) WHERE quoteId='$quoteId';";
+                $db->exec($sql);
+            }
+        }
+
+        /*******************************************************************
+            FUNCTION:   QuoteStore::calculateFinalPrice
+            ARGUMENTS:  quoteId
+            RETURNS:    currentPrice
+            USAGE:      Displays the current quote price in the discount
+                        quote area
+        *******************************************************************/
+        public function calculateFinalPrice($quoteId)
+        {
+            //connect to the database
+            $db = $this->connect();
+
+            // Retrieve the currentPrice of the selected quote
+            $sql = "SELECT currentPrice FROM Quote WHERE quoteId = '$quoteId';";
+            $query = $db->query($sql);
+            
+            // return the results
+            return $query->fetch();
+        }
+        /*******************************************************************
+            FUNCTION:   QuoteStore::updateQuote
+            ARGUMENTS:  quoteId
+            RETURNS:    none
+            USAGE:      Sets the quote as sanction by a boolean value
+        *******************************************************************/
+        public function updateQuote($quoteId)
+        {
+            //connect to the database
+            $db = $this->connect();
+            
+            // update the sanction status of the quote to sanctioned
+            $sql = "UPDATE Quote SET isSanctioned=1, isFinalized=0 WHERE quoteId='$quoteId';";
+            $db->exec($sql);
+
+            // disconnect from the database
+            $db = null;
+        }		
     }
 ?>
