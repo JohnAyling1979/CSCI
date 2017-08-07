@@ -926,3 +926,7 @@ datatase. If you pull the Sa names from the quote database you won't get any emp
 Sorry for the delay I stepped away from my computer for a little bit and just noticed your note. 
 I tested the go back button but forgot to put it in for view/edit so it is now there. You will get an error if you try to submit without any changes as it cant make any changes
 I am working right now on moving the search sa to the quote database.
+
+Double check your documentation aswell. Some fucntions have arguments but the docs say none, or the doc name doesn't match the 
+name used
+-JA
