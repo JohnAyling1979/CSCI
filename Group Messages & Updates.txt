@@ -1038,7 +1038,7 @@ program is doing it to everycurrent price in the database.
 With it going back to the main screen it is not following the uml diagram
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-I fixed the prices (you were editing as I was and overrode)... test it here and compare to the DB.
+I fixed the prices (you were editing and I was and overrode)... test it here and compare to the DB.
 
 http://students.cs.niu.edu/~z1760164/quotesystem/sanctionQuote.php
 
