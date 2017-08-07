@@ -949,7 +949,7 @@ The sanction quote page is complete. Here is a rundown of what has been fixed an
 -Code has been fully documented
 -All functions have been fully tested and they work
 
-Unfortunately, I was never able to keep the page displayed after a chnage was made. I did have an AJAX script going, but
+Unfortunately, I was never able to keep the page displayed after a change was made. I did have an AJAX script going, but
 as soon as you clicked the submit button to view a quote, it'd lock you out. It is what it is. I am more concerned with
 it working like how we had planned it; especially taking in consideration the short amount of time we had to build it. Thank
 you John for tackling the Create PO code. I really appreciate it, as well as all of your help and communication.
