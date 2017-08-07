@@ -1007,3 +1007,6 @@ Morning Mitch,
 I added your files to the final source folder. I update your quotestore function to use the $this->connect() function but when I
 run it there are areas where the GUI class is try to connect to the database and it is crashing. Unfortunally I'm of to class 
 and will not have any free time before the presentation today.
+
+In the quotestore there are two similar functions
+getQuote and getFinalQuote. Whoever is using the get final one could they change it to getquote
