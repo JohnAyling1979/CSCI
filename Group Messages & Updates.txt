@@ -1002,3 +1002,8 @@ Database was messed up again this morning. This is what it looked like:
 
 I'm going to reset it again. We'll need to get this fixed before class.
 -JA
+
+Morning Mitch,
+I added your files to the final source folder. I update your quotestore function to use the $this->connect() function but when I
+run it there are areas where the GUI class is try to connect to the database and it is crashing. Unfortunally I'm of to class 
+and will not have any free time before the presentation today.
