@@ -930,3 +930,6 @@ I am working right now on moving the search sa to the quote database.
 Double check your documentation aswell. Some fucntions have arguments but the docs say none, or the doc name doesn't match the 
 name used
 -JA
+
+Search SA is now pulling from the quote database and and documentation is updated.
+-CJ
