@@ -108,7 +108,6 @@
         {
             //gets a row from the controller containing the customer
             $associate=$this->controller->getSA($saName);
-
             //html to the screen
             echo "\t\t<title>Edit Sales Associate</title>\r\n";
             echo "\t</head>\r\n";
@@ -124,8 +123,9 @@
 			echo "\t\t\t<input type='text' name='address' required value='$associate[address]'><br>";
 			echo "\t\t\tCommission<br>\r\n";
 			echo "\t\t\t<input type='text' name='commission' required value='$associate[commission]'>";
-            echo "\t\t\t<button type=submit name='editUpdate'>Update</button>\r\n";
+            echo "\t\t\t<br><button type=submit name='editUpdate'>Update</button>\r\n";
             echo "\t\t</form>\r\n";
+			echo "\t\t<br><br><br><br><a href='admin.php'>Return without saving</a><br>\r\n";
         }
 		
 		/*******************************************************************
@@ -345,8 +345,8 @@
                 echo "\t\t\t<select name='assoc'>\r\n";
                 foreach($associateSTMT as $row)
                 {
-                    $associate=iconv("latin1","UTF-8",$row[1]);
-                    echo "\t\t\t\t<option value=$row[1]>$associate</option>\r\n";
+                    $associate=iconv("latin1","UTF-8",$row[salesAssociate]);
+                    echo "\t\t\t\t<option value=$row[salesAssociate]>$associate</option>\r\n";
                 }
                 echo "\t\t\t</select>\r\n";
                 echo "\t\t\t<button type=submit name='associateSUB'>Search</button>\r\n";
@@ -469,7 +469,6 @@
 		public function QDateList($start,$end)
         {	
 			$associateSTMT=$this->controller->getDates($start,$end);
-
 			echo "\t\t<title>Select a quote to view</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
@@ -499,7 +498,6 @@
 			echo "\t\t<title>quote to view</title>\r\n";
             echo "\t</head>\r\n";
             echo "\t<body>\r\n";
-
 			foreach($test as $QuoteSTMT)
 			{
 				echo "\t\t<b>Quote ID:</b> ".$QuoteSTMT[quoteId]."<br>\r\n";
@@ -511,7 +509,6 @@
 				echo "\t\t<b>Commission:</b> ".$QuoteSTMT[commission]."<br>\r\n";
 				echo "\t\t<b>Sales Associate:</b> ".$QuoteSTMT[salesAssociate]."<br>\r\n";
 				echo "\t\t<b>Price:</b> ".$QuoteSTMT[currentPrice]."<br>\r\n";
-
 				if ($QuoteSTMT[isFinalized] == "1")
 				{
 					echo "\t\t<b>Status:</b> Finalized <br>\r\n";
