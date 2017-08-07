@@ -1051,3 +1051,8 @@ I not tring to be an ass. I took the files you uploaded and put them on the hopp
 you upload doesn't match what is at the link you just posted. So those files need to be uploaded because everything is one big 
 system
 -JA
+
+I'm ok with that one. So we will use http://students.cs.niu.edu/~z1760164/quotesystem/ for the presentation. I just made an 
+update to the CreatePurchaseOrderGUI.php which will need to get uploaded to account before class and then get the final ones 
+posted to github.
+-JA
