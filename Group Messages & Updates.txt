@@ -918,3 +918,7 @@ controller to the quotestore.
 With the view or edit side of the Sales Associate side it says "An error has accored" if I click the update button without any
 changes made.
 -JA
+
+On the quote side I see you pull the customerNames from the quote database but the Sales Associate names you pull from the SA 
+datatase. If you pull the Sa names from the quote database you won't get any empty lists for the drop down.
+-JA
