@@ -949,6 +949,9 @@ The sanction quote page is complete. Here is a rundown of what has been fixed an
 -Code has been fully documented
 -All functions have been fully tested and they work
 
+John I saw your comment about the driver page, if there is something I am not seeing with the caller functions, feel
+free to make an edit.
+
 Unfortunately, I was never able to keep the page displayed after a change was made. I did have an AJAX script going, but
 as soon as you clicked the submit button to view a quote, it'd lock you out. It is what it is. I am more concerned with
 it working like how we had planned it; especially taking in consideration the short amount of time we had to build it. Thank
