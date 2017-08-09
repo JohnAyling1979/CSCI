@@ -1056,3 +1056,5 @@ I'm ok with that one. So we will use http://students.cs.niu.edu/~z1760164/quotes
 update to the CreatePurchaseOrderGUI.php which will need to get uploaded to account before class and then get the final ones 
 posted to github.
 -JA
+
+Just wanted to congratulate everyone on a project well done. It has been a pleaure working with all of you.
